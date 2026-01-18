@@ -24,7 +24,7 @@ const Experience = () => {
           <h2 className="text-xl font-semibold text-foreground">
             Featured Experience
           </h2>
-          <div className="grid gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {experiences.map(experience => <ExperienceCard key={experience.id} id={experience.id} title={experience.title} description={experience.description} image={experience.image} date={experience.date} tags={experience.tags} />)}
           </div>
         </section>

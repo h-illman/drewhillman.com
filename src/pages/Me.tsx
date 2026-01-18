@@ -20,16 +20,16 @@ I also like listening to music, reading, and cats. </p>
           <div className="space-y-3 text-foreground">
             <p>
               Find me on{" "}
-              <TextLink href="https://instagram.com" external>
+              <TextLink href="https://www.instagram.com/h.illman/" external>
                 Instagram
               </TextLink>
               ,{" "}
-              <TextLink href="https://linkedin.com" external>
+              <TextLink href="https://www.linkedin.com/in/drew-hillman-forest/" external>
                 LinkedIn
               </TextLink>
               , or email me at{" "}
-              <TextLink href="mailto:your.email@example.com" external>
-                your.email@example.com
+              <TextLink href="mailto:drewhillman63@gmail.com" external>
+                drewhillman63@gmail.com
               </TextLink>
               .
             </p>

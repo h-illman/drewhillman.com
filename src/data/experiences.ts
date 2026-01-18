@@ -11,52 +11,76 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    id: "software-engineer-intern",
-    title: "Software Engineer Intern",
+    id: "opg-intern",
+    title: "Electrical Engineering Intern – OPG",
     description:
-      "Worked on building scalable microservices and internal tooling to improve developer productivity across the organization.",
+      "Incoming intern on the Monitoring and Diagnostics team, working with machine-learning models for equipment health monitoring and predictive analysis.",
     fullDescription:
-      "During my internship, I focused on developing and maintaining microservices that handled millions of requests daily. I collaborated with senior engineers to design and implement new features, participated in code reviews, and contributed to improving our CI/CD pipelines. Key achievements include reducing API latency by 40% and implementing a new caching strategy that saved infrastructure costs.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=450&fit=crop",
-    date: "Summer 2024",
-    tags: ["TypeScript", "Node.js", "AWS", "Docker"],
+      "Monitored and maintained ~200 machine-learning models by refreshing input datasets, reviewing and revising anomaly flags against historical baselines, and updating model logic as needed to keep alerts accurate. Performed diagnostic investigations on abnormal equipment trends by correlating anomaly flags with related process signals and operating context, then summarizing likely causes, risk levels, and follow-ups in documentation. Built equipment-health dashboards using Microsoft Power Platform to track key performance indicators, frequency and volume of alerts, and model performance, improving visibility into reliability trends. Developed data pipelines and analytic workflows to cleanse and contextualize operational data for automation and predictive analysis using Databricks and Azure. Created lightweight internal tools using Python to automate alert triage and data refresh checks, reducing manual steps and improving consistency across the M&D team's workflow.",
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=450&fit=crop",
+    date: "May 2026 – August 2027 (Incoming)",
+    tags: ["Python", "Databricks", "Azure", "Power Platform", "Machine Learning"],
     type: "work",
   },
   {
-    id: "robotics-club",
-    title: "Robotics Club Lead",
+    id: "gdls-intern",
+    title: "Manufacturing Engineering Intern – General Dynamics",
     description:
-      "Led a team of 12 members in designing and building an autonomous robot for the annual engineering competition.",
+      "Designed electrical layouts and safety circuits using AutoCAD, oversaw equipment installations, and contributed to LEED Gold and ISO 50001 energy initiatives.",
     fullDescription:
-      "As the club lead, I managed project timelines, delegated tasks, and mentored newer members in robotics fundamentals. Our team designed a robot capable of navigating obstacle courses autonomously using computer vision and sensor fusion. We placed 2nd in the regional competition and qualified for nationals.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop",
-    date: "2023 - Present",
-    tags: ["Python", "ROS", "Computer Vision", "Arduino"],
+      "Designed and updated electrical layouts and safety circuits using AutoCAD for new projects and installations, including highly specialized equipment such as water jets and laser cutters. Served as on-site liaison to oversee electrical equipment installations and system upgrades, ensuring compliance with electrical codes, safety standards, and project requirements while coordinating with contractors and safety staff. Contributed to LEED Gold and ISO 50001 energy initiatives by performing power usage audits and creating substation documentation, providing data-driven recommendations to improve facility electrical efficiency.",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=450&fit=crop",
+    date: "May 2025 – August 2025",
+    tags: ["AutoCAD", "Electrical Design", "LEED", "ISO 50001"],
+    type: "work",
+  },
+  {
+    id: "aurovex",
+    title: "Data Analytics Engineer – Aurovex",
+    description:
+      "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
+    fullDescription:
+      "Built Power BI dashboards to visualize model outputs for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports, helping to identify features gaps and data-quality issues. Provided data analytics on model performance and user behavior that fed directly into product decisions, helping keep the platform aligned with market needs and scalable as the customer base grows.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+    date: "January 2026 – Present",
+    tags: ["Power BI", "Data Analytics", "AI/ML", "Product Analytics"],
     type: "club",
   },
   {
-    id: "personal-website",
-    title: "Personal Portfolio",
+    id: "sunstang",
+    title: "Battery Pack Team Leader – Western Sunstang",
     description:
-      "Designed and developed a minimalist portfolio website to showcase my work and experience.",
+      "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription:
-      "Built a clean, responsive portfolio website using React and Tailwind CSS. Focused on simplicity, fast loading times, and accessible design. The site features smooth animations, dark mode support, and optimized performance scoring 98+ on Lighthouse.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
-    date: "2024",
-    tags: ["React", "TypeScript", "Tailwind CSS"],
+      "Led the battery team (~20 members) in the design, testing, and optimization of a custom lithium-ion battery pack and Orion 2 BMS integration for a fully electric multi-occupancy vehicle, meeting all American Solar Challenge regulations. Organized weekly work sessions, assigning owners for design, build, and verification tasks across various systems of the battery pack such as the Orion 2 BMS and custom J1772 charging circuit.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop",
+    date: "September 2024 – Present",
+    tags: ["Battery Systems", "BMS", "Leadership", "EV"],
+    type: "club",
+  },
+  {
+    id: "orion-bms",
+    title: "Orion 2 Battery Management System Integration",
+    description:
+      "Integrated an Orion 2 BMS into a 108V, 40 cell custom lithium-ion battery pack with custom wiring harnesses and validation testing.",
+    fullDescription:
+      "Integrated an Orion 2 BMS into a 108V, 40 cell custom lithium-ion battery pack by creating and installing the voltage tap wiring harness, thermistor harness, and current sensor wiring, ensuring proper cable management and thermals. Configured and validated the BMS in Orion software, ensuring proper cell counts, protection limits, fault logic, and CAN outputs, and created a custom test PCB to support scrutineering tests at competition.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop",
+    date: "May 2025 – December 2025",
+    tags: ["BMS", "Lithium-Ion", "PCB Design", "CAN Bus"],
     type: "project",
   },
   {
-    id: "ml-research",
-    title: "Machine Learning Research Assistant",
+    id: "telemetry-system",
+    title: "Real-Time Telemetry and Remote Monitoring System",
     description:
-      "Assisted in research on natural language processing models for sentiment analysis and text classification.",
+      "Designed a real-time battery telemetry system using ESP32 with custom PCB shield for live monitoring of pack voltage, SOC, and temperature.",
     fullDescription:
-      "Worked under a faculty advisor to conduct research on transformer-based models for NLP tasks. Implemented and fine-tuned BERT models for domain-specific sentiment analysis, achieving a 15% improvement over baseline models. Co-authored a paper submitted to an ACL workshop.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop",
-    date: "Fall 2023",
-    tags: ["Python", "PyTorch", "NLP", "Transformers"],
-    type: "work",
+      "Designed and implemented a real-time battery telemetry system for a moving vehicle using an ESP32 with a custom PCB shield, allowing for the decoding of CAN-based pack data received from the BMS and transmission of live metrics such as pack voltage, SOC, and temperature over Wi-Fi for live monitoring. Utilized InfluxDB and Grafana to log and visualize the data through dashboards and time-series trend plots.",
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=450&fit=crop",
+    date: "January 2026 – Present",
+    tags: ["ESP32", "PCB Design", "InfluxDB", "Grafana", "CAN Bus"],
+    type: "project",
   },
 ];
 
