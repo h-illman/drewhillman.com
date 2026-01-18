@@ -9,11 +9,10 @@ const Me = () => {
 
           {/* About */}
           <div className="space-y-4 text-lg leading-relaxed text-foreground">
-            <p>My name is Drew and I'm a student studying electrical engineering at Western University. I'm in my third year!
-
+            <p>My name is Drew and I'm a student studying electrical engineering at Western University. Currently, I'm in my third year.
 I love all things computers, especially new and interesting ones. 
 
-I also like listening to music, reading, and cats! </p>
+I also like listening to music, reading, and cats. </p>
             
           </div>
 
