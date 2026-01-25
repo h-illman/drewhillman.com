@@ -10,6 +10,7 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
+  // Roles
   {
     id: "opg-intern",
     title: "Electrical Engineering Intern – OPG",
@@ -44,7 +45,7 @@ export const experiences: Experience[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
     date: "January 2026 – Present",
     tags: ["Power BI", "Data Analytics", "AI/ML", "Product Analytics"],
-    type: "club",
+    type: "work",
   },
   {
     id: "sunstang",
@@ -56,30 +57,55 @@ export const experiences: Experience[] = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop",
     date: "September 2024 – Present",
     tags: ["Battery Systems", "BMS", "Leadership", "EV"],
-    type: "club",
+    type: "work",
   },
+  // Projects
   {
-    id: "orion-bms",
-    title: "Orion 2 Battery Management System Integration",
+    id: "slo-monitoring",
+    title: "Perf/W SLO Monitoring for AI Workloads",
     description:
-      "Integrated an Orion 2 BMS into a 108V, 40 cell custom lithium-ion battery pack with custom wiring harnesses and validation testing.",
+      "Observability and regression gates for monitoring performance per watt SLOs in AI/ML workloads.",
     fullDescription:
-      "Integrated an Orion 2 BMS into a 108V, 40 cell custom lithium-ion battery pack by creating and installing the voltage tap wiring harness, thermistor harness, and current sensor wiring, ensuring proper cable management and thermals. Configured and validated the BMS in Orion software, ensuring proper cell counts, protection limits, fault logic, and CAN outputs, and created a custom test PCB to support scrutineering tests at competition.",
+      "Placeholder: Details about the SLO monitoring project for AI workloads, including observability pipelines and regression gates implementation.",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop",
-    date: "May 2025 – December 2025",
-    tags: ["BMS", "Lithium-Ion", "PCB Design", "CAN Bus"],
+    date: "2025",
+    tags: ["Observability", "AI/ML", "SLO", "Monitoring"],
     type: "project",
   },
   {
-    id: "telemetry-system",
-    title: "Real-Time Telemetry and Remote Monitoring System",
+    id: "bms-telemetry",
+    title: "Battery Management System Integration + Real-Time Battery Telemetry",
     description:
-      "Designed a real-time battery telemetry system using ESP32 with custom PCB shield for live monitoring of pack voltage, SOC, and temperature.",
+      "Integrated Orion 2 BMS with real-time telemetry system for live monitoring of battery pack metrics.",
     fullDescription:
-      "Designed and implemented a real-time battery telemetry system for a moving vehicle using an ESP32 with a custom PCB shield, allowing for the decoding of CAN-based pack data received from the BMS and transmission of live metrics such as pack voltage, SOC, and temperature over Wi-Fi for live monitoring. Utilized InfluxDB and Grafana to log and visualize the data through dashboards and time-series trend plots.",
+      "Placeholder: Combined project covering BMS integration and the real-time telemetry system using ESP32, InfluxDB, and Grafana for live battery monitoring.",
     image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=450&fit=crop",
-    date: "January 2026 – Present",
-    tags: ["ESP32", "PCB Design", "InfluxDB", "Grafana", "CAN Bus"],
+    date: "2025 – Present",
+    tags: ["BMS", "ESP32", "InfluxDB", "Grafana", "CAN Bus"],
+    type: "project",
+  },
+  {
+    id: "arduino-biometric",
+    title: "Arduino Biometric Security System",
+    description:
+      "A biometric security system built with Arduino for fingerprint-based access control.",
+    fullDescription:
+      "Placeholder: Details about the Arduino-based biometric security system with fingerprint scanning and access control features.",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=450&fit=crop",
+    date: "2024",
+    tags: ["Arduino", "Biometrics", "Security", "Embedded Systems"],
+    type: "project",
+  },
+  {
+    id: "spot2yt",
+    title: "Spot2YT - Spotify to YouTube Playlist Converter",
+    description:
+      "A Python application that converts Spotify playlists to YouTube playlists automatically.",
+    fullDescription:
+      "Placeholder: Details about the Spot2YT Python application that uses Spotify and YouTube APIs to convert playlists between platforms.",
+    image: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=800&h=450&fit=crop",
+    date: "2024",
+    tags: ["Python", "Spotify API", "YouTube API", "Automation"],
     type: "project",
   },
 ];
