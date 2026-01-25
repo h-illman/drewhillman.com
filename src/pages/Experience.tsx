@@ -28,9 +28,20 @@ const Experience = () => {
 
         {/* Tabbed Experience */}
         <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="mb-6">
-            <TabsTrigger value="projects">Projects</TabsTrigger>
-            <TabsTrigger value="roles">Roles</TabsTrigger>
+          <TabsList className="mb-6 bg-transparent p-0 h-auto gap-0">
+            <TabsTrigger 
+              value="projects" 
+              className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
+            >
+              projects
+            </TabsTrigger>
+            <span className="text-muted mx-2">|</span>
+            <TabsTrigger 
+              value="roles" 
+              className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
+            >
+              roles
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="projects">
