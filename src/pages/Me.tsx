@@ -1,25 +1,40 @@
 import Layout from "@/components/layout/Layout";
 import TextLink from "@/components/ui/TextLink";
+
 const Me = () => {
-  return <Layout>
+  return (
+    <Layout>
       <div className="max-w-2xl mx-auto py-16 md:py-24 px-[8px]">
         <section className="space-y-8">
           {/* Name */}
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">hello!!!</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">hello my name is Drew</h1>
 
           {/* About */}
           <div className="space-y-4 text-lg leading-relaxed text-foreground">
-            <p>My name is Drew and I'm a student studying electrical engineering at Western University. Currently, I'm in my third year.
-I love all things computers, especially new and interesting ones. 
-
-I also like listening to music, reading, and cats. </p>
-            
+            <p>
+              I'm a third year electrical engineering student at Western University.
+            </p>
+            <p>
+              I love music, playing games, and my cat{" "}
+              <a 
+                href="/opal.png" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="cursor-text"
+              >
+                Opal
+              </a>
+              .
+            </p>
+            <p>
+              I also love new and interesting, innovative stuff. I think AI is incredibly interesting, and love to try and use it to it's fullest potential. My aim, both professionally and in life overall, is to contribute to meaningful projects that help to make the world a better place!
+            </p>
           </div>
 
           {/* Contact */}
           <div className="space-y-3 text-foreground">
             <p>
-              Find me on{" "}
+              You can find me on{" "}
               <TextLink href="https://www.instagram.com/h.illman/" external>
                 Instagram
               </TextLink>
@@ -40,8 +55,19 @@ I also like listening to music, reading, and cats. </p>
             Check out my{" "}
             <TextLink href="/experience">work</TextLink>.
           </p>
+
+          {/* Resume link */}
+          <p className="text-foreground">
+            Or skip it all and jump right to my{" "}
+            <TextLink href="/Hillman-Drew-Resume.pdf" external>
+              resume
+            </TextLink>
+            .
+          </p>
         </section>
       </div>
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default Me;
