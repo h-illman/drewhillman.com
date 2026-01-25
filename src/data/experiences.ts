@@ -1,3 +1,7 @@
+import opgImage from "@/assets/opg.jpg";
+import gdlsImage from "@/assets/gdls.jpg";
+import sunstangImage from "@/assets/sunstang.jpg";
+
 export interface Experience {
   id: string;
   title: string;
@@ -18,7 +22,7 @@ export const experiences: Experience[] = [
       "Incoming intern on the Monitoring and Diagnostics team, working with machine-learning models for equipment health monitoring and predictive analysis.",
     fullDescription:
       "When I start at OPG, I'll be working with the Monitoring & Diagnostics team to keep a large fleet of equipment-health models running reliably and producing useful alerts. That includes regularly refreshing the datasets these models rely on, reviewing anomaly flags against historical baselines, and updating the model logic when needed so the alerts stay accurate.\n\nI'll also be investigating unusual equipment trends by connecting model anomalies to related process signals and operating context, then documenting what's most likely happening, how risky it is, and what follow-ups make sense. On the reporting side, I'll be building equipment-health dashboards in Microsoft Power Platform to track KPIs, alert frequency/volume, and model performance, making reliability trends easier to see and act on.\n\nTo support all of this, I'll be developing and improving data pipelines and analytics workflows in Databricks and Azure to clean, validate, and contextualize operational data for automation and predictive analysis. I'll also be creating lightweight internal tools in Python to automate tasks like alert triage and data refresh checks, cutting down manual steps and improving consistency across the team's workflow.",
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=450&fit=crop",
+    image: opgImage,
     date: "May 2026 – August 2027 (Incoming)",
     tags: ["Python", "Databricks", "Azure", "Power Platform", "Machine Learning"],
     type: "work",
@@ -30,7 +34,7 @@ export const experiences: Experience[] = [
       "Designed electrical layouts and safety circuits using AutoCAD, oversaw equipment installations, and contributed to LEED Gold and ISO 50001 energy initiatives.",
     fullDescription:
       "Designed and updated electrical layouts and safety circuits using AutoCAD for new projects and installations, including highly specialized equipment such as water jets and laser cutters. Served as on-site liaison to oversee electrical equipment installations and system upgrades, ensuring compliance with electrical codes, safety standards, and project requirements while coordinating with contractors and safety staff. Contributed to LEED Gold and ISO 50001 energy initiatives by performing power usage audits and creating substation documentation, providing data-driven recommendations to improve facility electrical efficiency.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=450&fit=crop",
+    image: gdlsImage,
     date: "May 2025 – August 2025",
     tags: ["AutoCAD", "Electrical Design", "LEED", "ISO 50001"],
     type: "work",
@@ -54,7 +58,7 @@ export const experiences: Experience[] = [
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription:
       "Led the battery team (~20 members) in the design, testing, and optimization of a custom lithium-ion battery pack and Orion 2 BMS integration for a fully electric multi-occupancy vehicle, meeting all American Solar Challenge regulations. Organized weekly work sessions, assigning owners for design, build, and verification tasks across various systems of the battery pack such as the Orion 2 BMS and custom J1772 charging circuit.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop",
+    image: sunstangImage,
     date: "September 2024 – Present",
     tags: ["Battery Systems", "BMS", "Leadership", "EV"],
     type: "work",

@@ -56,14 +56,6 @@ const Me = () => {
             <TextLink href="/experience">work</TextLink>.
           </p>
 
-          {/* Resume link */}
-          <p className="text-foreground">
-            Or skip it all and jump right to my{" "}
-            <TextLink href="/Hillman-Drew-Resume.pdf" external>
-              resume
-            </TextLink>
-            .
-          </p>
         </section>
       </div>
     </Layout>

@@ -19,7 +19,7 @@ const Experience = () => {
           </p>
           <p className="text-foreground">
             If you just want my resume,{" "}
-            <TextLink href="/resume.pdf" external>
+            <TextLink href="/Hillman-Drew-Resume.pdf" external>
               click here
             </TextLink>
             .
