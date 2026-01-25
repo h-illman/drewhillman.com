@@ -10,7 +10,7 @@ interface TextLinkProps {
 }
 
 const TextLink = ({ href, children, external = false, className }: TextLinkProps) => {
-  const baseStyles = "text-link hover:text-link-foreground transition-colors underline underline-offset-2";
+  const baseStyles = "text-foreground hover:text-foreground transition-colors underline underline-offset-2";
 
   if (external) {
     return (
