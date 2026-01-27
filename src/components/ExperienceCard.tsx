@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -19,9 +19,18 @@ const ExperienceCard = ({
   date,
   tags,
 }: ExperienceCardProps) => {
+  const location = useLocation();
+
+  const handleClick = () => {
+    // Save scroll position before navigating
+    sessionStorage.setItem("experienceScrollPosition", window.scrollY.toString());
+  };
+
   return (
     <Link
       to={`/experience/${id}`}
+      state={{ from: location.pathname }}
+      onClick={handleClick}
       className="group block cursor-pointer transition-all hover:opacity-90"
     >
       <article className="space-y-4">

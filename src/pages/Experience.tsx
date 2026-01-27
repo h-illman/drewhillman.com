@@ -1,12 +1,24 @@
+import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import ExperienceCard from "@/components/ExperienceCard";
 import TextLink from "@/components/ui/TextLink";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { experiences } from "@/data/experiences";
-
 const Experience = () => {
   const projects = experiences.filter((exp) => exp.type === "project");
   const roles = experiences.filter((exp) => exp.type === "work");
+
+  // Restore scroll position when returning to this page
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem("experienceScrollPosition");
+    if (savedPosition) {
+      // Small delay to ensure the page is fully rendered
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedPosition, 10));
+        sessionStorage.removeItem("experienceScrollPosition");
+      }, 0);
+    }
+  }, []);
 
   return (
     <Layout>

@@ -2,7 +2,7 @@ import opgImage from "@/assets/opg.jpg";
 import gdlsImage from "@/assets/gdls.jpg";
 import sunstangImage from "@/assets/sunstang.jpg";
 import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
-
+import sloCoverImage from "@/assets/slo-cover.jpg";
 export interface Experience {
   id: string;
   title: string;
@@ -70,13 +70,13 @@ export const experiences: Experience[] = [
     id: "slo-monitoring",
     title: "Perf/W SLO Monitoring for AI Workloads",
     description:
-      "Observability and regression gates for monitoring performance per watt SLOs in AI/ML workloads.",
-    fullDescription:
-      "Placeholder: Details about the SLO monitoring project for AI workloads, including observability pipelines and regression gates implementation.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop",
+      "A reliability-style monitoring system for AI compute efficiency with benchmark harness, telemetry, regression detection, and runbooks.",
+    fullDescription: "custom",
+    image: sloCoverImage,
     date: "2025",
-    tags: ["Observability", "AI/ML", "SLO", "Monitoring"],
+    tags: ["Python", "InfluxDB", "Grafana", "NVIDIA NVML", "Observability"],
     type: "project",
+    githubUrl: "https://github.com/h-illman",
   },
   {
     id: "bms-telemetry",

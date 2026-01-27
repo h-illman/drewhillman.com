@@ -4,8 +4,8 @@ import Layout from "@/components/layout/Layout";
 import { Badge } from "@/components/ui/badge";
 import { getExperienceById } from "@/data/experiences";
 import BMSTelemetryContent from "@/components/projects/BMSTelemetryContent";
+import SLOMonitoringContent from "@/components/projects/SLOMonitoringContent";
 import TextLink from "@/components/ui/TextLink";
-
 const ExperienceDetail = () => {
   const { id } = useParams<{ id: string }>();
   const experience = id ? getExperienceById(id) : undefined;
@@ -74,6 +74,8 @@ const ExperienceDetail = () => {
           {/* Content - either custom component or standard text */}
           {isCustomContent && id === "bms-telemetry" ? (
             <BMSTelemetryContent />
+          ) : isCustomContent && id === "slo-monitoring" ? (
+            <SLOMonitoringContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
