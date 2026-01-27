@@ -1,6 +1,7 @@
 import opgImage from "@/assets/opg.jpg";
 import gdlsImage from "@/assets/gdls.jpg";
 import sunstangImage from "@/assets/sunstang.jpg";
+import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
 
 export interface Experience {
   id: string;
@@ -11,6 +12,7 @@ export interface Experience {
   date?: string;
   tags: string[];
   type: "work" | "project" | "club";
+  githubUrl?: string;
 }
 
 export const experiences: Experience[] = [
@@ -78,15 +80,15 @@ export const experiences: Experience[] = [
   },
   {
     id: "bms-telemetry",
-    title: "Battery Management System Integration + Real-Time Battery Telemetry",
+    title: "Orion 2 BMS Telemetry Pipeline",
     description:
-      "Integrated Orion 2 BMS with real-time telemetry system for live monitoring of battery pack metrics.",
-    fullDescription:
-      "Placeholder: Combined project covering BMS integration and the real-time telemetry system using ESP32, InfluxDB, and Grafana for live battery monitoring.",
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=450&fit=crop",
+      "Built a CAN → Wi-Fi → InfluxDB → Grafana telemetry pipeline for real-time battery monitoring during testing and racing.",
+    fullDescription: "custom", // This signals to use a custom detail component
+    image: bmsTelemetryImage,
     date: "2025 – Present",
-    tags: ["BMS", "ESP32", "InfluxDB", "Grafana", "CAN Bus"],
+    tags: ["Python", "InfluxDB", "Grafana", "CAN Bus", "ESP32"],
     type: "project",
+    githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
   },
   {
     id: "arduino-biometric",

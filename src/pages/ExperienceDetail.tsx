@@ -3,6 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Badge } from "@/components/ui/badge";
 import { getExperienceById } from "@/data/experiences";
+import BMSTelemetryContent from "@/components/projects/BMSTelemetryContent";
+import TextLink from "@/components/ui/TextLink";
 
 const ExperienceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,6 +26,9 @@ const ExperienceDetail = () => {
       </Layout>
     );
   }
+
+  // Check if this experience uses custom content
+  const isCustomContent = experience.fullDescription === "custom";
 
   return (
     <Layout>
@@ -66,19 +71,38 @@ const ExperienceDetail = () => {
             ))}
           </div>
 
-          {/* Content */}
-          <div className="prose prose-lg max-w-none">
-            <p className="text-foreground leading-relaxed text-lg">
-              {experience.fullDescription}
-            </p>
-          </div>
+          {/* Content - either custom component or standard text */}
+          {isCustomContent && id === "bms-telemetry" ? (
+            <BMSTelemetryContent />
+          ) : (
+            <>
+              <div className="prose prose-lg max-w-none">
+                <p className="text-foreground leading-relaxed text-lg">
+                  {experience.fullDescription}
+                </p>
+              </div>
 
-          {/* Placeholder for additional content */}
-          <div className="pt-8 border-t border-border">
-            <p className="text-muted text-sm">
-              More details, images, and resources can be added here.
-            </p>
-          </div>
+              {/* GitHub link if available */}
+              {experience.githubUrl && (
+                <div className="pt-4">
+                  <p className="text-foreground">
+                    View the code on{" "}
+                    <TextLink href={experience.githubUrl} external>
+                      GitHub
+                    </TextLink>
+                    .
+                  </p>
+                </div>
+              )}
+
+              {/* Placeholder for additional content */}
+              <div className="pt-8 border-t border-border">
+                <p className="text-muted text-sm">
+                  More details, images, and resources can be added here.
+                </p>
+              </div>
+            </>
+          )}
         </article>
       </div>
     </Layout>
