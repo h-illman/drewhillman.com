@@ -1,4 +1,4 @@
-import { Moon, Sun, Linkedin } from "lucide-react";
+import { Moon, Sun, Linkedin, Github } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const Footer = () => {
@@ -33,6 +33,16 @@ const Footer = () => {
             aria-label="LinkedIn"
           >
             <Linkedin className="h-6 w-6" />
+          </a>
+
+          <a
+            href="https://github.com/h-illman"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="GitHub"
+          >
+            <Github className="h-6 w-6" />
           </a>
         </div>
       </div>

@@ -42,6 +42,10 @@ const Me = () => {
               <TextLink href="https://www.linkedin.com/in/drew-hillman-forest/" external>
                 LinkedIn
               </TextLink>
+              ,{" "}
+              <TextLink href="https://github.com/h-illman" external>
+                GitHub
+              </TextLink>
               , or email me at{" "}
               <TextLink href="mailto:drewhillman63@gmail.com" external>
                 drewhillman63@gmail.com
