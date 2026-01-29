@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
     date: "2025",
     tags: ["Python", "InfluxDB", "Grafana", "NVIDIA NVML", "Observability"],
     type: "project",
-    githubUrl: "https://github.com/h-illman",
+    githubUrl: "https://github.com/h-illman/perfw-ai-runner",
   },
   {
     id: "bms-telemetry",

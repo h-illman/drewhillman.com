@@ -1,6 +1,4 @@
 import TextLink from "@/components/ui/TextLink";
-import sloWorkflowImage from "@/assets/slo-workflow.jpg";
-import sloRegressionImage from "@/assets/slo-regression.jpg";
 
 const SLOMonitoringContent = () => {
   return (
@@ -58,15 +56,6 @@ const SLOMonitoringContent = () => {
         </div>
       </section>
 
-      {/* Workflow image */}
-      <div className="my-8">
-        <img
-          src={sloWorkflowImage}
-          alt="SLO Monitoring Workflow"
-          className="w-full rounded-lg"
-        />
-        <p className="text-sm text-muted mt-2 text-center">Benchmarking process and SLO contract definition</p>
-      </div>
 
       {/* Tooling choices */}
       <section className="space-y-4">
@@ -143,15 +132,6 @@ const SLOMonitoringContent = () => {
         </div>
       </section>
 
-      {/* Regression image */}
-      <div className="my-8">
-        <img
-          src={sloRegressionImage}
-          alt="Regression Detection and SLO Gates"
-          className="w-full rounded-lg"
-        />
-        <p className="text-sm text-muted mt-2 text-center">Baseline comparisons and regression gates</p>
-      </div>
 
       {/* Regression and Runbooks */}
       <section className="space-y-4">
@@ -213,7 +193,7 @@ const SLOMonitoringContent = () => {
       <div className="pt-4">
         <p className="text-foreground">
           View the code on{" "}
-          <TextLink href="https://github.com/h-illman" external>
+          <TextLink href="https://github.com/h-illman/perfw-ai-runner" external>
             GitHub
           </TextLink>
           .
