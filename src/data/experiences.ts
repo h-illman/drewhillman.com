@@ -2,7 +2,7 @@ import opgImage from "@/assets/opg.jpg";
 import gdlsImage from "@/assets/gdls.jpg";
 import sunstangImage from "@/assets/sunstang.jpg";
 import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
-import sloCoverImage from "@/assets/slo-cover.jpg";
+import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 export interface Experience {
   id: string;
   title: string;
@@ -72,7 +72,7 @@ export const experiences: Experience[] = [
     description:
       "A reliability-style monitoring system for AI compute efficiency with benchmark harness, telemetry, regression detection, and runbooks.",
     fullDescription: "custom",
-    image: sloCoverImage,
+    image: sloTelemetryDashboard,
     date: "2025",
     tags: ["Python", "InfluxDB", "Grafana", "NVIDIA NVML", "Observability"],
     type: "project",

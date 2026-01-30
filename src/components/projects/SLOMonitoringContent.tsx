@@ -1,4 +1,6 @@
 import TextLink from "@/components/ui/TextLink";
+import sloMetricsPanel from "@/assets/slo-metrics-panel.png";
+import sloSummaryTable from "@/assets/slo-summary-table.png";
 
 const SLOMonitoringContent = () => {
   return (
@@ -55,6 +57,16 @@ const SLOMonitoringContent = () => {
           </ul>
         </div>
       </section>
+
+      {/* Metrics Panel Image */}
+      <div className="my-8">
+        <img
+          src={sloMetricsPanel}
+          alt="Live efficiency metrics showing Throughput, Perf/W, Average GPU Power, Max GPU Temp, and Energy per Unit"
+          className="w-full rounded-lg border border-border"
+        />
+        <p className="text-sm text-muted mt-2 text-center">Live efficiency metrics computed from telemetry data</p>
+      </div>
 
 
       {/* Tooling choices */}
@@ -155,6 +167,16 @@ const SLOMonitoringContent = () => {
           </p>
         </div>
       </section>
+
+      {/* Summary Table Image */}
+      <div className="my-8">
+        <img
+          src={sloSummaryTable}
+          alt="Latest benchmark summary table showing run metadata and computed metrics"
+          className="w-full rounded-lg border border-border"
+        />
+        <p className="text-sm text-muted mt-2 text-center">Benchmark summary with run metadata and computed efficiency metrics</p>
+      </div>
 
       {/* Tests and learnings */}
       <section className="space-y-4">
