@@ -73,7 +73,7 @@ export const experiences: Experience[] = [
       "A reliability-style monitoring system for AI compute efficiency with benchmark harness, telemetry, regression detection, and runbooks.",
     fullDescription: "custom",
     image: sloTelemetryDashboard,
-    date: "2025",
+    date: "2026",
     tags: ["Python", "InfluxDB", "Grafana", "NVIDIA NVML", "Observability"],
     type: "project",
     githubUrl: "https://github.com/h-illman/perfw-ai-runner",
@@ -98,20 +98,20 @@ export const experiences: Experience[] = [
     fullDescription:
       "Placeholder: Details about the Arduino-based biometric security system with fingerprint scanning and access control features.",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=450&fit=crop",
-    date: "2024",
+    date: "2025",
     tags: ["Arduino", "Biometrics", "Security", "Embedded Systems"],
     type: "project",
   },
   {
-    id: "spot2yt",
-    title: "Spot2YT - Spotify to YouTube Playlist Converter",
+    id: "sponsor-scout",
+    title: "SponsorScout – Solar Car Sponsorship Intelligence Bot",
     description:
-      "A Python application that converts Spotify playlists to YouTube playlists automatically.",
+      "A Discord-integrated bot that scrapes solar car team websites for sponsors, drafts outreach emails via Gmail, and alerts the team to new sponsorship leads.",
     fullDescription:
-      "Placeholder: Details about the Spot2YT Python application that uses Spotify and YouTube APIs to convert playlists between platforms.",
-    image: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=800&h=450&fit=crop",
-    date: "2024",
-    tags: ["Python", "Spotify API", "YouTube API", "Automation"],
+      "SponsorScout is a sponsorship intelligence bot I built for Western Sunstang's sponsorship team. It uses OpenClaw with a Gemini 1.5 Pro Thinking LLM and a custom Python script powered by the Google Cloud API to systematically comb through other solar car teams' websites and identify their sponsors.\n\nThe bot is fully integrated with Discord — it posts alerts to a dedicated channel on the Sunstang server whenever it discovers new sponsors, and team members can prompt it directly from Discord to run searches or look up specific companies. It's also linked to the team's sponsorship email account through the Google Cloud suite, using the Gmail API to draft and send outreach emails directly from the bot.\n\nOne of the most useful features is the ability for the sponsorship team to draft custom emails straight to newly discovered sponsors, making it much faster to reach out with our sponsorship package. SponsorScout helped us uncover a large number of Canadian sponsors we weren't previously aware of, and enabled the team to connect with many new companies efficiently.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+    date: "2026",
+    tags: ["Python", "Google Cloud", "Gmail API", "Discord Bot", "OpenClaw", "Gemini", "Web Scraping"],
     type: "project",
   },
 ];
