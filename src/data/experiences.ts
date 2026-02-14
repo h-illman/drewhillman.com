@@ -86,7 +86,7 @@ export const experiences: Experience[] = [
     fullDescription: "custom", // This signals to use a custom detail component
     image: bmsTelemetryImage,
     date: "2025 – Present",
-    tags: ["Python", "InfluxDB", "Grafana", "CAN Bus", "ESP32"],
+    tags: ["Python", "Supabase", "React", "Data Acquisition", "CAN Bus"],
     type: "project",
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
   },
