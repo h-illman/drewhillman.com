@@ -3,6 +3,7 @@ import gdlsImage from "@/assets/gdls.jpg";
 import sunstangImage from "@/assets/sunstang.jpg";
 import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
 import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
+import thermalModelImage from "@/assets/thermal-model.png";
 export interface Experience {
   id: string;
   title: string;
@@ -89,6 +90,17 @@ export const experiences: Experience[] = [
     tags: ["Python", "Supabase", "React", "Data Acquisition", "CAN Bus"],
     type: "project",
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
+  },
+  {
+    id: "thermal-model",
+    title: "Solar Car Battery Thermal Model",
+    description:
+      "A high-fidelity MATLAB simulation to predict thermal behavior of a 14.5 kWh 40p30s battery pack under racing and environmental conditions.",
+    fullDescription: "custom",
+    image: thermalModelImage,
+    date: "2026",
+    tags: ["MATLAB", "Simscape", "Thermal Physics", "Battery Systems"],
+    type: "project",
   },
   {
     id: "arduino-biometric",
