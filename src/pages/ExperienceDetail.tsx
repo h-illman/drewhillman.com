@@ -6,6 +6,7 @@ import { getExperienceById } from "@/data/experiences";
 import BMSTelemetryContent from "@/components/projects/BMSTelemetryContent";
 import SLOMonitoringContent from "@/components/projects/SLOMonitoringContent";
 import ThermalModelContent from "@/components/projects/ThermalModelContent";
+import BioLockContent from "@/components/projects/BioLockContent";
 import TextLink from "@/components/ui/TextLink";
 const ExperienceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -79,6 +80,8 @@ const ExperienceDetail = () => {
             <SLOMonitoringContent />
           ) : isCustomContent && id === "thermal-model" ? (
             <ThermalModelContent />
+          ) : isCustomContent && id === "arduino-biometric" ? (
+            <BioLockContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
