@@ -4,6 +4,7 @@ import sunstangImage from "@/assets/sunstang.jpg";
 import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
 import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 import thermalModelImage from "@/assets/thermal-model.png";
+import arduinoBiolockImage from "@/assets/arduino-biolock.png";
 export interface Experience {
   id: string;
   title: string;
@@ -104,14 +105,13 @@ export const experiences: Experience[] = [
   },
   {
     id: "arduino-biometric",
-    title: "Arduino Biometric Security System",
+    title: "Arduino SmartLatch BioLock",
     description:
-      "A biometric security system built with Arduino for fingerprint-based access control.",
-    fullDescription:
-      "Placeholder: Details about the Arduino-based biometric security system with fingerprint scanning and access control features.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=450&fit=crop",
+      "A multi-factor biometric security system combining fingerprint, RFID, and keypad authentication with a custom PCB and Bluetooth event logging.",
+    fullDescription: "custom",
+    image: arduinoBiolockImage,
     date: "2025",
-    tags: ["Arduino", "Biometrics", "Security", "Embedded Systems"],
+    tags: ["C++", "Arduino", "PCB Design", "Security", "Embedded Systems"],
     type: "project",
   },
   {
