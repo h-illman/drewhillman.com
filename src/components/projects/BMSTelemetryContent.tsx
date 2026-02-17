@@ -1,5 +1,6 @@
 import bmsWiringImage from "@/assets/bms-wiring.jpg";
 import bmsTeamImage from "@/assets/bms-team.jpg";
+import bmsDashboardImage from "@/assets/bms-dashboard.png";
 import TextLink from "@/components/ui/TextLink";
 
 const BMSTelemetryContent = () => {
@@ -7,32 +8,20 @@ const BMSTelemetryContent = () => {
     <div className="space-y-8">
       {/* Introduction */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Why this project existed</h2>
+        <h2 className="text-2xl font-semibold text-foreground">The problem</h2>
         <p className="text-foreground leading-relaxed">
-          Sunstang's electrical system is only as race-ready as its ability to prove what the battery is doing in real time. The Orion 2 BMS is excellent at managing and protecting the pack, but during testing and racing we needed something Orion's desktop software couldn't fully provide:
+          In solar racing, the electrical system is only as race-ready as its ability to prove what the battery is doing in real time. The Orion 2 BMS is excellent at protecting the pack, but it locks all that data inside a desktop utility tethered to the car. If I wanted to see the battery status, I'd need a computer wired directly to the BMS at all times.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          During a race, we couldn't afford to have someone sitting in the passenger seat with a laptop. We needed:
         </p>
         <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
-          <li>Live, remote visibility (not tethered to a single laptop + adapter at the car)</li>
-          <li>A race dashboard that's readable at a glance (SOC, voltage, current, temperatures, fault status)</li>
-          <li>Structured logging so we can review a whole drive/heat later, not just "what's on the screen right now"</li>
-          <li>A telemetry flow that is repeatable and compatible with our longer-term in-car architecture</li>
+          <li>Live, remote visibility for the pit crew</li>
+          <li>Instant "at a glance" readability (SOC, Voltage, Current, Faults)</li>
+          <li>Structured logging to review heat performance later</li>
         </ul>
         <p className="text-foreground leading-relaxed">
-          So the goal became: build a telemetry receiver + logging + dashboard system that turns CAN frames into clean, queryable signals and surfaces them in Grafana.
-        </p>
-      </section>
-
-      {/* Architecture */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Final architecture</h2>
-        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
-          Orion 2 BMS (CAN) → ESP32 telemetry board → Wi-Fi → Laptop → Python logger → InfluxDB 3 Core → Grafana dashboard
-        </div>
-        <p className="text-foreground leading-relaxed">
-          A key detail: during early development we used a CANdapter (USB-CAN) only as a temporary way to access CAN and validate decoding while the real telemetry boards were being made. The permanent solution is the ESP32 telemetry board in the car sending data wirelessly.
-        </p>
-        <p className="text-muted text-sm italic">
-          Scope note: I did not design the ESP32 telemetry transmitter board hardware. That board was designed and built by Xiuting Shi, the Driver Controls lead for Sunstang. My work focused on the receiving side (laptop ingestion + decoding + database + dashboards), on validating the end-to-end pipeline, and the rest of the BMS set up and battery pack.
+          My goal was to build the bridge between the raw CAN bus signals inside the car and a screen that anyone on the team could pull up on their phone.
         </p>
       </section>
 
@@ -45,90 +34,110 @@ const BMSTelemetryContent = () => {
         />
       </div>
 
-      {/* Tool choices */}
+      {/* Phase 1 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Tool and software choices</h2>
-        
+        <h2 className="text-2xl font-semibold text-foreground">Phase 1: The heavy-duty stack (InfluxDB + Grafana)</h2>
+        <p className="text-foreground leading-relaxed">
+          When I first started designing this, I went with the industry standard for time-series data. I built a pipeline using InfluxDB 3 Core for storage and Grafana for visualization.
+        </p>
+        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
+          Orion BMS (CAN) → CANdapter → Python Decoder → InfluxDB → Grafana
+        </div>
+        <p className="text-foreground leading-relaxed">
+          I wrote a Python logger that acted as the "translator." It hooked into the CAN bus, read the raw hex frames, and used a specific decoding map to turn binary data into engineering units (e.g., converting <code className="text-sm bg-muted/50 px-1 rounded">0x01E0</code> into 48.0 Volts).
+        </p>
+        <p className="text-foreground leading-relaxed">
+          Why this was great:
+        </p>
+        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
+          <li><span className="font-medium">Fast iteration:</span> InfluxDB's SQL support made debugging easy</li>
+          <li><span className="font-medium">High frequency:</span> It could ingest thousands of points per second without sweating</li>
+          <li><span className="font-medium">Validation:</span> It let me prove we were actually receiving valid frames before worrying about pretty UIs</li>
+        </ul>
+        <p className="text-foreground leading-relaxed">
+          I built a full "Race Day" dashboard in Grafana with voltage sags, temperature heat maps, and fault flags. It worked perfectly for bench testing and detailed analysis.
+        </p>
+      </section>
+
+      {/* Phase 2 */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">Phase 2: The pivot to cloud (Supabase + React)</h2>
+        <p className="text-foreground leading-relaxed">
+          While Grafana is powerful, it felt a bit "local." I wanted a solution that was inherently cloud-native — something that didn't require running a server on a laptop in the pit lane. I wanted the team to be able to check the car's status from anywhere.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          I decided to migrate the backend to Supabase (a modern PostgreSQL wrapper) and build a custom frontend using React.
+        </p>
+        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
+          Orion BMS → ESP32 Telemetry Board → Wi-Fi → Python Gateway → Supabase → React Dashboard
+        </div>
+        <p className="text-muted text-sm italic">
+          Note: The ESP32 hardware transmitter was designed by Xiuting Shi (Driver Controls Lead). My focus was the receiving end — ingestion, decoding, database, and frontend.
+        </p>
+      </section>
+
+      {/* How it works */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">How it works now</h2>
         <div className="space-y-4">
           <div>
-            <h3 className="text-lg font-medium text-foreground">Python (receiver + decoder)</h3>
+            <h3 className="text-lg font-medium text-foreground">1. The Edge</h3>
             <p className="text-foreground leading-relaxed">
-              Python gave the best "fast iteration" path for reading CAN frames (directly from CANdapter during development), parsing payloads into real engineering units, writing to a time-series database, and logging/debugging quickly while bench testing. This is the part that ultimately makes the whole chain reliable: the logger is where "raw bytes" become "pack voltage".
+              A Python script running on the receiving laptop captures the decoded CAN packets.
             </p>
           </div>
-          
           <div>
-            <h3 className="text-lg font-medium text-foreground">InfluxDB 3 Core (storage)</h3>
+            <h3 className="text-lg font-medium text-foreground">2. The Push</h3>
             <p className="text-foreground leading-relaxed">
-              InfluxDB 3 was chosen because it's strong at high-rate time-series ingestion, lightweight local deployment (easy to run on a laptop), and SQL-style querying (InfluxDB 3's IOx/SQL model makes debugging tables and fields much easier).
+              Instead of batching for storage, the script pushes JSON packets directly to Supabase.
             </p>
           </div>
-          
           <div>
-            <h3 className="text-lg font-medium text-foreground">Grafana (visualization)</h3>
+            <h3 className="text-lg font-medium text-foreground">3. Realtime Sync</h3>
             <p className="text-foreground leading-relaxed">
-              Grafana is the best tool for a race-day dashboard: great "at a glance" stat panels, time-series plots with filtering (by car ID, time window, etc.), and easy iteration on layout and thresholds as the team learns what's important during testing.
+              I utilized Supabase's Realtime (WebSockets) feature. The database literally "shouts" to the website whenever a new row is added.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-medium text-foreground">4. The UI</h3>
+            <p className="text-foreground leading-relaxed">
+              The site listens for these updates and animates the gauges instantly. It includes a "Deadman Switch" — if data stops flowing for 5 seconds, the status light turns red, alerting the crew that telemetry is lost. Also, I just thought that looked cool.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Development Workflow */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-foreground">Development workflow</h2>
-        
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium text-foreground">Phase 1 — Prove we can capture CAN frames</h3>
-          <p className="text-foreground leading-relaxed">
-            Before decoding anything, I built and validated a "raw CAN visibility" layer. This mattered because when telemetry isn't working, you must be able to answer: Are we not receiving frames… or are we receiving frames but decoding wrong?
-          </p>
-          <p className="text-foreground leading-relaxed">
-            So I built a raw ingestion path that writes a table with time, arb_id, dlc, data_hex, source, and car_id. This enabled a debugger dashboard that shows things like "Last CAN ID", "Frames in Window", "Latest Frames", etc.
-          </p>
+      {/* Python Decoding */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">Python decoding — the contract</h2>
+        <p className="text-foreground leading-relaxed">
+          The hardest part wasn't the database; it was defining the "contract" between the hardware and the software. If the BMS sends a byte wrong, the dashboard shows garbage.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          I standardized a single "Race Telemetry" CAN message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) broadcasted every 100 ms:
+        </p>
+        <div className="bg-muted/30 p-4 rounded-lg space-y-1 text-sm font-mono text-foreground">
+          <p>Race Telemetry CAN message (0x6B0):</p>
+          <p>• Bytes 0–1: Pack Voltage (Unsigned 16-bit)</p>
+          <p>• Bytes 2–3: Pack Current (Signed 16-bit)</p>
+          <p>• Byte 4: State of Charge (0.5% scaling)</p>
+          <p>• Bytes 5–6: Temperatures (Unsigned integers)</p>
+          <p>• Byte 7: Fault Bitfield</p>
         </div>
+        <p className="text-foreground leading-relaxed">
+          My Python decoder handles the bit-shifting and scaling factors to ensure that when the BMS says 200, the database records 100 Amps.
+        </p>
+      </section>
 
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium text-foreground">Phase 2 — Create a stable "race telemetry" CAN message</h3>
-          <p className="text-foreground leading-relaxed">
-            To make the pipeline consistent and lightweight over Wi-Fi, we standardized around a single BMS CAN frame with a fixed mapping. Instead of trying to ingest many Orion messages, we used a single "race telemetry" message that the BMS transmits on a fixed interval.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium text-foreground">Phase 3 — Lock the BMS-side message mapping</h3>
-          <p className="text-foreground leading-relaxed">
-            A big lesson: the decoder is only correct if the BMS message mapping matches exactly. We configured a race telemetry frame with ID: 0x6B0, Period: ~100 ms, on CAN1.
-          </p>
-          <div className="bg-muted/30 p-4 rounded-lg space-y-1 text-sm font-mono text-foreground">
-            <p>Race Telemetry CAN message (0x6B0):</p>
-            <p>• Bytes 0–1: Pack Voltage (unsigned, little-endian), 0.1 V/count</p>
-            <p>• Bytes 2–3: Pack Current (signed int16, little-endian), 0.1 A/count</p>
-            <p>• Byte 4: SOC (unsigned), 0.5 %/count</p>
-            <p>• Byte 5: Average Temp (signed), 1 °C/count</p>
-            <p>• Byte 6: Max Temp (signed), 1 °C/count</p>
-            <p>• Byte 7: Fault Flags / Custom Flag #0 (bitfield)</p>
-          </div>
-          <p className="text-foreground leading-relaxed">
-            This mapping became "the contract" between Orion 2 configuration, ESP32 transmitter payload, Python decoder, and Grafana queries/panels.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium text-foreground">Phase 4 — Decode in Python and write clean telemetry to InfluxDB</h3>
-          <p className="text-foreground leading-relaxed">
-            Once raw logging was verified, I implemented the decoded pipeline: every time the raw frame arrives, the logger extracts the correct bytes, converts them using the correct scaling, and writes a clean row into a decoded table (bms_telemetry) with fields like pack_voltage, pack_current, soc, avg_temp, max_temp, fault_flag, plus identifiers like car_id and timestamps.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium text-foreground">Phase 5 — Build the race dashboard</h3>
-          <p className="text-foreground leading-relaxed">
-            With decoded telemetry flowing, I created the Grafana dashboard panels that matter on race day: SOC (stat), Max Temperature (stat), BMS Fault Flag (stat with OK/FAULT mapping), Pack Voltage (time-series), Pack Current (time-series), and Average Temperature vs Time (time-series).
-          </p>
-          <p className="text-foreground leading-relaxed">
-            Dashboard design focus: readable from far away, fast to interpret, minimal clutter, and thresholds that reflect real operational limits.
-          </p>
-        </div>
+      {/* The dumb mistake */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">The two-week debugging nightmare</h2>
+        <p className="text-foreground leading-relaxed">
+          This is also where I made my biggest (and dumbest) mistake that delayed the whole project by about two weeks. Every single time I configured the BMS software to send the bytes as structured above, it wouldn't work — I was getting total nonsense data. I'd check the software over and over, and every time the CAN messages would reset. I fully wiped my computer of the BMS software and tried all kinds of fixes.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          The fix finally came when I showed my team. One of the junior engineers under me, Sean, looked at it and saw that I didn't click <span className="font-medium">save</span>. The whole time, I was setting up CAN messages and doing all this work and it wasn't working just because I didn't hit save. Go figure.
+        </p>
       </section>
 
       {/* Team Image */}
@@ -140,44 +149,33 @@ const BMSTelemetryContent = () => {
         />
       </div>
 
-      {/* Validation */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Validation & troubleshooting</h2>
-        <p className="text-foreground leading-relaxed">
-          This project wasn't "done" when data showed up — it was done when the data was believable.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          Some of the practical validation steps included database sanity checks (querying the decoded table directly to confirm fields update), transport sanity checks (confirming raw frames exist even when decoded values look wrong), known-value comparisons (comparing Orion 2 software readings to decoded telemetry), and sensor unplug tests (verifying temps and current go to expected values when sensors are missing).
-        </p>
-        <p className="text-foreground leading-relaxed">
-          We also dealt with real integration issues: COM port permissions, token/auth errors to InfluxDB, Grafana query/table naming mismatches, "No data" panels caused by querying the wrong table, and decoding mistakes caused by endian/scaling mismatches.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          Each time the fix followed a consistent process: Is raw CAN present? → Is decoded table being written? → Do Grafana queries match the table + field names? → Do decoded values match expected physical reality?
-        </p>
-      </section>
-
-      {/* Deliverables */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Deliverables</h2>
-        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
-          <li>A Python decoded logger that turns the race telemetry CAN message into real engineering values and writes them into InfluxDB</li>
-          <li>A Grafana race dashboard export designed for SOC/voltage/current/temps/fault state</li>
-          <li>A debugger dashboard (raw CAN visibility) to rapidly prove whether data transport is working</li>
-          <li>Documentation and repository structure so the system can be reproduced by someone else on the team</li>
-        </ul>
-      </section>
-
       {/* Results */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Results and impact</h2>
-        <p className="text-foreground leading-relaxed">
-          By the end of this work, we had a telemetry pipeline where raw CAN traffic can be verified independently of decoding, decoded values are stored in a queryable database, the dashboard shows the exact values needed for testing and racing, and the system is aligned with our final in-car architecture (CAN → ESP32 → Wi-Fi → laptop → InfluxDB → Grafana).
+        <h2 className="text-2xl font-semibold text-foreground">The result</h2>
+        <p className="text-foreground leading-relaxed font-medium text-lg">
+          We moved from "we think the battery is fine" to "we can prove it."
         </p>
-        <p className="text-foreground leading-relaxed font-medium">
-          This is the difference between "we think the BMS is fine" and "we can prove, log, and diagnose what the pack is doing at any moment."
+        <p className="text-foreground leading-relaxed">
+          We now have a system where:
+        </p>
+        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
+          <li>Raw CAN traffic can be verified independently</li>
+          <li>Decoded values are stored in a queryable cloud database</li>
+          <li>The dashboard is accessible to the entire team, live, with sub-second latency</li>
+        </ul>
+        <p className="text-foreground leading-relaxed">
+          And you can view it from anywhere. Everyone wins!
         </p>
       </section>
+
+      {/* Dashboard Image */}
+      <div className="overflow-hidden bg-muted aspect-video rounded-lg">
+        <img
+          src={bmsDashboardImage}
+          alt="The live Supabase-powered BMS telemetry dashboard"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       {/* GitHub Link */}
       <section className="pt-4">
