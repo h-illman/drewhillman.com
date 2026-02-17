@@ -84,7 +84,7 @@ export const experiences: Experience[] = [
     id: "bms-telemetry",
     title: "Orion 2 BMS Telemetry Pipeline",
     description:
-      "Built a CAN → Wi-Fi → InfluxDB → Grafana telemetry pipeline for real-time battery monitoring during testing and racing.",
+      "Built a CAN → Wi-Fi → Supabase → React telemetry pipeline for real-time battery monitoring during testing and racing.",
     fullDescription: "custom", // This signals to use a custom detail component
     image: bmsTelemetryImage,
     date: "2025 – Present",
