@@ -7,7 +7,7 @@ const Me = () => {
       <div className="max-w-2xl mx-auto py-16 md:py-24 px-[8px]">
         <section className="space-y-8">
           {/* Name */}
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">hello my name is Drew</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">Hello! I'm Drew.</h1>
 
           {/* About */}
           <div className="space-y-4 text-lg leading-relaxed text-foreground">
