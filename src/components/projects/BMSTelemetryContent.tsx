@@ -26,11 +26,11 @@ const BMSTelemetryContent = () => {
       </section>
 
       {/* Wiring Image */}
-      <div className="overflow-hidden bg-muted aspect-video rounded-lg">
+      <div className="my-8">
         <img
           src={bmsWiringImage}
           alt="Working on the battery pack wiring"
-          className="w-full h-full object-cover"
+          className="w-full rounded-lg border border-border"
         />
       </div>
 
@@ -141,11 +141,11 @@ const BMSTelemetryContent = () => {
       </section>
 
       {/* Team Image */}
-      <div className="overflow-hidden bg-muted aspect-video rounded-lg">
+      <div className="my-8">
         <img
           src={bmsTeamImage}
           alt="The battery team celebrating a successful test"
-          className="w-full h-full object-cover"
+          className="w-full rounded-lg border border-border"
         />
       </div>
 
@@ -169,11 +169,11 @@ const BMSTelemetryContent = () => {
       </section>
 
       {/* Dashboard Image */}
-      <div className="overflow-hidden bg-muted aspect-video rounded-lg">
+      <div className="my-8">
         <img
           src={bmsDashboardImage}
           alt="The live Supabase-powered BMS telemetry dashboard"
-          className="w-full h-full object-cover"
+          className="w-full rounded-lg border border-border"
         />
       </div>
 
