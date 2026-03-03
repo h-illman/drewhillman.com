@@ -1,13 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { BarChart3, DollarSign, Server, Shield } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import TextLink from "@/components/ui/TextLink";
 import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
 import aurovexChart from "@/assets/aurovex-chart.png";
@@ -24,115 +15,78 @@ const techStack = [
   "TypeScript",
 ];
 
-const features = [
-  {
-    icon: <BarChart3 className="w-5 h-5 text-primary" />,
-    title: "Dynamic KPI Summary",
-    description:
-      "Built with Tremor UI, consuming raw numerical totals and formatting them into easily readable currency metrics with visual progress bars.",
-  },
-  {
-    icon: <DollarSign className="w-5 h-5 text-primary" />,
-    title: "Interactive Spend Chart",
-    description:
-      "Maps chronological report dates to aggregate spending amounts in an elegant Tremor AreaChart.",
-  },
-  {
-    icon: <Server className="w-5 h-5 text-primary" />,
-    title: "Micro-Billing Engine",
-    description:
-      "Houses the core algorithm for converting specific vCPU-second and GB-second memory usage into precise dollar amounts.",
-  },
-  {
-    icon: <Shield className="w-5 h-5 text-primary" />,
-    title: "Secure Server Actions",
-    description:
-      "Leverages Next.js 14 Server Actions to securely execute backend database queries and aggregation logic natively on the server.",
-  },
-];
-
 const AurovexDashboardContent = () => {
   return (
     <div className="space-y-8">
-      {/* Hero / Pitch */}
-      <div className="prose prose-lg max-w-none">
-        <p className="text-foreground leading-relaxed text-lg">
-          A fast, read-only Next.js dashboard for visualizing cloud compute
-          costs and report generation metrics derived directly from a PostgreSQL
-          database.
+      {/* Introduction */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">The problem</h2>
+        <p className="text-foreground leading-relaxed">
+          At Aurovex, cloud compute costs and AI report generation expenses were buried inside raw Supabase tables and billing consoles that nobody wanted to dig through. If leadership wanted to know how much we'd spent this week, someone had to manually query the database and do math in a spreadsheet. That's not sustainable when you're scaling.
         </p>
+        <p className="text-foreground leading-relaxed">
+          I wanted to build something where anyone on the team could pull up a single page and immediately see: how much we've spent, how many reports we've generated, and what each one costs on average — no SQL required.
+        </p>
+      </section>
+
+      {/* Dashboard Image */}
+      <div className="my-8">
+        <img
+          src={aurovexDashboard}
+          alt="Aurovex Finance Dashboard full view with KPI cards, spending chart, and cost breakdown table"
+          className="w-full rounded-lg border border-border"
+        />
       </div>
 
-      {/* Problem → Solution */}
+      {/* How it works */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">The Challenge</h2>
-        <div className="prose prose-lg max-w-none">
-          <p className="text-foreground leading-relaxed">
-            Cloud resource usage and generative AI reporting costs are often
-            buried within raw database tables or complex billing consoles.
-          </p>
+        <h2 className="text-2xl font-semibold text-foreground">How it works</h2>
+        <p className="text-foreground leading-relaxed">
+          The dashboard is a read-only Next.js 14 app. When the page loads, it fires a Server Action that queries the Supabase PostgreSQL database through Drizzle ORM. The raw data gets processed and sorted chronologically on the server, then clean props are passed down to Tremor UI client components for rendering.
+        </p>
+        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
+          Next.js Page → Server Action → Drizzle ORM → Supabase PostgreSQL → Tremor UI Components
         </div>
-
-        <h2 className="text-2xl font-semibold text-foreground mt-6">The Solution</h2>
-        <div className="prose prose-lg max-w-none">
-          <p className="text-foreground leading-relaxed">
-            The Aurovex Finance Dashboard surfaces total spend, report volume,
-            and average cost-per-report securely and beautifully. It allows
-            internal stakeholders to monitor infrastructure spending trends at a
-            glance without needing direct database access.
-          </p>
-        </div>
+        <p className="text-foreground leading-relaxed">
+          The KPI cards at the top consume raw numerical totals and format them into readable currency metrics. Below that, an interactive Tremor AreaChart maps report dates to aggregate spending amounts, so you can visually spot trends. And under the hood, there's a micro-billing engine — a small but critical algorithm that converts vCPU-seconds and GB-second memory usage into precise dollar amounts.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          Everything runs through Next.js 14 Server Actions, which means the database queries and aggregation logic execute natively on the server. No API routes, no exposed endpoints — just secure, server-side data fetching baked into the rendering cycle.
+        </p>
       </section>
 
-      {/* Feature Grid */}
+      {/* KPI Cards Image */}
+      <div className="my-8">
+        <img
+          src={aurovexKpiCards}
+          alt="Dashboard KPI metric cards showing total spend, reports generated, and average cost per report"
+          className="w-full rounded-lg border border-border"
+        />
+      </div>
+
+      {/* Challenges */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Key Features</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {features.map((f) => (
-            <Card key={f.title}>
-              <CardHeader className="pb-2">
-                <div className="flex items-center gap-2">
-                  {f.icon}
-                  <CardTitle className="text-lg">{f.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {f.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <h2 className="text-2xl font-semibold text-foreground">The tricky parts</h2>
+        <p className="text-foreground leading-relaxed">
+          The biggest headache was getting the build to work. When I ran <code className="text-sm bg-muted/50 px-1 rounded">npm run build</code>, it crashed with a Postgres 42501 error — insufficient privileges. What was happening is that Next.js was trying to statically pre-render the server actions at build time, which meant it was hitting the authenticated database without a live session. The fix was straightforward once I understood the problem: I added <code className="text-sm bg-muted/50 px-1 rounded">export const dynamic = 'force-dynamic'</code> to the dashboard routes, which pushes all querying to request-time instead of build-time.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          The other issue was with Tremor's React components. They kept crashing the server render with Context and Hook errors because they rely on browser APIs that don't exist on the server. I had to pull all the Tremor elements into their own dedicated component files and apply the <code className="text-sm bg-muted/50 px-1 rounded">'use client'</code> directive to create a clean boundary between server and client code.
+        </p>
       </section>
 
-      {/* Architecture */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Architecture</h2>
-        <div className="prose prose-lg max-w-none">
-          <p className="text-foreground leading-relaxed">
-            The Next.js page invokes a Server Action on render → Queries
-            Postgres via Drizzle ORM → Raw data is processed chronologically in
-            the Server → Clean props are piped down to Tremor Client Components.
-          </p>
-        </div>
-        <Card className="overflow-hidden">
-          <CardContent className="p-4">
-            <pre className="text-sm text-foreground whitespace-pre-wrap font-mono leading-relaxed">
-{`graph TD
-    UI[Tremor UI Client Components] -->|Props| Page[Next.js Server Page]
-    Page -->|Awaits| Action[Server Action: getFinanceData]
-    Action -->|Calculates Cost| Engine[Pricing Engine]
-    Action -->|SQL Query| Drizzle[Drizzle ORM]
-    Drizzle -->|Read-only Connection| DB[(Supabase PostgreSQL)]`}
-            </pre>
-          </CardContent>
-        </Card>
-      </section>
+      {/* Chart Image */}
+      <div className="my-8">
+        <img
+          src={aurovexChart}
+          alt="Interactive area chart showing daily cloud run spending over time"
+          className="w-full rounded-lg border border-border"
+        />
+      </div>
 
       {/* Tech Stack */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Tech Stack</h2>
+        <h2 className="text-2xl font-semibold text-foreground">Tech stack</h2>
         <div className="flex flex-wrap gap-2">
           {techStack.map((tech) => (
             <Badge key={tech} variant="secondary" className="text-sm">
@@ -142,145 +96,23 @@ const AurovexDashboardContent = () => {
         </div>
       </section>
 
-      {/* Challenges & Solutions */}
+      {/* What's next */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">
-          Challenges &amp; Solutions
-        </h2>
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              Static Compilation vs. Row Level Security
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-foreground leading-relaxed mb-2">
-                <strong>Problem:</strong>{" "}
-                <code className="text-sm bg-muted px-1 py-0.5 rounded">npm run build</code>{" "}
-                crashed with a Postgres 42501 (Insufficient Privilege) error.
-                Next.js attempted to statically pre-render server actions
-                mapping to an authenticated database without a live session.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                <strong>Fix:</strong> Added{" "}
-                <code className="text-sm bg-muted px-1 py-0.5 rounded">
-                  export const dynamic = 'force-dynamic'
-                </code>{" "}
-                to the dashboard routes to push querying safely to request-time.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>
-              Third-Party UI Context Errors
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-foreground leading-relaxed mb-2">
-                <strong>Problem:</strong> Tremor components crashed the server
-                render with Context/Hook errors.
-              </p>
-              <p className="text-foreground leading-relaxed">
-                <strong>Fix:</strong> Abstracted Tremor elements into dedicated{" "}
-                <code className="text-sm bg-muted px-1 py-0.5 rounded">
-                  kpi-cards.tsx
-                </code>{" "}
-                component files and strictly applied the{" "}
-                <code className="text-sm bg-muted px-1 py-0.5 rounded">
-                  'use client'
-                </code>{" "}
-                boundary directive.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </section>
-
-      {/* Results / Future Benchmarks */}
-      <section className="space-y-4">
-        <Card className="bg-muted/50">
-          <CardContent className="p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              Future Performance Benchmarks
-            </h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
-              Not fully measured in production yet. Upcoming metrics to track
-              include: Lighthouse Performance Score, Drizzle ORM query latency,
-              and Tremor Client-side render times for large dataset arrays.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* Gallery */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Gallery</h2>
-        <div className="space-y-6">
-          <div>
-            <img
-              src={aurovexDashboard}
-              alt="Aurovex Finance Dashboard full view with KPI cards, spending chart, and cost breakdown table"
-              className="w-full rounded-lg border border-border"
-            />
-            <p className="text-sm text-muted-foreground mt-2 text-center">
-              Full Dashboard Overview
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <img
-                src={aurovexKpiCards}
-                alt="Dashboard KPI metric cards showing total spend, reports generated, and average cost per report"
-                className="w-full rounded-lg border border-border"
-              />
-              <p className="text-sm text-muted-foreground mt-2 text-center">
-                Dashboard KPI Metric Cards
-              </p>
-            </div>
-            <div>
-              <img
-                src={aurovexChart}
-                alt="Interactive area chart showing daily cloud run spending over time"
-                className="w-full rounded-lg border border-border"
-              />
-              <p className="text-sm text-muted-foreground mt-2 text-center">
-                Daily Spend Interactive Area Chart
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Roadmap */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Roadmap</h2>
-        <ul className="list-disc list-inside text-foreground space-y-2">
-          <li>
-            Implement full Supabase Auth session sharing inside the Server
-            Action.
-          </li>
-          <li>
-            Add a date-range picker filter to query historical reporting billing
-            windows.
-          </li>
-          <li>
-            Setup automated Jest unit tests for the pricing engine algorithm.
-          </li>
-        </ul>
+        <h2 className="text-2xl font-semibold text-foreground">What's next</h2>
+        <p className="text-foreground leading-relaxed">
+          The dashboard does what it needs to right now, but there's more I want to do with it. I'd like to implement full Supabase Auth session sharing inside the Server Action so the app can support role-based access. I also want to add a date-range picker so stakeholders can filter and compare billing across different time windows. And on the engineering side, I want to set up Jest unit tests for the pricing engine — it's the most critical piece of logic and it deserves proper coverage.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          On the performance side, I haven't done formal benchmarking yet, but I'd like to track Lighthouse scores, Drizzle query latency, and Tremor render times as the dataset grows.
+        </p>
       </section>
 
       {/* My Contributions */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">
-          My Contributions
-        </h2>
-        <div className="prose prose-lg max-w-none">
-          <p className="text-foreground leading-relaxed">
-            Architected and built the entire dashboard from scratch.
-            Bootstrapped the Next.js environment, executed Drizzle ORM
-            introspection on an existing Supabase instance, developed the
-            pricing algorithm, designed the UI, and expertly navigated complex
-            Next.js SSR build boundary issues.
-          </p>
-        </div>
+        <h2 className="text-2xl font-semibold text-foreground">My contributions</h2>
+        <p className="text-foreground leading-relaxed">
+          I built the entire dashboard from scratch. I bootstrapped the Next.js environment, ran Drizzle ORM introspection on an existing Supabase instance to generate the schema, wrote the pricing algorithm, designed the UI with Tremor, and navigated the SSR boundary issues that come with mixing server actions and client-side charting libraries.
+        </p>
       </section>
     </div>
   );
