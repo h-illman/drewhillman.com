@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, BarChart3, DollarSign, Server, Shield } from "lucide-react";
+import { BarChart3, DollarSign, Server, Shield } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +9,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import TextLink from "@/components/ui/TextLink";
-import aurovexDashboard from "@/assets/aurovex-dashboard.png";
+import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
+import aurovexChart from "@/assets/aurovex-chart.png";
+import aurovexKpiCards from "@/assets/aurovex-kpi-cards.png";
 
 const techStack = [
   "Next.js 14",
@@ -59,20 +61,6 @@ const AurovexDashboardContent = () => {
           costs and report generation metrics derived directly from a PostgreSQL
           database.
         </p>
-      </div>
-
-      {/* CTAs */}
-      <div className="flex flex-wrap gap-3">
-        <Button asChild>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            View Repo <ExternalLink className="w-4 h-4 ml-1" />
-          </a>
-        </Button>
-        <Button variant="outline" asChild>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            Live Demo <ExternalLink className="w-4 h-4 ml-1" />
-          </a>
-        </Button>
       </div>
 
       {/* Problem → Solution */}
@@ -225,45 +213,41 @@ const AurovexDashboardContent = () => {
       {/* Gallery */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-foreground">Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-6">
           <div>
-            <div className="aspect-video bg-muted border border-border rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Image placeholder</span>
-            </div>
-            <p className="text-sm text-muted mt-2 text-center">
-              Dashboard KPI Metric Cards
+            <img
+              src={aurovexDashboard}
+              alt="Aurovex Finance Dashboard full view with KPI cards, spending chart, and cost breakdown table"
+              className="w-full rounded-lg border border-border"
+            />
+            <p className="text-sm text-muted-foreground mt-2 text-center">
+              Full Dashboard Overview
             </p>
           </div>
-          <div>
-            <div className="aspect-video bg-muted border border-border rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Image placeholder</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <img
+                src={aurovexKpiCards}
+                alt="Dashboard KPI metric cards showing total spend, reports generated, and average cost per report"
+                className="w-full rounded-lg border border-border"
+              />
+              <p className="text-sm text-muted-foreground mt-2 text-center">
+                Dashboard KPI Metric Cards
+              </p>
             </div>
-            <p className="text-sm text-muted mt-2 text-center">
-              Daily Spend Interactive Area Chart
-            </p>
-          </div>
-          <div>
-            <div className="aspect-video bg-muted border border-border rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Image placeholder</span>
+            <div>
+              <img
+                src={aurovexChart}
+                alt="Interactive area chart showing daily cloud run spending over time"
+                className="w-full rounded-lg border border-border"
+              />
+              <p className="text-sm text-muted-foreground mt-2 text-center">
+                Daily Spend Interactive Area Chart
+              </p>
             </div>
-            <p className="text-sm text-muted mt-2 text-center">
-              Drizzle ORM Backend Server Logic
-            </p>
           </div>
         </div>
       </section>
-
-      {/* Dashboard Image */}
-      <div className="my-8">
-        <img
-          src={aurovexDashboard}
-          alt="Aurovex Finance Dashboard showing KPI cards and spending charts"
-          className="w-full rounded-lg border border-border"
-        />
-        <p className="text-sm text-muted mt-2 text-center">
-          Aurovex Finance Dashboard overview
-        </p>
-      </div>
 
       {/* Roadmap */}
       <section className="space-y-4">
