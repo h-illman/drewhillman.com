@@ -7,6 +7,7 @@ import BMSTelemetryContent from "@/components/projects/BMSTelemetryContent";
 import SLOMonitoringContent from "@/components/projects/SLOMonitoringContent";
 import ThermalModelContent from "@/components/projects/ThermalModelContent";
 import BioLockContent from "@/components/projects/BioLockContent";
+import AurovexDashboardContent from "@/components/projects/AurovexDashboardContent";
 import TextLink from "@/components/ui/TextLink";
 const ExperienceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -82,6 +83,8 @@ const ExperienceDetail = () => {
             <ThermalModelContent />
           ) : isCustomContent && id === "arduino-biometric" ? (
             <BioLockContent />
+          ) : isCustomContent && id === "aurovex-dashboard" ? (
+            <AurovexDashboardContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">

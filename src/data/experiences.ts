@@ -5,6 +5,7 @@ import bmsTelemetryImage from "@/assets/bms-telemetry.jpg";
 import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
+import aurovexDashboardImage from "@/assets/aurovex-dashboard.png";
 export interface Experience {
   id: string;
   title: string;
@@ -91,6 +92,17 @@ export const experiences: Experience[] = [
     tags: ["Python", "Supabase", "React", "Data Acquisition", "CAN Bus"],
     type: "project",
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
+  },
+  {
+    id: "aurovex-dashboard",
+    title: "Aurovex Finance Dashboard",
+    description:
+      "A fast, read-only Next.js dashboard for visualizing cloud compute costs and report generation metrics derived directly from a PostgreSQL database.",
+    fullDescription: "custom",
+    image: aurovexDashboardImage,
+    date: "2026",
+    tags: ["Next.js 14", "TypeScript", "Tremor UI", "Drizzle ORM", "Supabase", "PostgreSQL"],
+    type: "project",
   },
   {
     id: "thermal-model",
