@@ -7,22 +7,23 @@ const BMSTelemetryContent = () => {
   return (
     <div className="space-y-8">
       {/* Introduction */}
+      <div className="prose prose-lg max-w-none">
+        <p className="text-foreground leading-relaxed text-lg">
+          A real-time telemetry pipeline that takes raw CAN bus data from our solar car's battery management system and puts it on a live dashboard anyone on the team can pull up from their phone.
+        </p>
+      </div>
+
+      {/* Why */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">The problem</h2>
-        <p className="text-foreground leading-relaxed">
-          In solar racing, the electrical system is only as race-ready as its ability to prove what the battery is doing in real time. The Orion 2 BMS is excellent at protecting the pack, but it locks all that data inside a desktop utility tethered to the car. If I wanted to see the battery status, I'd need a computer wired directly to the BMS at all times.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          During a race, we couldn't afford to have someone sitting in the passenger seat with a laptop. We needed:
-        </p>
-        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
-          <li>Live, remote visibility for the pit crew</li>
-          <li>Instant "at a glance" readability (SOC, Voltage, Current, Faults)</li>
-          <li>Structured logging to review heat performance later</li>
-        </ul>
-        <p className="text-foreground leading-relaxed">
-          My goal was to build the bridge between the raw CAN bus signals inside the car and a screen that anyone on the team could pull up on their phone.
-        </p>
+        <h2 className="text-2xl font-semibold text-foreground">Why this needed to exist</h2>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            The Orion 2 BMS is great at protecting the battery pack, but all its data lives inside a desktop utility that requires a laptop physically tethered to the car. During a race, that's not an option — nobody's riding shotgun with a ThinkPad plugged into the CAN bus.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            What the pit crew actually needed was a way to glance at their phone and see: what's the state of charge, what's the voltage doing, are there any faults. That's the whole point of this project — get the data out of the car and onto a screen that's useful.
+          </p>
+        </div>
       </section>
 
       {/* Wiring Image */}
@@ -36,108 +37,76 @@ const BMSTelemetryContent = () => {
 
       {/* Phase 1 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Phase 1: The heavy-duty stack (InfluxDB + Grafana)</h2>
-        <p className="text-foreground leading-relaxed">
-          When I first started designing this, I went with the industry standard for time-series data. I built a pipeline using InfluxDB 3 Core for storage and Grafana for visualization.
-        </p>
-        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
-          Orion BMS (CAN) → CANdapter → Python Decoder → InfluxDB → Grafana
+        <h2 className="text-2xl font-semibold text-foreground">Round one: InfluxDB + Grafana</h2>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            I started with the obvious choice for time-series data — InfluxDB for storage and Grafana for dashboards. I wrote a Python script that hooked into the CAN bus, read the raw hex frames, decoded them using the Orion's message spec, and pushed everything into InfluxDB.
+          </p>
+          <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
+            Orion BMS (CAN) → CANdapter → Python Decoder → InfluxDB → Grafana
+          </div>
+          <p className="text-foreground leading-relaxed">
+            The decoding part is where the real work was. You're taking raw hex — something like <code className="text-sm bg-muted/50 px-1 rounded">0x01E0</code> — and turning it into "48.0 Volts" based on a specific byte layout and scaling factor. Get the byte order wrong and you're looking at nonsense numbers that seem almost right, which is worse than obviously wrong.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            This stack was great for bench testing. I built a full "Race Day" dashboard with voltage sag tracking, temperature heat maps, and fault flags. InfluxDB could handle thousands of data points per second without breaking a sweat, and Grafana made it easy to iterate on visualizations quickly. But it still felt like a local tool — it needed a laptop running in the pit lane, and it wasn't something the whole team could access easily.
+          </p>
         </div>
-        <p className="text-foreground leading-relaxed">
-          I wrote a Python logger that acted as the "translator." It hooked into the CAN bus, read the raw hex frames, and used a specific decoding map to turn binary data into engineering units (e.g., converting <code className="text-sm bg-muted/50 px-1 rounded">0x01E0</code> into 48.0 Volts).
-        </p>
-        <p className="text-foreground leading-relaxed">
-          Why this was great:
-        </p>
-        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
-          <li><span className="font-medium">Fast iteration:</span> InfluxDB's SQL support made debugging easy</li>
-          <li><span className="font-medium">High frequency:</span> It could ingest thousands of points per second without sweating</li>
-          <li><span className="font-medium">Validation:</span> It let me prove we were actually receiving valid frames before worrying about pretty UIs</li>
-        </ul>
-        <p className="text-foreground leading-relaxed">
-          I built a full "Race Day" dashboard in Grafana with voltage sags, temperature heat maps, and fault flags. It worked perfectly for bench testing and detailed analysis.
-        </p>
       </section>
 
       {/* Phase 2 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Phase 2: The pivot to cloud (Supabase + React)</h2>
-        <p className="text-foreground leading-relaxed">
-          While Grafana is powerful, it felt a bit "local." I wanted a solution that was inherently cloud-native — something that didn't require running a server on a laptop in the pit lane. I wanted the team to be able to check the car's status from anywhere.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          I decided to migrate the backend to Supabase (a modern PostgreSQL wrapper) and build a custom frontend using React.
-        </p>
-        <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
-          Orion BMS → ESP32 Telemetry Board → Wi-Fi → Python Gateway → Supabase → React Dashboard
-        </div>
-        <p className="text-muted text-sm italic">
-          Note: The ESP32 hardware transmitter was designed by Xiuting Shi (Driver Controls Lead). My focus was the receiving end — ingestion, decoding, database, and frontend.
-        </p>
-      </section>
-
-      {/* How it works */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">How it works now</h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-lg font-medium text-foreground">1. The Edge</h3>
-            <p className="text-foreground leading-relaxed">
-              A Python script running on the receiving laptop captures the decoded CAN packets.
-            </p>
+        <h2 className="text-2xl font-semibold text-foreground">Round two: taking it to the cloud</h2>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            The InfluxDB setup proved the concept, but I wanted something inherently cloud-native. I migrated the backend to Supabase and built a custom React frontend. The idea was simple: the car broadcasts data over Wi-Fi via an ESP32, a Python gateway script picks it up and pushes it to Supabase, and the React dashboard subscribes to real-time updates.
+          </p>
+          <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
+            Orion BMS → ESP32 → Wi-Fi → Python Gateway → Supabase → React Dashboard
           </div>
-          <div>
-            <h3 className="text-lg font-medium text-foreground">2. The Push</h3>
-            <p className="text-foreground leading-relaxed">
-              Instead of batching for storage, the script pushes JSON packets directly to Supabase.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-foreground">3. Realtime Sync</h3>
-            <p className="text-foreground leading-relaxed">
-              I utilized Supabase's Realtime (WebSockets) feature. The database literally "shouts" to the website whenever a new row is added.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-foreground">4. The UI</h3>
-            <p className="text-foreground leading-relaxed">
-              The site listens for these updates and animates the gauges instantly. It includes a "Deadman Switch" — if data stops flowing for 5 seconds, the status light turns red, alerting the crew that telemetry is lost. Also, I just thought that looked cool.
-            </p>
-          </div>
+          <p className="text-muted text-sm italic">
+            The ESP32 transmitter was designed by Xiuting Shi (Driver Controls Lead). I focused on everything from the receiving end forward — ingestion, decoding, database, and the frontend.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            Supabase's Realtime feature is what makes this work. The database pushes updates to the frontend over WebSockets whenever a new row lands. No polling, no refresh buttons — the gauges just update. I also added a "deadman switch": if no data comes in for five seconds, the status indicator turns red so the crew knows telemetry is down. Partly practical, partly because I thought it looked cool.
+          </p>
         </div>
       </section>
 
-      {/* Python Decoding */}
+      {/* The CAN contract */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Python decoding — the contract</h2>
-        <p className="text-foreground leading-relaxed">
-          The hardest part wasn't the database; it was defining the "contract" between the hardware and the software. If the BMS sends a byte wrong, the dashboard shows garbage.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          I standardized a single "Race Telemetry" CAN message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) broadcasted every 100 ms:
-        </p>
-        <div className="bg-muted/30 p-4 rounded-lg space-y-1 text-sm font-mono text-foreground">
-          <p>Race Telemetry CAN message (0x6B0):</p>
-          <p>• Bytes 0–1: Pack Voltage (Unsigned 16-bit)</p>
-          <p>• Bytes 2–3: Pack Current (Signed 16-bit)</p>
-          <p>• Byte 4: State of Charge (0.5% scaling)</p>
-          <p>• Bytes 5–6: Temperatures (Unsigned integers)</p>
-          <p>• Byte 7: Fault Bitfield</p>
+        <h2 className="text-2xl font-semibold text-foreground">The CAN message contract</h2>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            The hardest part of this whole project wasn't the database or the frontend — it was defining the contract between hardware and software. If the BMS sends bytes in a different order than the decoder expects, the dashboard shows garbage. And CAN garbage looks deceptively close to real data, so you can stare at it for a while before you realize something's off.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            I standardized everything into a single "Race Telemetry" message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) broadcasting every 100ms:
+          </p>
+          <div className="bg-muted/30 p-4 rounded-lg space-y-1 text-sm font-mono text-foreground">
+            <p>Bytes 0–1: Pack Voltage (Unsigned 16-bit)</p>
+            <p>Bytes 2–3: Pack Current (Signed 16-bit)</p>
+            <p>Byte 4: State of Charge (0.5% scaling)</p>
+            <p>Bytes 5–6: Temperatures (Unsigned integers)</p>
+            <p>Byte 7: Fault Bitfield</p>
+          </div>
+          <p className="text-foreground leading-relaxed">
+            The Python side handles all the bit-shifting and scaling — when the BMS sends 200, the database records 100 Amps. It's simple math, but if you mess up the signedness or the byte order, you end up with negative voltages or temperatures that don't exist.
+          </p>
         </div>
-        <p className="text-foreground leading-relaxed">
-          My Python decoder handles the bit-shifting and scaling factors to ensure that when the BMS says 200, the database records 100 Amps.
-        </p>
       </section>
 
       {/* The dumb mistake */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-foreground">The two-week debugging nightmare</h2>
-        <p className="text-foreground leading-relaxed">
-          This is also where I made my biggest (and dumbest) mistake that delayed the whole project by about two weeks. Every single time I configured the BMS software to send the bytes as structured above, it wouldn't work — I was getting total nonsense data. I'd check the software over and over, and every time the CAN messages would reset. I fully wiped my computer of the BMS software and tried all kinds of fixes.
-        </p>
-        <p className="text-foreground leading-relaxed">
-          The fix finally came when I showed my team. One of the junior engineers under me, Sean, looked at it and saw that I didn't click <span className="font-medium">save</span>. The whole time, I was setting up CAN messages and doing all this work and it wasn't working just because I didn't hit save. Go figure.
-        </p>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            I have to include this because it's too good not to. I spent about two weeks debugging why my CAN message configuration kept resetting. Every time I'd set up the byte layout in the BMS software, it just wouldn't stick. I wiped the software, reinstalled, tried different computers, went through every setting I could think of.
+          </p>
+          <p className="text-foreground leading-relaxed">
+            The fix? I wasn't clicking save. That's it. Two weeks of my life because I didn't hit one button. One of the junior engineers on my team, Sean, sat down, looked at it, and caught it in about thirty seconds. I've never felt so humbled and so relieved at the same time.
+          </p>
+        </div>
       </section>
 
       {/* Team Image */}
@@ -151,21 +120,12 @@ const BMSTelemetryContent = () => {
 
       {/* Results */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">The result</h2>
-        <p className="text-foreground leading-relaxed font-medium text-lg">
-          We moved from "we think the battery is fine" to "we can prove it."
-        </p>
-        <p className="text-foreground leading-relaxed">
-          We now have a system where:
-        </p>
-        <ul className="list-disc list-inside text-foreground space-y-2 ml-4">
-          <li>Raw CAN traffic can be verified independently</li>
-          <li>Decoded values are stored in a queryable cloud database</li>
-          <li>The dashboard is accessible to the entire team, live, with sub-second latency</li>
-        </ul>
-        <p className="text-foreground leading-relaxed">
-          And you can view it from anywhere. Everyone wins!
-        </p>
+        <h2 className="text-2xl font-semibold text-foreground">Where it is now</h2>
+        <div className="prose prose-lg max-w-none space-y-4">
+          <p className="text-foreground leading-relaxed">
+            We went from "we think the battery is fine" to "we can prove it." The raw CAN traffic can be verified independently, decoded values live in a queryable cloud database, and the dashboard is accessible to the entire team with sub-second latency. Anyone can pull it up, anywhere. That was the whole goal, and it works.
+          </p>
+        </div>
       </section>
 
       {/* Dashboard Image */}
