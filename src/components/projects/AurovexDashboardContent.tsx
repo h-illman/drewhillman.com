@@ -1,18 +1,6 @@
-import { Badge } from "@/components/ui/badge";
 import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
 import aurovexChart from "@/assets/aurovex-chart.png";
 import aurovexKpiCards from "@/assets/aurovex-kpi-cards.png";
-
-const techStack = [
-  "Next.js 14",
-  "React 18",
-  "Tailwind CSS",
-  "Tremor UI",
-  "PostgreSQL",
-  "Supabase",
-  "Drizzle ORM",
-  "TypeScript",
-];
 
 const AurovexDashboardContent = () => {
   return (
@@ -109,17 +97,6 @@ const AurovexDashboardContent = () => {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Tech stack</h2>
-        <div className="flex flex-wrap gap-2">
-          {techStack.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-sm">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </section>
 
       {/* What I built */}
       <section className="space-y-4">
