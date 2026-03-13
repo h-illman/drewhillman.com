@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="py-8 mt-16">
       <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground">
-          © 2025 Drew Hillman - made with React, TypeScript, Tailwind CSS, and Vite
+          © 2026 Drew Hillman
         </p>
 
         <div className="flex items-center gap-3">
