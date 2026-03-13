@@ -109,17 +109,6 @@ const AurovexDashboardContent = () => {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Tech stack</h2>
-        <div className="flex flex-wrap gap-2">
-          {techStack.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-sm">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </section>
 
       {/* What I built */}
       <section className="space-y-4">

@@ -5,7 +5,7 @@ import bmsTelemetryImage from "@/assets/bms-accumulator.png";
 import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
-import aurovexDashboardImage from "@/assets/aurovex-dashboard.png";
+import aurovexDashboardImage from "@/assets/aurovex-code.png";
 export interface Experience {
   id: string;
   title: string;
