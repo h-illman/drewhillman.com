@@ -1,18 +1,6 @@
 import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
-import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
 import aurovexChart from "@/assets/aurovex-chart.png";
 import aurovexKpiCards from "@/assets/aurovex-kpi-cards.png";
-
-const techStack = [
-  "Next.js 14",
-  "React 18",
-  "Tailwind CSS",
-  "Tremor UI",
-  "PostgreSQL",
-  "Supabase",
-  "Drizzle ORM",
-  "TypeScript",
-];
 
 const AurovexDashboardContent = () => {
   return (
