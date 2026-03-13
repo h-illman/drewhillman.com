@@ -1,29 +1,20 @@
-import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import ExperienceCard from "@/components/ExperienceCard";
 import TextLink from "@/components/ui/TextLink";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { experiences } from "@/data/experiences";
+
 const Experience = () => {
+  const [searchParams] = useSearchParams();
+  const defaultTab = searchParams.get("tab") === "roles" ? "roles" : "projects";
+
   const projects = experiences.filter((exp) => exp.type === "project");
   const roles = experiences.filter((exp) => exp.type === "work");
-
-  // Restore scroll position when returning to this page
-  useEffect(() => {
-    const savedPosition = sessionStorage.getItem("experienceScrollPosition");
-    if (savedPosition) {
-      // Small delay to ensure the page is fully rendered
-      setTimeout(() => {
-        window.scrollTo(0, parseInt(savedPosition, 10));
-        sessionStorage.removeItem("experienceScrollPosition");
-      }, 0);
-    }
-  }, []);
 
   return (
     <Layout>
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        {/* Intro */}
         <section className="space-y-4 mb-16">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">My experience</h1>
           <p className="text-lg text-foreground leading-relaxed">
@@ -38,18 +29,17 @@ const Experience = () => {
           </p>
         </section>
 
-        {/* Tabbed Experience */}
-        <Tabs defaultValue="projects" className="w-full">
+        <Tabs defaultValue={defaultTab} className="w-full">
           <TabsList className="mb-6 bg-transparent p-0 h-auto gap-0">
-            <TabsTrigger 
-              value="projects" 
+            <TabsTrigger
+              value="projects"
               className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
             >
               projects
             </TabsTrigger>
             <span className="text-muted mx-2">|</span>
-            <TabsTrigger 
-              value="roles" 
+            <TabsTrigger
+              value="roles"
               className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
             >
               roles
