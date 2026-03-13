@@ -9,9 +9,12 @@ import ThermalModelContent from "@/components/projects/ThermalModelContent";
 import BioLockContent from "@/components/projects/BioLockContent";
 import AurovexDashboardContent from "@/components/projects/AurovexDashboardContent";
 import TextLink from "@/components/ui/TextLink";
+
 const ExperienceDetail = () => {
   const { id } = useParams<{ id: string }>();
   const experience = id ? getExperienceById(id) : undefined;
+
+  const backTab = experience?.type === "work" ? "roles" : "projects";
 
   if (!experience) {
     return (
@@ -30,7 +33,6 @@ const ExperienceDetail = () => {
     );
   }
 
-  // Check if this experience uses custom content
   const isCustomContent = experience.fullDescription === "custom";
 
   return (
@@ -38,7 +40,7 @@ const ExperienceDetail = () => {
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
         {/* Back link */}
         <Link
-          to="/experience"
+          to={`/experience?tab=${backTab}`}
           className="text-muted hover:text-foreground transition-colors inline-flex items-center gap-2 mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -74,7 +76,7 @@ const ExperienceDetail = () => {
             ))}
           </div>
 
-          {/* Content - either custom component or standard text */}
+          {/* Content */}
           {isCustomContent && id === "bms-telemetry" ? (
             <BMSTelemetryContent />
           ) : isCustomContent && id === "slo-monitoring" ? (
@@ -93,7 +95,6 @@ const ExperienceDetail = () => {
                 </p>
               </div>
 
-              {/* GitHub link if available */}
               {experience.githubUrl && (
                 <div className="pt-4">
                   <p className="text-foreground">
@@ -106,7 +107,6 @@ const ExperienceDetail = () => {
                 </div>
               )}
 
-              {/* Placeholder for additional content */}
               <div className="pt-8 border-t border-border">
                 <p className="text-muted text-sm">
                   More details, images, and resources can be added here.
