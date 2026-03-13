@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
 import aurovexDashboard from "@/assets/aurovex-full-dashboard.png";
 import aurovexChart from "@/assets/aurovex-chart.png";
 import aurovexKpiCards from "@/assets/aurovex-kpi-cards.png";
