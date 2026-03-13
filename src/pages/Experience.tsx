@@ -15,7 +15,6 @@ const Experience = () => {
   return (
     <Layout>
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        {/* Intro */}
         <section className="space-y-4 mb-16">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">My experience</h1>
           <p className="text-lg text-foreground leading-relaxed">
@@ -30,18 +29,17 @@ const Experience = () => {
           </p>
         </section>
 
-        {/* Tabbed Experience */}
         <Tabs defaultValue={defaultTab} className="w-full">
           <TabsList className="mb-6 bg-transparent p-0 h-auto gap-0">
-            <TabsTrigger 
-              value="projects" 
+            <TabsTrigger
+              value="projects"
               className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
             >
               projects
             </TabsTrigger>
             <span className="text-muted mx-2">|</span>
-            <TabsTrigger 
-              value="roles" 
+            <TabsTrigger
+              value="roles"
               className="bg-transparent px-0 py-0 text-sm data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=inactive]:text-muted data-[state=inactive]:font-normal hover:text-foreground transition-colors"
             >
               roles

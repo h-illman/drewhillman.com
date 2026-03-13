@@ -38,7 +38,6 @@ const ExperienceDetail = () => {
   return (
     <Layout>
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        {/* Back link */}
         <Link
           to={`/experience?tab=${backTab}`}
           className="text-muted hover:text-foreground transition-colors inline-flex items-center gap-2 mb-8"
@@ -48,7 +47,6 @@ const ExperienceDetail = () => {
         </Link>
 
         <article className="space-y-8">
-          {/* Image */}
           <div className="overflow-hidden bg-muted aspect-video">
             <img
               src={experience.image}
@@ -57,7 +55,6 @@ const ExperienceDetail = () => {
             />
           </div>
 
-          {/* Header */}
           <header className="space-y-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               {experience.title}
@@ -67,7 +64,6 @@ const ExperienceDetail = () => {
             )}
           </header>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {experience.tags.map((tag) => (
               <Badge key={tag} variant="secondary" className="text-sm">
@@ -76,7 +72,6 @@ const ExperienceDetail = () => {
             ))}
           </div>
 
-          {/* Content */}
           {isCustomContent && id === "bms-telemetry" ? (
             <BMSTelemetryContent />
           ) : isCustomContent && id === "slo-monitoring" ? (
