@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import ScrollToTop from "./components/ScrollToTop";
 import Me from "./pages/Me";
 import Experience from "./pages/Experience";
 import ExperienceDetail from "./pages/ExperienceDetail";
@@ -18,6 +19,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Me />} />
             <Route path="/experience" element={<Experience />} />
