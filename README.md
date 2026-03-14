@@ -1,3 +1,3 @@
 
 
-Here is my site I made with Lovable
+The code for a portfolio site made with Lovable :)
