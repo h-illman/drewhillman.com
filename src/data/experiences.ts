@@ -95,6 +95,17 @@ export const experiences: Experience[] = [
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
   },
   {
+    id: "charging-system",
+    title: "Solar Car Charging System Integration",
+    description:
+      "Designed and integrated the full charging path for a solar-electric vehicle, including the Elcon charger, J1772/OpenEVSE control logic, and Orion 2 BMS supervision.",
+    fullDescription: "custom",
+    image: chargingSolderingImage,
+    date: "2026",
+    tags: ["Electrical Design", "J1772", "BMS", "Systems Integration", "EV Charging"],
+    type: "project",
+  },
+  {
     id: "aurovex-dashboard",
     title: "Aurovex Finance Dashboard",
     description:
