@@ -6,6 +6,7 @@ import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
 import aurovexDashboardImage from "@/assets/aurovex-code.png";
+import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
   title: string;
@@ -92,6 +93,17 @@ export const experiences: Experience[] = [
     tags: ["Python", "Supabase", "React", "CAN Bus", "BMS", "Embedded Systems"],
     type: "project",
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
+  },
+  {
+    id: "charging-system",
+    title: "Solar Car Charging System Integration",
+    description:
+      "Designed and integrated the full charging path for a solar-electric vehicle, including the Elcon charger, J1772/OpenEVSE control logic, and Orion 2 BMS supervision.",
+    fullDescription: "custom",
+    image: chargingSolderingImage,
+    date: "2026",
+    tags: ["Electrical Design", "J1772", "BMS", "Systems Integration", "EV Charging"],
+    type: "project",
   },
   {
     id: "aurovex-dashboard",
