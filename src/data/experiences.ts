@@ -83,13 +83,13 @@ export const experiences: Experience[] = [
   },
   {
     id: "bms-telemetry",
-    title: "Orion 2 BMS Telemetry Pipeline",
+    title: "Orion 2 BMS Integration & Telemetry",
     description:
-      "Built a CAN → Wi-Fi → Supabase → React telemetry pipeline for real-time battery monitoring during testing and racing.",
-    fullDescription: "custom", // This signals to use a custom detail component
+      "Retrofitted an Orion 2 BMS into an existing solar car battery pack and built a full CAN-to-cloud telemetry pipeline for real-time monitoring.",
+    fullDescription: "custom",
     image: bmsTelemetryImage,
     date: "2025 – Present",
-    tags: ["Python", "Supabase", "React", "Data Acquisition", "CAN Bus"],
+    tags: ["Python", "Supabase", "React", "CAN Bus", "BMS", "Embedded Systems"],
     type: "project",
     githubUrl: "https://github.com/h-illman/Orion2BMS-dataLogging",
   },
