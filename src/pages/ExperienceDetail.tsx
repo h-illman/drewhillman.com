@@ -83,6 +83,8 @@ const ExperienceDetail = () => {
             <BioLockContent />
           ) : isCustomContent && id === "aurovex-dashboard" ? (
             <AurovexDashboardContent />
+          ) : isCustomContent && id === "charging-system" ? (
+            <ChargingSystemContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
