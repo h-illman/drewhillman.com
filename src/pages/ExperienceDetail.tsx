@@ -9,6 +9,7 @@ import ThermalModelContent from "@/components/projects/ThermalModelContent";
 import BioLockContent from "@/components/projects/BioLockContent";
 import AurovexDashboardContent from "@/components/projects/AurovexDashboardContent";
 import ChargingSystemContent from "@/components/projects/ChargingSystemContent";
+import SunstangLeadContent from "@/components/projects/SunstangLeadContent";
 import TextLink from "@/components/ui/TextLink";
 
 const ExperienceDetail = () => {
