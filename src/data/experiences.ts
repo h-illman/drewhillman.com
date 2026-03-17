@@ -62,8 +62,7 @@ export const experiences: Experience[] = [
     title: "Battery Pack Team Leader – Western Sunstang",
     description:
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
-    fullDescription:
-      "Led the battery team (~20 members) in the design, testing, and optimization of a custom lithium-ion battery pack and Orion 2 BMS integration for a fully electric multi-occupancy vehicle, meeting all American Solar Challenge regulations. Organized weekly work sessions, assigning owners for design, build, and verification tasks across various systems of the battery pack such as the Orion 2 BMS and custom J1772 charging circuit.",
+    fullDescription: "custom",
     image: sunstangImage,
     date: "September 2024 – Present",
     tags: ["Battery Systems", "BMS", "Leadership", "EV"],

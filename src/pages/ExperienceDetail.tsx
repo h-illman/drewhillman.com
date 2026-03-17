@@ -9,6 +9,7 @@ import ThermalModelContent from "@/components/projects/ThermalModelContent";
 import BioLockContent from "@/components/projects/BioLockContent";
 import AurovexDashboardContent from "@/components/projects/AurovexDashboardContent";
 import ChargingSystemContent from "@/components/projects/ChargingSystemContent";
+import SunstangLeadContent from "@/components/projects/SunstangLeadContent";
 import TextLink from "@/components/ui/TextLink";
 
 const ExperienceDetail = () => {
@@ -85,6 +86,8 @@ const ExperienceDetail = () => {
             <AurovexDashboardContent />
           ) : isCustomContent && id === "charging-system" ? (
             <ChargingSystemContent />
+          ) : isCustomContent && id === "sunstang" ? (
+            <SunstangLeadContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
