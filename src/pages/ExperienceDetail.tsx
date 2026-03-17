@@ -86,6 +86,8 @@ const ExperienceDetail = () => {
             <AurovexDashboardContent />
           ) : isCustomContent && id === "charging-system" ? (
             <ChargingSystemContent />
+          ) : isCustomContent && id === "sunstang" ? (
+            <SunstangLeadContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
