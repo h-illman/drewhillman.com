@@ -10,6 +10,8 @@ import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
   title: string;
+  company?: string;
+  companyUrl?: string;
   description: string;
   fullDescription: string;
   image: string;
