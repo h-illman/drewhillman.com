@@ -58,8 +58,7 @@ export const experiences: Experience[] = [
     companyUrl: "https://aurovex.ca",
     description:
       "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
-    fullDescription:
-      "Built Power BI dashboards to visualize model outputs for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports, helping to identify features gaps and data-quality issues. Provided data analytics on model performance and user behavior that fed directly into product decisions, helping keep the platform aligned with market needs and scalable as the customer base grows.",
+    fullDescription: "custom",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
     date: "January 2026 – Present",
     tags: ["Power BI", "Data Analytics", "AI/ML", "Product Analytics"],
