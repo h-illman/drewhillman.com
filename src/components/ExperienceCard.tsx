@@ -55,6 +55,7 @@ const ExperienceCard = ({
               <span className="text-sm text-muted">{company}</span>
             )
           )}
+          <p className="text-muted leading-relaxed">{description}</p>
           {date && <p className="text-sm text-muted">{date}</p>}
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
