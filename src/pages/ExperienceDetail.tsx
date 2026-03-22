@@ -90,6 +90,8 @@ const ExperienceDetail = () => {
             <ChargingSystemContent />
           ) : isCustomContent && id === "sunstang" ? (
             <SunstangLeadContent />
+          ) : isCustomContent && id === "gdls-intern" ? (
+            <GDLSRoleContent />
           ) : isCustomContent && id === "aurovex" ? (
             <AurovexRoleContent />
           ) : (
