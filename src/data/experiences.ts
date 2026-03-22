@@ -67,7 +67,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "sunstang",
-    title: "Battery Pack Team Leader – Western Sunstang",
+    title: "Battery Pack Team Leader",
+    company: "Western Sunstang",
+    companyUrl: "https://sunstang.ca",
     description:
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription: "custom",
