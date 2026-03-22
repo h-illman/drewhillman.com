@@ -16,6 +16,8 @@ interface ExperienceCardProps {
 const ExperienceCard = ({
   id,
   title,
+  company,
+  companyUrl,
   description,
   image,
   date,
