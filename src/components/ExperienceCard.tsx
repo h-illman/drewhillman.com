@@ -46,7 +46,7 @@ const ExperienceCard = ({
                 href={companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted underline underline-offset-2 hover:text-foreground transition-colors"
+                className="text-base text-foreground underline underline-offset-2 hover:text-muted transition-colors"
                 onClick={(e) => e.stopPropagation()}
               >
                 {company}
