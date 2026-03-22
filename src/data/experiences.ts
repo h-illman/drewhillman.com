@@ -26,7 +26,7 @@ export const experiences: Experience[] = [
   {
     id: "opg-intern",
     title: "Electrical Engineering Intern",
-    company: "OPG",
+    company: "Ontario Power Generation",
     companyUrl: "https://opg.com",
     description:
       "Incoming intern on the Monitoring and Diagnostics team, working with machine-learning models for equipment health monitoring and predictive analysis.",

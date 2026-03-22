@@ -52,7 +52,7 @@ const ExperienceCard = ({
                 {company}
               </a>
             ) : (
-              <span className="text-sm text-muted">{company}</span>
+              <span className="text-base text-foreground">{company}</span>
             )
           )}
           <p className="text-muted leading-relaxed">{description}</p>
