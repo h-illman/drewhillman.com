@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
     description:
       "Designed electrical layouts and safety circuits using AutoCAD, oversaw equipment installations, and contributed to LEED Gold and ISO 50001 energy initiatives.",
     fullDescription:
-      "Designed and updated electrical layouts and safety circuits using AutoCAD for new projects and installations, including highly specialized equipment such as water jets and laser cutters. Served as on-site liaison to oversee electrical equipment installations and system upgrades, ensuring compliance with electrical codes, safety standards, and project requirements while coordinating with contractors and safety staff. Contributed to LEED Gold and ISO 50001 energy initiatives by performing power usage audits and creating substation documentation, providing data-driven recommendations to improve facility electrical efficiency.",
+      "custom",
     image: gdlsImage,
     date: "May 2025 – August 2025",
     tags: ["AutoCAD", "Electrical Design", "LEED", "ISO 50001"],

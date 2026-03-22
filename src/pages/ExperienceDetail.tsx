@@ -11,6 +11,7 @@ import AurovexDashboardContent from "@/components/projects/AurovexDashboardConte
 import AurovexRoleContent from "@/components/projects/AurovexRoleContent";
 import ChargingSystemContent from "@/components/projects/ChargingSystemContent";
 import SunstangLeadContent from "@/components/projects/SunstangLeadContent";
+import GDLSRoleContent from "@/components/projects/GDLSRoleContent";
 import TextLink from "@/components/ui/TextLink";
 
 const ExperienceDetail = () => {
@@ -89,6 +90,8 @@ const ExperienceDetail = () => {
             <ChargingSystemContent />
           ) : isCustomContent && id === "sunstang" ? (
             <SunstangLeadContent />
+          ) : isCustomContent && id === "gdls-intern" ? (
+            <GDLSRoleContent />
           ) : isCustomContent && id === "aurovex" ? (
             <AurovexRoleContent />
           ) : (
