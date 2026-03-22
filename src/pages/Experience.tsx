@@ -53,6 +53,8 @@ const Experience = () => {
                   key={experience.id}
                   id={experience.id}
                   title={experience.title}
+                  company={experience.company}
+                  companyUrl={experience.companyUrl}
                   description={experience.description}
                   image={experience.image}
                   date={experience.date}
