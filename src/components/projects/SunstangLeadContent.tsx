@@ -30,7 +30,7 @@ const SunstangLeadContent = () => {
           alt="The Sunstang team"
           className="w-full rounded-lg border border-border"
         />
-        <p className="text-sm text-muted mt-2">The team at our end-of-year banquet.</p>
+        <p className="text-sm text-muted mt-2">The 2024/2025 team at unveiling.</p>
       </div>
 
       {/* What the role looks like */}
