@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 interface ExperienceCardProps {
   id: string;
   title: string;
+  company?: string;
+  companyUrl?: string;
   description: string;
   image: string;
   date?: string;
