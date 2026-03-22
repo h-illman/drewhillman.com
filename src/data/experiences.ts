@@ -10,6 +10,8 @@ import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
   title: string;
+  company?: string;
+  companyUrl?: string;
   description: string;
   fullDescription: string;
   image: string;
@@ -23,7 +25,9 @@ export const experiences: Experience[] = [
   // Roles
   {
     id: "opg-intern",
-    title: "Electrical Engineering Intern – OPG",
+    title: "Electrical Engineering Intern",
+    company: "OPG",
+    companyUrl: "https://opg.com",
     description:
       "Incoming intern on the Monitoring and Diagnostics team, working with machine-learning models for equipment health monitoring and predictive analysis.",
     fullDescription:
@@ -35,7 +39,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "gdls-intern",
-    title: "Manufacturing Engineering Intern – General Dynamics",
+    title: "Manufacturing Engineering Intern",
+    company: "General Dynamics",
+    companyUrl: "https://gdls.com",
     description:
       "Designed electrical layouts and safety circuits using AutoCAD, oversaw equipment installations, and contributed to LEED Gold and ISO 50001 energy initiatives.",
     fullDescription:
@@ -47,7 +53,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "aurovex",
-    title: "Data Analytics Engineer – Aurovex",
+    title: "Data Analytics Engineer",
+    company: "Aurovex",
+    companyUrl: "https://aurovex.ca",
     description:
       "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
     fullDescription:
@@ -59,7 +67,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "sunstang",
-    title: "Battery Pack Team Leader – Western Sunstang",
+    title: "Battery Pack Team Leader",
+    company: "Western Sunstang",
+    companyUrl: "https://sunstang.ca",
     description:
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription: "custom",
