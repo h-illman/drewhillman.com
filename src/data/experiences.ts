@@ -39,7 +39,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "gdls-intern",
-    title: "Manufacturing Engineering Intern – General Dynamics",
+    title: "Manufacturing Engineering Intern",
+    company: "General Dynamics",
+    companyUrl: "https://gdls.com",
     description:
       "Designed electrical layouts and safety circuits using AutoCAD, oversaw equipment installations, and contributed to LEED Gold and ISO 50001 energy initiatives.",
     fullDescription:
