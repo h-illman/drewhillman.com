@@ -53,7 +53,9 @@ export const experiences: Experience[] = [
   },
   {
     id: "aurovex",
-    title: "Data Analytics Engineer – Aurovex",
+    title: "Data Analytics Engineer",
+    company: "Aurovex",
+    companyUrl: "https://aurovex.ca",
     description:
       "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
     fullDescription:
