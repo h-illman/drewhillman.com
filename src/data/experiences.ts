@@ -6,6 +6,7 @@ import sloTelemetryDashboard from "@/assets/slo-telemetry-dashboard.png";
 import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
 import aurovexDashboardImage from "@/assets/aurovex-code.png";
+import fpgaBoardImage from "@/assets/fpga-board.png";
 import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
@@ -123,6 +124,18 @@ export const experiences: Experience[] = [
     date: "2026",
     tags: ["Next.js 14", "TypeScript", "Tremor UI", "Drizzle ORM", "Supabase", "PostgreSQL"],
     type: "project",
+  },
+  {
+    id: "fpga-pong",
+    title: "FPGA Pong",
+    description:
+      "A hardware implementation of Pong on a DE10-Standard FPGA with VGA output, ADC-based paddle control, real-time collision detection, and seven-segment score display.",
+    fullDescription: "custom",
+    image: fpgaBoardImage,
+    date: "2026",
+    tags: ["FPGA", "DE10-Standard", "VGA", "ADC", "Embedded Systems", "C"],
+    type: "project",
+    githubUrl: "https://github.com/h-illman/fpga-pong",
   },
   {
     id: "thermal-model",
