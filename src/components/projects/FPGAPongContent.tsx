@@ -64,7 +64,7 @@ const FPGAPongContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">VGA graphics output</h3>
           <p className="text-foreground leading-relaxed">
-            The VGA display is memory-mapped. Each pixel on the screen corresponds to an address in the pixel buffer. To draw something, I write a 16-bit color value to the address that maps to that pixel's X/Y coordinates. To move something, I clear its old position (write background color) and write the new position. It's simple, but it means I'm responsible for every pixel on the screen. There's no GPU, no frame buffer abstraction, no draw calls. Just raw memory writes.
+            The VGA display is memory-mapped. Each pixel on the screen corresponds to an address in the pixel buffer. To draw something, I write a 16-bit color value to the address that maps to that pixel's X/Y coordinates. To move something, I clear its old position (write background color) and write the new position. It's simple, but it means I'm responsible for every pixel on the screen. There's no GPU, no frame buffer abstraction, no draw calls — just raw memory writes.
           </p>
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Game loop and timing</h3>
@@ -74,7 +74,7 @@ const FPGAPongContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Collision detection and ball physics</h3>
           <p className="text-foreground leading-relaxed">
-            Collision detection checks the ball's position against the paddle boundaries and the top/bottom walls each tick. Wall collisions are straightforward: the vertical component of the ball's velocity inverts. Paddle collisions are more interesting. The bounce angle depends on where the ball hits the paddle surface. Hitting the center sends it back roughly straight, while hitting the edges sends it off at a steeper angle. This gives players some control over their shots, which makes the game actually feel like Pong.
+            Collision detection checks the ball's position against the paddle boundaries and the top/bottom walls each tick. Wall collisions are straightforward: the vertical component of the ball's velocity inverts. Paddle collisions are more interesting. The bounce angle depends on where the ball hits the paddle surface — hitting the center sends it back roughly straight, while hitting the edges sends it off at a steeper angle. This gives players some control over their shots, which makes the game actually feel like Pong.
           </p>
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Score display</h3>
@@ -117,7 +117,7 @@ const FPGAPongContent = () => {
             Drawing and clearing pixels efficiently was another thing I underestimated. If you redraw the entire screen every frame by writing every pixel, the update is too slow and you get visible flicker. Instead, I had to be selective: only clear the pixels where the ball and paddles were last frame, then draw them in their new positions. It's a small optimization, but it's the difference between a smooth game and a flickering mess.
           </p>
           <p className="text-foreground leading-relaxed">
-            Debugging on real hardware is also just a different experience than debugging software. There's no print statement, no debugger breakpoint, no stack trace. When something doesn't work, you're staring at a screen that's either showing the wrong thing or nothing at all. I got very good at using the LEDs and seven-segment displays as makeshift debug outputs. Want to know if a collision is being detected? Light up an LED when it fires. Want to know the ball's X position? Display it on the hex digits. It's crude, but it works.
+            Debugging on real hardware is also just a different experience than debugging software. There's no print statement, no debugger breakpoint, no stack trace. When something doesn't work, you're staring at a screen that's either showing the wrong thing or nothing at all. I got very good at using the LEDs and seven-segment displays as makeshift debug outputs. Want to know if a collision is being detected? Light up an LED when it fires. Want to know the ball's X position? Display it on the hex digits. Crude, but effective.
           </p>
         </div>
       </section>
@@ -143,7 +143,7 @@ const FPGAPongContent = () => {
             This project made me a lot more comfortable thinking at the hardware level. Before building it, I understood memory-mapped peripherals in theory. After building it, I understood them because I had written color values to specific memory addresses and watched them appear on a screen. That's a different kind of understanding, and it sticks.
           </p>
           <p className="text-foreground leading-relaxed">
-            I also got a real appreciation for how much work goes into things that seem simple. Pong is about as basic as a game gets, but implementing it from scratch on an FPGA with no operating system, no libraries, and no abstraction layers forces you to think about everything: timing, memory layout, I/O polling, pixel math, state management. It's a good reminder that "simple" and "easy" are very different things.
+            I also got a real appreciation for how much work goes into things that seem simple. Pong is about as basic as a game gets, but implementing it from scratch on an FPGA with no operating system, no libraries, and no abstraction layers forces you to think about everything: timing, memory layout, I/O polling, pixel math, state management. "Simple" and "easy" are very different things.
           </p>
           <p className="text-foreground leading-relaxed">
             The iterative module-by-module approach is something I'll carry into every hardware project going forward. Building small, testing early, and integrating piece by piece is just a better way to work when you can't rely on a debugger to tell you what went wrong.

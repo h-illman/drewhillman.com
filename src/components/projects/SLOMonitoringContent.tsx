@@ -17,10 +17,10 @@ const SLOMonitoringContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Why I built this</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's just interesting. It's interesting to see how things are working over time, how values change, what stays consistent, how we can make things better.
+            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's genuinely interesting to see how things perform over time — how values change, what stays consistent, where you can improve things.
           </p>
           <p className="text-foreground leading-relaxed">
-            AI systems don't "just get slower", they regress because something changed. Really anything can cause AI to speed up and slow down: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
+            AI systems don't "just get slower" — they regress because something changed. Really anything can cause it: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
           </p>
           <p className="text-foreground leading-relaxed">
             I wanted a tool that answers, with evidence and repeatability:
@@ -68,14 +68,13 @@ const SLOMonitoringContent = () => {
         <p className="text-sm text-muted mt-2 text-center">Live efficiency metrics computed from telemetry data</p>
       </div>
 
-
       {/* Tooling choices */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-foreground">Tooling choices</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <h3 className="text-xl font-medium text-foreground">Python (runner + analysis)</h3>
           <p className="text-foreground leading-relaxed">
-            I used Python as the "control plane" because it's good at collecting telemetry, writing structured artifacts (CSV/JSON), computing metrics (energy integration, perf/W, deltas, variance), and automating regression checks and report generation.
+            I used Python as the control plane because it's good at collecting telemetry, writing structured artifacts (CSV/JSON), computing metrics (energy integration, perf/W, deltas, variance), and automating regression checks and report generation.
           </p>
 
           <h3 className="text-xl font-medium text-foreground mt-6">NVIDIA NVML / nvidia-smi (GPU telemetry)</h3>
@@ -85,12 +84,12 @@ const SLOMonitoringContent = () => {
 
           <h3 className="text-xl font-medium text-foreground mt-6">Windows performance counters (CPU/RAM)</h3>
           <p className="text-foreground leading-relaxed">
-            I used Windows counters to capture CPU utilization (helps detect CPU feed bottlenecks) and RAM usage (helps explain paging, background load, memory pressure). These signals matter because AI "GPU performance" can still be limited by the CPU data pipeline, OS scheduling, or memory behavior.
+            I used Windows counters to capture CPU utilization (helps detect CPU feed bottlenecks) and RAM usage (helps explain paging, background load, memory pressure). These signals matter because AI GPU performance can still be limited by the CPU data pipeline, OS scheduling, or memory behavior.
           </p>
 
           <h3 className="text-xl font-medium text-foreground mt-6">InfluxDB + Grafana (storage + visualization)</h3>
           <p className="text-foreground leading-relaxed">
-            I picked InfluxDB + Grafana because this project naturally produces time-series data. InfluxDB makes it easy to store results with tags like workload, driver_version, batch_size, precision, power_mode. Grafana gives clean dashboards quickly: trends, comparisons, tables, annotations, and "last run vs baseline" summaries. I also used this exact same stack on the telemetry system for the BMS in Sunstang!
+            I picked InfluxDB + Grafana because this project naturally produces time-series data. InfluxDB makes it easy to store results with tags like workload, driver_version, batch_size, precision, power_mode. Grafana gives clean dashboards quickly: trends, comparisons, tables, annotations, and "last run vs baseline" summaries. I also used this exact same stack on the telemetry system for the BMS in Sunstang.
           </p>
         </div>
       </section>
@@ -117,7 +116,7 @@ const SLOMonitoringContent = () => {
           <div>
             <h3 className="text-xl font-medium text-foreground">Step 3 — Add telemetry collection (the "flight recorder")</h3>
             <p className="text-foreground leading-relaxed">
-              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number—you want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
+              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number — you want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
             </p>
           </div>
 
@@ -143,7 +142,6 @@ const SLOMonitoringContent = () => {
           </div>
         </div>
       </section>
-
 
       {/* Regression and Runbooks */}
       <section className="space-y-4">
@@ -203,10 +201,10 @@ const SLOMonitoringContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What makes this project relevant</h2>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground leading-relaxed">
-            This maps directly to the day-to-day work in AI compute and platform teams: efficiency is a first-class metric (perf/W, energy/task), regressions are constant (drivers, firmware, kernels, model versions), telemetry and observability are how you debug hardware behavior at scale, and production thinking matters (baselines, gates, runbooks, variance control).
+            This maps directly to the day-to-day work on AI compute and platform teams: efficiency is a first-class metric (perf/W, energy/task), regressions are constant (drivers, firmware, kernels, model versions), telemetry and observability are how you debug hardware behavior at scale, and production thinking matters (baselines, gates, runbooks, variance control).
           </p>
           <p className="text-foreground leading-relaxed mt-4">
-            If you've ever wondered how teams keep massive fleets of machines "healthy" in terms of performance and efficiency, this is a mini version of that.
+            If you've ever wondered how teams keep massive fleets of machines "healthy" in terms of performance and efficiency, this is a miniature version of that.
           </p>
         </div>
       </section>

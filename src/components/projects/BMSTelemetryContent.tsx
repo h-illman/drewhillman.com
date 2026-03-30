@@ -13,10 +13,10 @@ const BMSTelemetryContent = () => {
           Last year's car ran an Orion 1 BMS. It broke on the way to competition. Not during a race, not under extreme load — on the way there. So heading into this year, we had a choice: try to fix the old unit, or upgrade to the Orion 2 and retrofit it into a battery pack and electrical system that was never designed for it.
         </p>
         <p className="text-foreground leading-relaxed">
-          We went with the upgrade. And what I thought would be a fairly contained swap turned into a full systems-integration project. The Orion 2 has a different connector layout, different software, different CAN message structure, and a completely different approach to thermistor inputs. Nothing was plug-and-play. I had to understand how every interface on the BMS connected to the existing pack — voltage taps, I/O wiring, current sensing, thermistor expansion, CAN communication — and make it all work together without redesigning the pack itself.
+          We went with the upgrade. What I thought would be a fairly contained swap turned into a full systems-integration project. The Orion 2 has a different connector layout, different software, different CAN message structure, and a completely different approach to thermistor inputs. Nothing was plug-and-play. I had to understand how every interface on the BMS connected to the existing pack — voltage taps, I/O wiring, current sensing, thermistor expansion, CAN communication — and make it all work together without redesigning the pack itself.
         </p>
         <p className="text-foreground leading-relaxed">
-          On top of that, the BMS only shows you data live. The moment you unplug, everything's gone. So I also built a telemetry and data-logging pipeline from scratch so we could actually record, visualize, and use the battery data — not just watch it flicker on a screen.
+          On top of that, the BMS only shows you data live. The moment you unplug, everything's gone. So I also built a telemetry and data-logging pipeline from scratch so we could record, visualize, and actually use the battery data — not just watch it flicker on a screen.
         </p>
       </div>
 
@@ -75,13 +75,13 @@ const BMSTelemetryContent = () => {
             Before anything went back in the car, I set up a test bench with the BMS connected to the pack outside the vehicle. Voltage taps plugged in, current sensor connected, thermistor expansion module wired up, and the I/O connector rigged with temporary soldered wires to simulate the inputs that would normally come from the high-power box.
           </p>
           <p className="text-foreground leading-relaxed">
-            The point was to validate every reading before it mattered. I went through each cell voltage in the Orion utility and cross-checked it against a multimeter. Checked that the current sensor was reading correctly under load. Confirmed that the thermistor expansion module was actually sending temperature data over CAN and that the BMS was receiving it.
+            The point was to validate every reading before it mattered. I went through each cell voltage in the Orion utility and cross-checked it against a multimeter. Checked that the current sensor was reading correctly under load. Confirmed that the thermistor expansion module was sending temperature data over CAN and that the BMS was receiving it.
           </p>
           <p className="text-foreground leading-relaxed">
             The software side was its own project. The Orion utility has a profile setup wizard that auto-detects some things (like the battery chemistry — we use Panasonic NCR18650B cells), but a lot of it is manual. I had to configure the J1772 charger interface settings, make sure the multi-purpose inputs were mapped correctly for charge control, set up the thermistor expansion module as an addon, and program the custom CAN messages.
           </p>
           <p className="text-foreground leading-relaxed">
-            The diagnostic trouble codes panel became my best friend. The BMS has a green light for "all clear" and red for "something's wrong," but the actual fault codes tell you what's happening — thermistor faults, low cell voltage, open wiring, current sensor issues, isolation faults. Some are critical, some are just the BMS complaining that you don't have everything plugged in yet. Learning which ones to care about and which ones to ignore during bench testing was a skill in itself.
+            The diagnostic trouble codes panel became my best friend. The BMS has a green light for "all clear" and red for "something's wrong," but the actual fault codes tell you what's happening — thermistor faults, low cell voltage, open wiring, current sensor issues, isolation faults. Some are critical, some are just the BMS complaining that you don't have everything plugged in yet. Learning which ones to care about and which to ignore during bench testing was a skill in itself.
           </p>
         </div>
       </section>
@@ -135,7 +135,7 @@ const BMSTelemetryContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Round two: taking it to the cloud</h3>
           <p className="text-foreground leading-relaxed">
-            I wanted something the pit crew could just pull up on their phones. So I migrated the backend to Supabase and built a custom React frontend. The car broadcasts CAN data over Wi-Fi via an ESP32 transmitter board, a Python gateway script picks it up and pushes decoded values to Supabase, and the React dashboard subscribes to real-time updates via WebSockets.
+            I wanted something the pit crew could pull up on their phones. So I migrated the backend to Supabase and built a custom React frontend. The car broadcasts CAN data over Wi-Fi via an ESP32 transmitter board, a Python gateway script picks it up and pushes decoded values to Supabase, and the React dashboard subscribes to real-time updates via WebSockets.
           </p>
           <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
             Orion BMS → ESP32 → Wi-Fi → Python Gateway → Supabase → React Dashboard
@@ -171,7 +171,7 @@ const BMSTelemetryContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The CAN message contract</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The hardest part of the telemetry pipeline wasn't the database or the frontend — it was getting the contract right between the BMS, the decoder, and the dashboard. If the byte layout in the Python decoder doesn't match what I programmed into the Orion utility, the dashboard shows garbage. And CAN garbage looks deceptively close to real data, so you can stare at it for a while before you realize something's off.
+            The hardest part of the telemetry pipeline wasn't the database or the frontend — it was getting the contract right between the BMS, the decoder, and the dashboard. If the byte layout in the Python decoder doesn't match what I programmed into the Orion utility, the dashboard shows garbage. And CAN garbage looks deceptively close to real data, so you can stare at it for a while before realizing something's off.
           </p>
           <p className="text-foreground leading-relaxed">
             The primary telemetry message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) broadcasts every ~100ms on CAN1:

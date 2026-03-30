@@ -15,10 +15,10 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Why I built it</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            When you're racing a solar car across the country, the battery pack is everything. Ours is 1,200 individual cells wired in a 40-parallel, 30-series configuration — that's a 14.5 kWh pack. If even a handful of those cells overheat, you're either derated or stopped on the side of the road.
+            When you're racing a solar car across the country, the battery pack is everything. Ours is 1,200 individual cells wired in a 40-parallel, 30-series configuration — a 14.5 kWh pack. If even a handful of those cells overheat, you're either derated or stopped on the side of the road.
           </p>
           <p className="text-foreground leading-relaxed">
-            The problem is you can't just crack the pack open mid-race and check on things. You need to know ahead of time what conditions will push cells past their limits. That's where this comes in — I can stress-test the pack in software under conditions we'd never want to see in real life, and design around them before we ever leave the garage.
+            The problem is you can't crack the pack open mid-race to check on things. You need to know ahead of time what conditions will push cells past their limits. That's where this comes in — I can stress-test the pack in software under conditions we'd never want to see in real life, and design around them before we ever leave the garage.
           </p>
         </div>
       </section>
@@ -41,10 +41,10 @@ const ThermalModelContent = () => {
             The simulation runs in MATLAB with Simscape Battery for the thermal network modeling. Each of the 30 series modules is a thermal node with its own heat generation and dissipation paths, so the model maps pretty directly to the actual pack geometry.
           </p>
           <p className="text-foreground leading-relaxed">
-            Rather than looping through modules one at a time, everything uses vectorized matrix operations — all 30 module temperatures are computed simultaneously each timestep. MATLAB is kind of built for this, and it keeps things fast even when I'm simulating multi-hour drive cycles.
+            Rather than looping through modules one at a time, everything uses vectorized matrix operations — all 30 module temperatures are computed simultaneously each timestep. MATLAB is built for this kind of thing, and it keeps the simulation fast even when I'm running multi-hour drive cycles.
           </p>
           <p className="text-foreground leading-relaxed">
-            The physics side accounts for two types of heating: Joule heating (I²R losses from current flow) and reversible entropic heat (chemistry-driven heating and cooling that depends on state of charge). Both matter. Joule heating dominates at high current, but entropic effects can swing temperatures in surprising directions during certain charge/discharge phases — it's one of those things that's easy to overlook but actually changes the results.
+            The physics side accounts for two types of heating: Joule heating (I²R losses from current flow) and reversible entropic heat (chemistry-driven heating and cooling that depends on state of charge). Both matter. Joule heating dominates at high current, but entropic effects can swing temperatures in surprising directions during certain charge/discharge phases — it's easy to overlook, and it actually changes the results.
           </p>
         </div>
       </section>
@@ -60,7 +60,7 @@ const ThermalModelContent = () => {
             I built a few distinct drive cycle profiles to stress different failure modes. The "Hill Climb" scenario pushes low speed with high torque. "Heat Soak" simulates sitting parked in direct sun with no cooling at all. Each one is designed to find a different bottleneck, so we know where our margins are thinnest.
           </p>
           <p className="text-foreground leading-relaxed">
-            The part I'm most proud of is the defect injection layer. It lets me simulate manufacturing variances — things like a high-resistance spot weld on one module, or a partially blocked airflow channel. In a pack with 1,200 cells, it only takes one weak link to cause a thermal event. Being able to model that before it happens on the road is really valuable, and it changed a few of our design decisions.
+            The part I'm most proud of is the defect injection layer. It lets me simulate manufacturing variances — things like a high-resistance spot weld on one module, or a partially blocked airflow channel. In a pack with 1,200 cells, it only takes one weak link to cause a thermal event. Being able to model that before it happens on the road changed a few of our design decisions.
           </p>
           <p className="text-foreground leading-relaxed">
             The model also has automated safety alerts that flag whenever any module's core temperature crosses the 60°C limit from the Panasonic NCR18650B datasheet. Instead of scanning temperature plots by hand, it just tells you which modules are at risk, when, and under what conditions.
@@ -83,7 +83,7 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What stuck with me</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Thermal behavior is surprisingly non-linear. Small changes in airflow or contact resistance can cascade into big temperature differences across modules — it's not always intuitive. The defect injection work was eye-opening too: you realize how much trust you're placing in manufacturing consistency when you wire 1,200 cells together.
+            Thermal behavior is surprisingly non-linear. Small changes in airflow or contact resistance can cascade into large temperature differences across modules — it's not always intuitive. The defect injection work was eye-opening too: you realize how much trust you're placing in manufacturing consistency when you wire 1,200 cells together.
           </p>
           <p className="text-foreground leading-relaxed">
             The most practical takeaway was that velocity-dependent cooling makes race strategy a thermal problem as much as an energy one. Sometimes slowing down actually keeps you faster overall, because you avoid triggering thermal limits that would force a longer stop. Having a simulation you trust is the difference between "we think this will be fine" and "we ran 50 scenarios and here's exactly how much margin we have."

@@ -13,7 +13,7 @@ const ChargingSystemContent = () => {
           Charging a solar car sounds simple until you actually have to make it work. This project was about building and integrating the full charging path for our car: the Elcon charger, J1772 charge port, OpenEVSE control logic, and the Orion 2 BMS that supervises the whole thing. It wasn't just plugging in a charger and hoping for the best. It was understanding how every piece talks to every other piece, wiring it up correctly, and making the system safe and debuggable.
         </p>
         <p className="text-foreground leading-relaxed">
-          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent a lot of time reading, tracing wires, drawing diagrams, and just figuring it out piece by piece. The result is a charging system that I actually trust, and documentation clear enough that someone else on the team can follow it.
+          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent most of my time reading, tracing, and drawing diagrams — figuring it out piece by piece. The result is a charging system I trust, with documentation clear enough that someone else on the team can follow it.
         </p>
       </div>
 
@@ -50,7 +50,7 @@ const ChargingSystemContent = () => {
             The charger is an Elcon 3.3kW CAN Bus unit (HK-MF-108-32-X, 108V). It has three ports, and each one does something completely different. Port A is the DC side: it connects to the high-voltage battery through a cable that runs to the battery box. Port B is the CAN/BMS communication port: three small wires that carry CAN High, CAN Low, and Ground to the BMS I/O connector (pins 18, 10, and 12 respectively). Port C is the AC input side: it connects through a NEMA 14-50 plug and adapter to the J1772 receptacle and ultimately to whatever wall outlet or EVSE you're plugged into.
           </p>
           <p className="text-foreground leading-relaxed">
-            Understanding which port does what, and tracing the actual cables from the charger to where they terminate, was the first step. It sounds basic but when you're staring at a grey box with three identical-looking connectors and a tangle of orange high-voltage cabling, it's not immediately obvious what goes where.
+            Understanding which port does what, and tracing the actual cables from the charger to where they terminate, was the first step. It sounds basic, but when you're staring at a grey box with three identical-looking connectors and a tangle of orange high-voltage cabling, it's not immediately obvious.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ const ChargingSystemContent = () => {
             The Orion 2's main I/O connector is a 28-pin connector that handles basically everything the BMS communicates with the outside world. For charging specifically, the important pins are: Charge Enable (Pin 8), which is an active-low signal the BMS uses to allow or disallow a charging source; Charge Power (Pin 3), which powers the BMS during charging; Charger Safety (Pin 6), an active-low on/off signal that controls the charger during defined periods; and the Charge Current Limit (Pin 5), a 0-5V analog signal that caps how much current the charger can push.
           </p>
           <p className="text-foreground leading-relaxed">
-            There's also the Discharge Enable (Pin 7), which does the same thing but for the drive side. State of Charge outputs on Pin 4. And pins 13 and 14 handle the J1772 pilot and proximity as mentioned. All of this routes through the high-power box in the car where relays and distribution boards split everything up.
+            There's also Discharge Enable (Pin 7), which does the same thing but for the drive side. State of Charge outputs on Pin 4. And pins 13 and 14 handle the J1772 pilot and proximity as mentioned. All of this routes through the high-power box in the car where relays and distribution boards split everything up.
           </p>
         </div>
       </section>
@@ -128,7 +128,7 @@ const ChargingSystemContent = () => {
             The OpenEVSE board sits on the EVSE side and manages the J1772 pilot signaling. One thing I had to work through was how the proximity detection circuit actually functions. There's a 150Ω resistor on the PP (Proximity Pilot) pin, and a switch connected in parallel with a 390Ω resistor to the PE (Protective Earth) pin. When the charging connector isn't fully seated, the switch is open and the EVSE sees only the 150Ω. When you push the connector in and the latch clicks, the switch closes, putting the 390Ω in parallel to ground. That resistance change is how the system knows the plug is properly connected.
           </p>
           <p className="text-foreground leading-relaxed">
-            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states (pressed vs. unpressed) made it much easier to verify that our OpenEVSE board was behaving correctly.
+            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states — pressed vs. unpressed — made it much easier to verify that our OpenEVSE board was behaving correctly.
           </p>
         </div>
       </section>
@@ -153,7 +153,7 @@ const ChargingSystemContent = () => {
             Safety was not an afterthought here. The BMS enforces hard limits on charging: cells can't exceed 4.2V, pack temperature must stay between 10°C and 40°C, and charging current is capped at 40A. If any of those limits are violated, the BMS disables charging and isolates the system. On the discharge side, cells can't drop below 3.0V, temperature range extends to 50°C, and current is limited to 150A. The external cutoff switch can also isolate the pack independently of the BMS, which requires manual investigation and fault clearing before the system can be reset.
           </p>
           <p className="text-foreground leading-relaxed">
-            We also wrote proper procedures for both charging and discharging. The BMS has to be powered on and reporting data before you can safely do either. During charging, current shows up as negative (which confused me the first time), and state of charge should be visibly updating. For storage or transport, we discharge to 40-60% SOC using external loads. In the past, we've literally used floodlights for that.
+            We also wrote proper procedures for both charging and discharging. The BMS has to be powered on and reporting data before you can safely do either. During charging, current shows up as negative (which confused me the first time I saw it), and state of charge should be visibly updating. For storage or transport, we discharge to 40-60% SOC using external loads — in the past, that's meant literally using floodlights.
           </p>
           <p className="text-foreground leading-relaxed">
             The charge interlock is optional on the Orion 2, but we wire it. Pin 3 provides charge power, and if the interlock is active, the BMS prevents discharge while charging. It's one of those things that probably doesn't matter 99% of the time, but the 1% where it does could be really bad.
@@ -166,7 +166,7 @@ const ChargingSystemContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What I took away from this</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            This project taught me that the hard part of systems integration is usually not any single piece. The Elcon charger works. The BMS works. The J1772 standard is well-defined. The OpenEVSE board does its job. But making them all work together in a specific car, with specific wiring, and specific constraints, is where all the real engineering happens. Most of my time was spent reading, tracing, and documenting rather than building anything from scratch.
+            This project taught me that the hard part of systems integration is usually not any single piece. The Elcon charger works. The BMS works. The J1772 standard is well-defined. The OpenEVSE board does its job. But making them all work together in a specific car, with specific wiring and specific constraints, is where all the real engineering happens. Most of my time was spent reading, tracing, and documenting rather than building anything from scratch.
           </p>
           <p className="text-foreground leading-relaxed">
             The biggest value I added was probably the documentation itself. Before this project, charging the car required tribal knowledge. Now there's a clear diagram, a written procedure, and a reference for every connection. The next person who has to debug a charging issue shouldn't have to start from zero. That felt worth doing.
