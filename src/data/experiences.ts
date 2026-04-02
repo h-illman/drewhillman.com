@@ -80,6 +80,18 @@ export const experiences: Experience[] = [
   },
   // Projects
   {
+    id: "open-hw-validation",
+    title: "Open Hardware Validation Harness",
+    description:
+      "An open-source Python framework for automating the RTL validation lifecycle from simulation through physical FPGA bring-up on the Terasic DE25.",
+    fullDescription: "custom",
+    image: fpgaBoardImage,
+    date: "2026",
+    tags: ["Python", "cocotb", "Verilator", "FPGA", "GTKWave", "RTL Verification"],
+    type: "project",
+    githubUrl: "https://github.com/h-illman/open-hw-validation-harness",
+  },
+  {
     id: "slo-monitoring",
     title: "Perf/W SLO Monitoring for AI Workloads",
     description:
@@ -115,17 +127,6 @@ export const experiences: Experience[] = [
     type: "project",
   },
   {
-    id: "aurovex-dashboard",
-    title: "Aurovex Finance Dashboard",
-    description:
-      "A fast, read-only Next.js dashboard for visualizing cloud compute costs and report generation metrics derived directly from a PostgreSQL database.",
-    fullDescription: "custom",
-    image: aurovexDashboardImage,
-    date: "2026",
-    tags: ["Next.js 14", "TypeScript", "Tremor UI", "Drizzle ORM", "Supabase", "PostgreSQL"],
-    type: "project",
-  },
-  {
     id: "fpga-pong",
     title: "FPGA Pong",
     description:
@@ -136,6 +137,17 @@ export const experiences: Experience[] = [
     tags: ["FPGA", "DE10-Standard", "VGA", "ADC", "Embedded Systems", "C"],
     type: "project",
     githubUrl: "https://github.com/h-illman/fpga-pong",
+  },
+  {
+    id: "aurovex-dashboard",
+    title: "Aurovex Finance Dashboard",
+    description:
+      "A fast, read-only Next.js dashboard for visualizing cloud compute costs and report generation metrics derived directly from a PostgreSQL database.",
+    fullDescription: "custom",
+    image: aurovexDashboardImage,
+    date: "2026",
+    tags: ["Next.js 14", "TypeScript", "Tremor UI", "Drizzle ORM", "Supabase", "PostgreSQL"],
+    type: "project",
   },
   {
     id: "thermal-model",
