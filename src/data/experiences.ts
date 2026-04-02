@@ -7,6 +7,7 @@ import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
 import aurovexDashboardImage from "@/assets/aurovex-code.png";
 import fpgaBoardImage from "@/assets/fpga-board.png";
+import fpgaPongCardImage from "@/assets/fpga-pong-card.png";
 import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
