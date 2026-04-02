@@ -133,7 +133,7 @@ export const experiences: Experience[] = [
     description:
       "A hardware implementation of Pong on a DE10-Standard FPGA with VGA output, ADC-based paddle control, real-time collision detection, and seven-segment score display.",
     fullDescription: "custom",
-    image: fpgaBoardImage,
+    image: fpgaPongCardImage,
     date: "2026",
     tags: ["FPGA", "DE10-Standard", "VGA", "ADC", "Embedded Systems", "C"],
     type: "project",
