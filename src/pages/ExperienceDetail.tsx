@@ -13,6 +13,7 @@ import ChargingSystemContent from "@/components/projects/ChargingSystemContent";
 import SunstangLeadContent from "@/components/projects/SunstangLeadContent";
 import GDLSRoleContent from "@/components/projects/GDLSRoleContent";
 import FPGAPongContent from "@/components/projects/FPGAPongContent";
+import OHVHContent from "@/components/projects/OHVHContent";
 import TextLink from "@/components/ui/TextLink";
 
 const ExperienceDetail = () => {
@@ -97,6 +98,8 @@ const ExperienceDetail = () => {
             <AurovexRoleContent />
           ) : isCustomContent && id === "fpga-pong" ? (
             <FPGAPongContent />
+          ) : isCustomContent && id === "open-hw-validation" ? (
+            <OHVHContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
