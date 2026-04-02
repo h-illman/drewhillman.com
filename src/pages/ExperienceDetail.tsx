@@ -98,6 +98,8 @@ const ExperienceDetail = () => {
             <AurovexRoleContent />
           ) : isCustomContent && id === "fpga-pong" ? (
             <FPGAPongContent />
+          ) : isCustomContent && id === "open-hw-validation" ? (
+            <OHVHContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
