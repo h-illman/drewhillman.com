@@ -7,6 +7,7 @@ import thermalModelImage from "@/assets/thermal-model.png";
 import arduinoBiolockImage from "@/assets/arduino-biolock.png";
 import aurovexDashboardImage from "@/assets/aurovex-code.png";
 import fpgaBoardImage from "@/assets/fpga-board.png";
+import fpgaPongCardImage from "@/assets/fpga-pong-card.png";
 import chargingSolderingImage from "@/assets/charging-soldering.png";
 export interface Experience {
   id: string;
@@ -132,7 +133,7 @@ export const experiences: Experience[] = [
     description:
       "A hardware implementation of Pong on a DE10-Standard FPGA with VGA output, ADC-based paddle control, real-time collision detection, and seven-segment score display.",
     fullDescription: "custom",
-    image: fpgaBoardImage,
+    image: fpgaPongCardImage,
     date: "2026",
     tags: ["FPGA", "DE10-Standard", "VGA", "ADC", "Embedded Systems", "C"],
     type: "project",
