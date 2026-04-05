@@ -101,6 +101,8 @@ const ExperienceDetail = () => {
             <FPGAPongContent />
           ) : isCustomContent && id === "open-hw-validation" ? (
             <OHVHContent />
+          ) : isCustomContent && id === "eyebert" ? (
+            <EyeBERTContent />
           ) : (
             <>
               <div className="prose prose-lg max-w-none">
