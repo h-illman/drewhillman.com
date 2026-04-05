@@ -185,18 +185,6 @@ export const experiences: Experience[] = [
     tags: ["C++", "Arduino", "PCB Design", "Security", "Embedded Systems"],
     type: "project",
   },
-  {
-    id: "eyebert",
-    title: "EyeBERT",
-    description:
-      "A SerDes Bit Error Rate Tester on the Terasic DE25 FPGA that generates PRBS patterns, measures link quality, and produces BER waterfall curves and eye diagrams.",
-    fullDescription: "custom",
-    image: eyebertOscilloscopeImage,
-    date: "2026 (In Progress)",
-    tags: ["FPGA", "Intel Agilex 5", "SerDes", "RTL", "Signal Integrity", "High-Speed I/O"],
-    type: "project",
-    githubUrl: "https://github.com/h-illman/eye-bert",
-  },
 ];
 
 export const getExperienceById = (id: string): Experience | undefined => {
