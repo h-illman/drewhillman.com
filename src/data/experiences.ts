@@ -9,6 +9,7 @@ import aurovexDashboardImage from "@/assets/aurovex-code.png";
 import fpgaBoardImage from "@/assets/fpga-board.png";
 import fpgaPongCardImage from "@/assets/fpga-pong-card.png";
 import chargingSolderingImage from "@/assets/charging-soldering.png";
+import eyebertOscilloscopeImage from "@/assets/eyebert-oscilloscope.jpg";
 export interface Experience {
   id: string;
   title: string;
