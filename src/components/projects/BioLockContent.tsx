@@ -18,10 +18,10 @@ const BioLockContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The idea</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Most commercial security systems are either way too expensive and overbuilt, or cheap and single-factor. We wanted something in between — a system that layers "something you have" (RFID), "something you are" (fingerprint), and "something you know" (PIN) into one device, all for under $75 in parts.
+            Most commercial security systems are either way too expensive and overbuilt, or cheap and single-factor. We wanted something in between: a system that layers "something you have" (RFID), "something you are" (fingerprint), and "something you know" (PIN) into one device, all for under $75 in parts.
           </p>
           <p className="text-foreground leading-relaxed">
-            We built this as a team of three for our ECE 2242 design course. We took it from TinkerCAD simulation all the way to a soldered PCB mounted on a demo base with a working mechanical latch. It's a real, functioning thing — not just a breadboard prototype that works if you don't breathe on it.
+            We built this as a team of three for our ECE 2242 design course. We took it from TinkerCAD simulation all the way to a soldered PCB mounted on a demo base with a working mechanical latch. It's a real, functioning thing, not just a breadboard prototype that works if you don't breathe on it.
           </p>
         </div>
       </section>
