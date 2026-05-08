@@ -171,7 +171,7 @@ const BMSTelemetryContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The CAN message contract</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The hardest part of the telemetry pipeline wasn't the database or the frontend — it was getting the contract right between the BMS, the decoder, and the dashboard. If the byte layout in the Python decoder doesn't match what I programmed into the Orion utility, the dashboard shows garbage. And CAN garbage looks deceptively close to real data, so you can stare at it for a while before realizing something's off.
+            The hardest part of the telemetry pipeline wasn't the database or the frontend. It was getting the contract right between the BMS, the decoder, and the dashboard. If the byte layout in the Python decoder doesn't match what I programmed into the Orion utility, the dashboard shows garbage. And CAN garbage looks deceptively close to real data, so you can stare at it for a while before realizing something's off.
           </p>
           <p className="text-foreground leading-relaxed">
             The primary telemetry message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) broadcasts every ~100ms on CAN1:
