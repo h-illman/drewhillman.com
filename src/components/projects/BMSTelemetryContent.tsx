@@ -50,13 +50,13 @@ const BMSTelemetryContent = () => {
             The BMS connects to the pack through three distinct interfaces: the voltage taps, the main I/O connector, and the current/thermistor port. Each one had its own set of problems.
           </p>
           <p className="text-foreground leading-relaxed">
-            The voltage taps were the most straightforward — 30 wires, one per cell group, routed through the pack in a specific pattern. The wiring was already there from the previous BMS, but I had to verify every single connection against the Orion 2's expected order. Get one tap on the wrong cell and the BMS reports a voltage that looks almost right but isn't, which is genuinely worse than an obvious fault.
+            The voltage taps were the most straightforward: 30 wires, one per cell group, routed through the pack in a specific pattern. The wiring was already there from the previous BMS, but I had to verify every single connection against the Orion 2's expected order. Get one tap on the wrong cell and the BMS reports a voltage that looks almost right but isn't, which is genuinely worse than an obvious fault.
           </p>
           <p className="text-foreground leading-relaxed">
-            The I/O connector is where most of the car talks to the BMS — charge enable, discharge enable, J1772 control pilot, ready power, always-on power, and both CAN buses. It routes through the high-power box where relays and boards divide everything up. I had to trace the existing wiring back to the I/O pinout and make sure each signal landed on the right pin. The colour coding helped, but some of those wires had seen better days.
+            The I/O connector is where most of the car talks to the BMS: charge enable, discharge enable, J1772 control pilot, ready power, always-on power, and both CAN buses. It routes through the high-power box where relays and boards divide everything up. I had to trace the existing wiring back to the I/O pinout and make sure each signal landed on the right pin. The colour coding helped, but some of those wires had seen better days.
           </p>
           <p className="text-foreground leading-relaxed">
-            The current sensor was pretty direct — four shielded wires from the LEM sensor into the BMS. It reads zero amps unless the pack is under load, which tripped me up early on when I thought the sensor wasn't working. It was. There was just nothing to measure.
+            The current sensor was pretty direct: four shielded wires from the LEM sensor into the BMS. It reads zero amps unless the pack is under load, which tripped me up early on when I thought the sensor wasn't working. It was. There was just nothing to measure.
           </p>
           <p className="text-foreground leading-relaxed">
             The thermistors were the interesting part. None of them connect directly to the BMS's analog thermistor pins. Instead, they all go through a thermistor expansion module that sits inside the pack and communicates with the BMS over CAN. This means the BMS thermal settings page should have zero active thermistors selected — all the temperature data comes in digitally over the CAN network. That distinction cost me a couple hours of confusion before I figured out why the BMS wasn't reading any temperatures.
