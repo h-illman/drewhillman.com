@@ -123,13 +123,13 @@ const BioLockContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What I took away from it</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Working with constrained hardware is a completely different kind of engineering than software. You can't add a library or throw more RAM at the problem — you have to think about every pin, every milliamp, every byte of serial buffer. PCB design forces you to commit in a way that breadboards don't. The discipline of getting the schematic right before sending it to fab taught me a lot about being careful with design decisions upfront.
+            Working with constrained hardware is a completely different kind of engineering than software. You can't add a library or throw more RAM at the problem. You have to think about every pin, every milliamp, every byte of serial buffer. PCB design forces you to commit in a way that breadboards don't. The discipline of getting the schematic right before sending it to fab taught me a lot about being careful with design decisions upfront.
           </p>
           <p className="text-foreground leading-relaxed">
-            The biggest process lesson was that we spent far less time debugging once we started isolating subsystems individually before integrating. Testing the fingerprint sensor alone, then RFID alone, then keypad alone, then combining them — it's obvious in hindsight, but it's easy to skip when you're excited to see the whole thing work.
+            The biggest process lesson was that we spent far less time debugging once we started isolating subsystems individually before integrating. Testing the fingerprint sensor alone, then RFID alone, then keypad alone, then combining them. It's obvious in hindsight, but it's easy to skip when you're excited to see the whole thing work.
           </p>
           <p className="text-foreground leading-relaxed">
-            If I were doing it again, I'd swap the Uno for an ESP32. You'd get Wi-Fi, a second serial port, and more pins — which would eliminate most of the hardware workarounds we had to build.
+            If I were doing it again, I'd swap the Uno for an ESP32. You'd get Wi-Fi, a second serial port, and more pins, which would eliminate most of the hardware workarounds we had to build.
           </p>
         </div>
       </section>
