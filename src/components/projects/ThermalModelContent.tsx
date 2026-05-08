@@ -54,7 +54,7 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The interesting parts</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The cooling model isn't just a fixed number — it's velocity-dependent. As the car speeds up, convective cooling ramps up with it. This matters a lot because during a hill climb, you get the worst of both worlds: maximum current draw with minimum airflow. The simulation captures that tradeoff, which is exactly the kind of scenario you need to design around.
+            The cooling model isn't just a fixed number. It's velocity-dependent. As the car speeds up, convective cooling ramps up with it. This matters a lot because during a hill climb, you get the worst of both worlds: maximum current draw with minimum airflow. The simulation captures that tradeoff, which is exactly the kind of scenario you need to design around.
           </p>
           <p className="text-foreground leading-relaxed">
             I built a few distinct drive cycle profiles to stress different failure modes. The "Hill Climb" scenario pushes low speed with high torque. "Heat Soak" simulates sitting parked in direct sun with no cooling at all. Each one is designed to find a different bottleneck, so we know where our margins are thinnest.
