@@ -67,7 +67,7 @@ const AurovexDashboardContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The annoying parts</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The biggest headache was getting <code className="text-sm bg-muted/50 px-1 rounded">npm run build</code> to stop crashing. It kept throwing a Postgres 42501 error — insufficient privileges. Took me a bit to figure out what was happening: Next.js was trying to statically pre-render the pages at build time, which meant it was hitting the database without a live authenticated session. The database was doing exactly what it should — rejecting unauthenticated queries — but Next.js was trying to run them anyway during the build step.
+            The biggest headache was getting <code className="text-sm bg-muted/50 px-1 rounded">npm run build</code> to stop crashing. It kept throwing a Postgres 42501 error: insufficient privileges. Took me a bit to figure out what was happening. Next.js was trying to statically pre-render the pages at build time, which meant it was hitting the database without a live authenticated session. The database was doing exactly what it should, rejecting unauthenticated queries, but Next.js was trying to run them anyway during the build step.
           </p>
           <p className="text-foreground leading-relaxed">
             The fix was adding <code className="text-sm bg-muted/50 px-1 rounded">export const dynamic = 'force-dynamic'</code> to the dashboard routes. That tells Next.js to skip static rendering and only query at request time. Simple once you understand it, but I burned a solid chunk of time reading through error logs before it clicked.
