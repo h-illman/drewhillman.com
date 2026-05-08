@@ -60,7 +60,7 @@ const ThermalModelContent = () => {
             I built a few distinct drive cycle profiles to stress different failure modes. The "Hill Climb" scenario pushes low speed with high torque. "Heat Soak" simulates sitting parked in direct sun with no cooling at all. Each one is designed to find a different bottleneck, so we know where our margins are thinnest.
           </p>
           <p className="text-foreground leading-relaxed">
-            The part I'm most proud of is the defect injection layer. It lets me simulate manufacturing variances — things like a high-resistance spot weld on one module, or a partially blocked airflow channel. In a pack with 1,200 cells, it only takes one weak link to cause a thermal event. Being able to model that before it happens on the road changed a few of our design decisions.
+            The part I'm most proud of is the defect injection layer. It lets me simulate manufacturing variances, like a high-resistance spot weld on one module, or a partially blocked airflow channel. In a pack with 1,200 cells, it only takes one weak link to cause a thermal event. Being able to model that before it happens on the road changed a few of our design decisions.
           </p>
           <p className="text-foreground leading-relaxed">
             The model also has automated safety alerts that flag whenever any module's core temperature crosses the 60°C limit from the Panasonic NCR18650B datasheet. Instead of scanning temperature plots by hand, it just tells you which modules are at risk, when, and under what conditions.
