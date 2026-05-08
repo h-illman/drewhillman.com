@@ -28,15 +28,15 @@ export const experiences: Experience[] = [
   // Roles
   {
     id: "opg-intern",
-    title: "Reliability Engineer (PEY) — Monitoring & Diagnostics",
+    title: "Reliability Engineering Intern",
     company: "Ontario Power Generation",
     companyUrl: "https://opg.com",
     description:
-      "Joining OPG's Monitoring & Diagnostics team for a 12-month PEY placement, working on equipment-health models and reliability analytics across the nuclear and hydro fleet.",
+      "Working on OPG's Monitoring & Diagnostics team on equipment-health models and reliability analytics across the nuclear and hydro fleet.",
     fullDescription:
-      "I'm joining OPG's Monitoring & Diagnostics team for a 12-month reliability engineering placement (PEY). OPG is the largest nuclear generator in Canada, and the M&D team sits at the centre of keeping a fleet of equipment-health models running accurately across the company's nuclear and hydroelectric assets — basically catching problems in big rotating machines before they actually become problems.\n\nMy work will span model maintenance and anomaly screening in AVEVA Predictive Analytics and Seeq, digging into signals to connect flagged anomalies back to operating context, and building reliability dashboards in Microsoft Power Platform. On the data side, I'll be developing pipelines in Databricks and Azure and writing Python tools to automate alert triage and data-refresh workflows so the team spends less time on plumbing.\n\nI'm early in the term and learning fast — I'll keep this page updated as the work develops and I get a clearer sense of what I'm actually contributing.",
+      "I joined OPG's Monitoring & Diagnostics team as a reliability engineering intern. OPG is the largest nuclear generator in Canada, and the M&D team is in charge of keeping a big fleet of equipment-health models running accurately across the company's nuclear and hydroelectric assets. The basic idea is catching problems in big rotating machines before they actually become problems.\n\nMy work spanned model maintenance and anomaly screening in AVEVA Predictive Analytics and Seeq, digging into signals to connect flagged anomalies back to operating context, and building reliability dashboards in Microsoft Power Platform. On the data side, I built pipelines in Databricks and Azure and wrote Python tools to automate alert triage and data refresh workflows so the team spent less time on plumbing.\n\nI'm still pretty early in the term and learning a lot. I'll keep this page updated as the work develops and I get a clearer sense of what I'm actually contributing.",
     image: opgImage,
-    date: "May 2026 – May 2027 (Incoming)",
+    date: "May 2026 – May 2027",
     tags: ["AVEVA Predictive Analytics", "Seeq", "OSIsoft PI", "Databricks", "Python"],
     type: "work",
   },
@@ -63,7 +63,7 @@ export const experiences: Experience[] = [
       "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
     fullDescription: "custom",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
-    date: "January 2026 – Present",
+    date: "January 2026 – May 2026",
     tags: ["Power BI", "Data Analytics", "AI/ML", "Product Analytics"],
     type: "work",
   },
@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription: "custom",
     image: sunstangImage,
-    date: "September 2024 – Present",
+    date: "September 2024 – June 2026",
     tags: ["Battery Systems", "BMS", "Leadership", "EV"],
     type: "work",
   },
