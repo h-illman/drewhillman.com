@@ -17,10 +17,10 @@ const SLOMonitoringContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Why I built this</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's genuinely interesting to see how things perform over time — how values change, what stays consistent, where you can improve things.
+            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's genuinely interesting to see how things perform over time. How values change, what stays consistent, where you can improve things.
           </p>
           <p className="text-foreground leading-relaxed">
-            AI systems don't "just get slower" — they regress because something changed. Really anything can cause it: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
+            AI systems don't "just get slower." They regress because something changed. Really anything can cause it: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
           </p>
           <p className="text-foreground leading-relaxed">
             I wanted a tool that answers, with evidence and repeatability:
