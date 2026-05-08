@@ -204,10 +204,10 @@ const BMSTelemetryContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What I took away from this</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            This project taught me more about real engineering than any course has. Not because the individual pieces were hard — CAN decoding, database writes, React dashboards, none of that is rocket science on its own. What made it hard was that nothing existed in isolation. Every decision on the hardware side rippled into the software side. Every assumption I made about the wiring had to be verified against the actual pack. Every CAN message had to match between three different systems that were all configured independently.
+            This project taught me more about real engineering than any course has. Not because the individual pieces were hard. CAN decoding, database writes, React dashboards: none of that is rocket science on its own. What made it hard was that nothing existed in isolation. Every decision on the hardware side rippled into the software side. Every assumption I made about the wiring had to be verified against the actual pack. Every CAN message had to match between three different systems that were all configured independently.
           </p>
           <p className="text-foreground leading-relaxed">
-            It also taught me the value of documentation. I wrote a full master doc for the Orion 2 setup — every wiring connection, every software setting, every CAN byte layout — because I know what it's like to inherit a system that someone set up and never explained. The next person who works on this pack shouldn't have to reverse-engineer what I did.
+            It also taught me the value of documentation. I wrote a full master doc for the Orion 2 setup, covering every wiring connection, every software setting, every CAN byte layout, because I know what it's like to inherit a system that someone set up and never explained. The next person who works on this pack shouldn't have to reverse-engineer what I did.
           </p>
           <p className="text-foreground leading-relaxed">
             We went from "we think the battery is fine" to "we can prove it." The raw CAN traffic can be verified independently, decoded values live in a queryable cloud database, and the dashboard is accessible to the entire team with sub-second latency. Anyone can pull it up, anywhere. That was the whole goal, and it works.
