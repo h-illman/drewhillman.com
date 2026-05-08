@@ -28,7 +28,7 @@ const BMSTelemetryContent = () => {
             At a high level, the Orion 2 BMS monitors every cell in our 40p30s lithium-ion battery pack. It tracks individual cell voltages and internal resistances through 30 voltage tap connections, reads pack current through a hall-effect sensor (a LEM DHAB S/134), and gets temperature readings from thermistors distributed across the pack. It uses all of that to calculate state of charge, enforce safety limits, and manage charge/discharge enables.
           </p>
           <p className="text-foreground leading-relaxed">
-            The telemetry side takes that data — voltage, current, SOC, temperatures, fault flags — encodes it into CAN messages, and pushes it through an ESP32 transmitter over Wi-Fi into a cloud database. From there, a React dashboard subscribes to real-time updates so anyone on the team can check pack health from their phone. No laptop tethered to the car required.
+            The telemetry side takes that data (voltage, current, SOC, temperatures, fault flags), encodes it into CAN messages, and pushes it through an ESP32 transmitter over Wi-Fi into a cloud database. From there, a React dashboard subscribes to real-time updates so anyone on the team can check pack health from their phone. No laptop tethered to the car required.
           </p>
         </div>
       </section>
