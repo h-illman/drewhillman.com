@@ -121,21 +121,21 @@ const SLOMonitoringContent = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 4 — Compute metrics</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 4: Compute metrics</h3>
             <p className="text-foreground leading-relaxed">
               After a run completes, the metrics engine processes artifacts into a standardized summary: average/peak power, energy (J) by integrating power over time, Perf/W, energy-per-task (J per 1k tokens / per image), and run stability (mean/std across repeats).
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 5 — Run health checks</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 5: Run health checks</h3>
             <p className="text-foreground leading-relaxed">
               I added "run health" checks: sampling gaps (logger stalled), missing telemetry fields, workload didn't actually run (GPU util stayed low), and unstable run behavior (huge variance across repeats). These checks prevent bad runs from contaminating the baseline or triggering false alarms.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 6 — Store and visualize (InfluxDB + Grafana)</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 6: Store and visualize (InfluxDB + Grafana)</h3>
             <p className="text-foreground leading-relaxed">
               Each run is ingested into storage with tags (workload name, driver version, batch size, precision, power mode) and fields (throughput, power, energy, perf/W, energy-per-task, health status). Grafana dashboards show Perf/W over time, energy-per-task over time, throughput over time, last run vs baseline table, power signature view, and variance panel.
             </p>
