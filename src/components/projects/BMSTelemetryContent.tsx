@@ -127,10 +127,10 @@ const BMSTelemetryContent = () => {
             Orion BMS (CAN) → CANdapter → Python Decoder → InfluxDB → Grafana
           </div>
           <p className="text-foreground leading-relaxed">
-            The decoding is where the real work was. The primary telemetry message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) packs eight bytes with pack voltage, current, SOC, temperatures, and fault flags — each with its own byte length, endianness, signedness, and scaling factor. Pack voltage is an unsigned 16-bit little-endian value in 0.1V units. Current is signed 16-bit in 0.1A units. SOC is a single byte at 0.5% resolution. Get the byte order or signedness wrong and you end up with numbers that look almost plausible but aren't.
+            The decoding is where the real work was. The primary telemetry message (<code className="text-sm bg-muted/50 px-1 rounded">0x6B0</code>) packs eight bytes with pack voltage, current, SOC, temperatures, and fault flags, each with its own byte length, endianness, signedness, and scaling factor. Pack voltage is an unsigned 16-bit little-endian value in 0.1V units. Current is signed 16-bit in 0.1A units. SOC is a single byte at 0.5% resolution. Get the byte order or signedness wrong and you end up with numbers that look almost plausible but aren't.
           </p>
           <p className="text-foreground leading-relaxed">
-            This stack was great for bench testing. I built a full dashboard with voltage tracking, temperature trends, and fault flags. InfluxDB handled thousands of data points per second without breaking a sweat. But it was still a local tool — it needed a laptop running in the pit lane, and it wasn't something the whole team could access.
+            This stack was great for bench testing. I built a full dashboard with voltage tracking, temperature trends, and fault flags. InfluxDB handled thousands of data points per second without breaking a sweat. But it was still a local tool. It needed a laptop running in the pit lane, and it wasn't something the whole team could access.
           </p>
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Round two: taking it to the cloud</h3>
