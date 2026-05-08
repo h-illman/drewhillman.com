@@ -83,7 +83,7 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What stuck with me</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Thermal behavior is surprisingly non-linear. Small changes in airflow or contact resistance can cascade into large temperature differences across modules — it's not always intuitive. The defect injection work was eye-opening too: you realize how much trust you're placing in manufacturing consistency when you wire 1,200 cells together.
+            Thermal behavior is surprisingly non-linear. Small changes in airflow or contact resistance can cascade into large temperature differences across modules. It's not always intuitive. The defect injection work was eye-opening too: you realize how much trust you're placing in manufacturing consistency when you wire 1,200 cells together.
           </p>
           <p className="text-foreground leading-relaxed">
             The most practical takeaway was that velocity-dependent cooling makes race strategy a thermal problem as much as an energy one. Sometimes slowing down actually keeps you faster overall, because you avoid triggering thermal limits that would force a longer stop. Having a simulation you trust is the difference between "we think this will be fine" and "we ran 50 scenarios and here's exactly how much margin we have."
