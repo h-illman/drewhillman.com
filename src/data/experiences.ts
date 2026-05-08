@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
       "Leading ~20 members in designing, testing, and optimizing a custom lithium-ion battery pack and BMS integration for a solar-electric vehicle.",
     fullDescription: "custom",
     image: sunstangImage,
-    date: "September 2024 – Present",
+    date: "September 2024 – June 2026",
     tags: ["Battery Systems", "BMS", "Leadership", "EV"],
     type: "work",
   },
