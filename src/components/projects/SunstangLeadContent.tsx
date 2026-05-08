@@ -69,7 +69,7 @@ const SunstangLeadContent = () => {
             Early on, I probably over-indexed on having everything planned perfectly. Over time I realized the team works better when I focus on making things clear rather than making things perfect. If people understand what we're trying to do and feel like their work matters, things tend to fall into place. If they feel lost or disconnected, no amount of planning helps.
           </p>
           <p className="text-foreground leading-relaxed">
-            I genuinely enjoy being the person people come to. Whether it's a technical question about the BMS, a "where do I even start" moment, or just someone needing a second opinion on how to approach a problem — I like helping turn things that feel overwhelming into something manageable. That's probably the most useful thing I do as lead, even though it never shows up on a project timeline.
+            I genuinely enjoy being the person people come to. Whether it's a technical question about the BMS, a "where do I even start" moment, or just someone needing a second opinion on how to approach a problem, I like helping turn things that feel overwhelming into something manageable. That's probably the most useful thing I do as lead, even though it never shows up on a project timeline.
           </p>
         </div>
       </section>
