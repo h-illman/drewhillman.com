@@ -31,7 +31,7 @@ const GDLSRoleContent = () => {
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
-        On the facilities side, I contributed to energy and sustainability initiatives tied to the site's LEED Gold and ISO 50001 certifications. That meant performing power usage audits, creating substation documentation, and putting together data-driven recommendations for improving electrical efficiency across the facility. It was the kind of work where you dig through real operational data looking for improvements that actually make sense — not just ones that look good on paper.
+        On the facilities side, I contributed to energy and sustainability initiatives tied to the site's LEED Gold and ISO 50001 certifications. That meant performing power usage audits, creating substation documentation, and putting together data-driven recommendations for improving electrical efficiency across the facility. It was the kind of work where you dig through real operational data looking for improvements that actually make sense, not just ones that look good on paper.
       </p>
 
       <h2 className="text-2xl font-bold text-foreground">What I learned</h2>
