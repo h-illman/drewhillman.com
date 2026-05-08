@@ -41,10 +41,10 @@ const ThermalModelContent = () => {
             The simulation runs in MATLAB with Simscape Battery for the thermal network modeling. Each of the 30 series modules is a thermal node with its own heat generation and dissipation paths, so the model maps pretty directly to the actual pack geometry.
           </p>
           <p className="text-foreground leading-relaxed">
-            Rather than looping through modules one at a time, everything uses vectorized matrix operations — all 30 module temperatures are computed simultaneously each timestep. MATLAB is built for this kind of thing, and it keeps the simulation fast even when I'm running multi-hour drive cycles.
+            Rather than looping through modules one at a time, everything uses vectorized matrix operations. All 30 module temperatures are computed simultaneously each timestep. MATLAB is built for this kind of thing, and it keeps the simulation fast even when I'm running multi-hour drive cycles.
           </p>
           <p className="text-foreground leading-relaxed">
-            The physics side accounts for two types of heating: Joule heating (I²R losses from current flow) and reversible entropic heat (chemistry-driven heating and cooling that depends on state of charge). Both matter. Joule heating dominates at high current, but entropic effects can swing temperatures in surprising directions during certain charge/discharge phases — it's easy to overlook, and it actually changes the results.
+            The physics side accounts for two types of heating: Joule heating (I²R losses from current flow) and reversible entropic heat (chemistry-driven heating and cooling that depends on state of charge). Both matter. Joule heating dominates at high current, but entropic effects can swing temperatures in surprising directions during certain charge/discharge phases. It's easy to overlook, and it actually changes the results.
           </p>
         </div>
       </section>
