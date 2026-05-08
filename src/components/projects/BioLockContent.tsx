@@ -113,7 +113,7 @@ const BioLockContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Did it work?</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Yeah. We tested every authentication method with both valid and invalid inputs — correct and wrong fingerprints, authorized and unauthorized RFID tags, right and wrong PINs. All six test cases passed cleanly. The latch mechanism worked reliably after we added some tolerance to the 3D print dimensions to prevent binding, and the Bluetooth logging captured every event.
+            Yeah. We tested every authentication method with both valid and invalid inputs: correct and wrong fingerprints, authorized and unauthorized RFID tags, right and wrong PINs. All six test cases passed cleanly. The latch mechanism worked reliably after we added some tolerance to the 3D print dimensions to prevent binding, and the Bluetooth logging captured every event.
           </p>
         </div>
       </section>
