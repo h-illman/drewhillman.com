@@ -107,7 +107,7 @@ const SLOMonitoringContent = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 2 — Build the benchmark runner</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 2: Build the benchmark runner</h3>
             <p className="text-foreground leading-relaxed">
               The runner is responsible for running workloads in a controlled way and producing consistent artifacts. Key concepts include: warm-up window (ignore initial transient behavior), fixed duration runs (or fixed iteration count), and repeat runs (e.g., 3 repeats) to measure variance and avoid chasing noise.
             </p>
