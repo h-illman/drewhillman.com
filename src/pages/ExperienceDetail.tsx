@@ -123,11 +123,6 @@ const ExperienceDetail = () => {
                 </div>
               )}
 
-              <div className="pt-8 border-t border-border">
-                <p className="text-muted text-sm">
-                  More details, images, and resources can be added here.
-                </p>
-              </div>
             </>
           )}
         </article>
