@@ -5,7 +5,7 @@ const GDLSRoleContent = () => {
   return (
     <div className="prose prose-lg max-w-none space-y-6">
       <p className="text-foreground leading-relaxed text-lg">
-        I spent a summer at General Dynamics Land Systems in London, Ontario as a manufacturing engineering intern. It was my first real exposure to a large-scale industrial environment — the kind of place where engineering decisions have direct, physical consequences and where reliability isn't optional, it's the baseline expectation.
+        I spent a summer at General Dynamics Land Systems in London, Ontario as a manufacturing engineering intern. It was my first real exposure to a large-scale industrial environment, the kind of place where engineering decisions have direct, physical consequences and where reliability isn't optional, it's the baseline expectation.
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
