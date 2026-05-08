@@ -9,7 +9,7 @@ const BioLockContent = () => {
       {/* Introduction */}
       <div className="prose prose-lg max-w-none">
         <p className="text-foreground leading-relaxed text-lg">
-          A multi-factor security system built on an Arduino Uno that combines fingerprint scanning, RFID, and keypad PIN entry into one device — with a custom PCB, Bluetooth logging, and a 3D-printed locking mechanism. Total cost: under $61.
+          A multi-factor security system built on an Arduino Uno that combines fingerprint scanning, RFID, and keypad PIN entry into one device, with a custom PCB, Bluetooth logging, and a 3D-printed locking mechanism. Total cost: under $61.
         </p>
       </div>
 
