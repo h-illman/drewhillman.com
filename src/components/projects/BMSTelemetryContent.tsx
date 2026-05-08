@@ -121,7 +121,7 @@ const BMSTelemetryContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Round one: InfluxDB + Grafana</h3>
           <p className="text-foreground leading-relaxed">
-            I started with the obvious choice for time-series data — InfluxDB for storage and Grafana for dashboards. I wrote a Python script that hooked into the CAN bus via the CANdapter (connected through the I/O connector on pins 18 and 19), read the raw hex frames, decoded them using the message spec I'd programmed into the BMS, and pushed everything into InfluxDB.
+            I started with the obvious choice for time-series data: InfluxDB for storage and Grafana for dashboards. I wrote a Python script that hooked into the CAN bus via the CANdapter (connected through the I/O connector on pins 18 and 19), read the raw hex frames, decoded them using the message spec I'd programmed into the BMS, and pushed everything into InfluxDB.
           </p>
           <div className="bg-muted/30 p-4 rounded-lg font-mono text-sm text-foreground">
             Orion BMS (CAN) → CANdapter → Python Decoder → InfluxDB → Grafana
