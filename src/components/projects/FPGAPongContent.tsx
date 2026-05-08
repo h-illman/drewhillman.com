@@ -64,7 +64,7 @@ const FPGAPongContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">VGA graphics output</h3>
           <p className="text-foreground leading-relaxed">
-            The VGA display is memory-mapped. Each pixel on the screen corresponds to an address in the pixel buffer. To draw something, I write a 16-bit color value to the address that maps to that pixel's X/Y coordinates. To move something, I clear its old position (write background color) and write the new position. It's simple, but it means I'm responsible for every pixel on the screen. There's no GPU, no frame buffer abstraction, no draw calls — just raw memory writes.
+            The VGA display is memory-mapped. Each pixel on the screen corresponds to an address in the pixel buffer. To draw something, I write a 16-bit color value to the address that maps to that pixel's X/Y coordinates. To move something, I clear its old position (write background color) and write the new position. It's simple, but it means I'm responsible for every pixel on the screen. There's no GPU, no frame buffer abstraction, no draw calls. Just raw memory writes.
           </p>
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Game loop and timing</h3>
@@ -74,7 +74,7 @@ const FPGAPongContent = () => {
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Collision detection and ball physics</h3>
           <p className="text-foreground leading-relaxed">
-            Collision detection checks the ball's position against the paddle boundaries and the top/bottom walls each tick. Wall collisions are straightforward: the vertical component of the ball's velocity inverts. Paddle collisions are more interesting. The bounce angle depends on where the ball hits the paddle surface — hitting the center sends it back roughly straight, while hitting the edges sends it off at a steeper angle. This gives players some control over their shots, which makes the game actually feel like Pong.
+            Collision detection checks the ball's position against the paddle boundaries and the top/bottom walls each tick. Wall collisions are straightforward: the vertical component of the ball's velocity inverts. Paddle collisions are more interesting. The bounce angle depends on where the ball hits the paddle surface, with hitting the center sends it back roughly straight, while hitting the edges sends it off at a steeper angle. This gives players some control over their shots, which makes the game actually feel like Pong.
           </p>
 
           <h3 className="text-xl font-semibold text-foreground pt-2">Score display</h3>

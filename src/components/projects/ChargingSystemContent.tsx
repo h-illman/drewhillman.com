@@ -13,7 +13,7 @@ const ChargingSystemContent = () => {
           Charging a solar car sounds simple until you actually have to make it work. This project was about building and integrating the full charging path for our car: the Elcon charger, J1772 charge port, OpenEVSE control logic, and the Orion 2 BMS that supervises the whole thing. It wasn't just plugging in a charger and hoping for the best. It was understanding how every piece talks to every other piece, wiring it up correctly, and making the system safe and debuggable.
         </p>
         <p className="text-foreground leading-relaxed">
-          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent most of my time reading, tracing, and drawing diagrams — figuring it out piece by piece. The result is a charging system I trust, with documentation clear enough that someone else on the team can follow it.
+          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent most of my time reading, tracing, and drawing diagrams, figuring it out piece by piece. The result is a charging system I trust, with documentation clear enough that someone else on the team can follow it.
         </p>
       </div>
 
@@ -128,7 +128,7 @@ const ChargingSystemContent = () => {
             The OpenEVSE board sits on the EVSE side and manages the J1772 pilot signaling. One thing I had to work through was how the proximity detection circuit actually functions. There's a 150Ω resistor on the PP (Proximity Pilot) pin, and a switch connected in parallel with a 390Ω resistor to the PE (Protective Earth) pin. When the charging connector isn't fully seated, the switch is open and the EVSE sees only the 150Ω. When you push the connector in and the latch clicks, the switch closes, putting the 390Ω in parallel to ground. That resistance change is how the system knows the plug is properly connected.
           </p>
           <p className="text-foreground leading-relaxed">
-            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states — pressed vs. unpressed — made it much easier to verify that our OpenEVSE board was behaving correctly.
+            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states (pressed vs. unpressed) made it much easier to verify that our OpenEVSE board was behaving correctly.
           </p>
         </div>
       </section>
@@ -153,7 +153,7 @@ const ChargingSystemContent = () => {
             Safety was not an afterthought here. The BMS enforces hard limits on charging: cells can't exceed 4.2V, pack temperature must stay between 10°C and 40°C, and charging current is capped at 40A. If any of those limits are violated, the BMS disables charging and isolates the system. On the discharge side, cells can't drop below 3.0V, temperature range extends to 50°C, and current is limited to 150A. The external cutoff switch can also isolate the pack independently of the BMS, which requires manual investigation and fault clearing before the system can be reset.
           </p>
           <p className="text-foreground leading-relaxed">
-            We also wrote proper procedures for both charging and discharging. The BMS has to be powered on and reporting data before you can safely do either. During charging, current shows up as negative (which confused me the first time I saw it), and state of charge should be visibly updating. For storage or transport, we discharge to 40-60% SOC using external loads — in the past, that's meant literally using floodlights.
+            We also wrote proper procedures for both charging and discharging. The BMS has to be powered on and reporting data before you can safely do either. During charging, current shows up as negative (which confused me the first time I saw it), and state of charge should be visibly updating. For storage or transport, we discharge to 40-60% SOC using external loads. In the past, that's meant literally using floodlights.
           </p>
           <p className="text-foreground leading-relaxed">
             The charge interlock is optional on the Orion 2, but we wire it. Pin 3 provides charge power, and if the interlock is active, the BMS prevents discharge while charging. It's one of those things that probably doesn't matter 99% of the time, but the 1% where it does could be really bad.

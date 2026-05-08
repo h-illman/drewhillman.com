@@ -17,10 +17,10 @@ const SLOMonitoringContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Why I built this</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's genuinely interesting to see how things perform over time — how values change, what stays consistent, where you can improve things.
+            With my upcoming internship, I've been thinking a lot about monitoring. Mainly because that's exactly what I'll be doing at work, but also because it's genuinely interesting to see how things perform over time. How values change, what stays consistent, where you can improve things.
           </p>
           <p className="text-foreground leading-relaxed">
-            AI systems don't "just get slower" — they regress because something changed. Really anything can cause it: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
+            AI systems don't "just get slower." They regress because something changed. Really anything can cause it: a driver update, a new model build, a Windows update, a background process, a power mode toggle, thermal conditions, or a configuration drift you didn't even realize happened.
           </p>
           <p className="text-foreground leading-relaxed">
             I wanted a tool that answers, with evidence and repeatability:
@@ -100,42 +100,42 @@ const SLOMonitoringContent = () => {
         <div className="prose prose-lg max-w-none space-y-6">
           
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 1 — Define the "Perf/W SLO contract"</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 1: Define the "Perf/W SLO contract"</h3>
             <p className="text-foreground leading-relaxed">
               Before writing code, I wrote down what counts as a "run" and what counts as "healthy": workloads (1–2 representative workloads like LLM inference + vision inference), baseline (the most recent "known good" run per workload/config), gates (PASS/WARN/FAIL thresholds for regression detection), and required metadata (driver version, workload config, batch size, precision, power mode, etc.).
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 2 — Build the benchmark runner</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 2: Build the benchmark runner</h3>
             <p className="text-foreground leading-relaxed">
               The runner is responsible for running workloads in a controlled way and producing consistent artifacts. Key concepts include: warm-up window (ignore initial transient behavior), fixed duration runs (or fixed iteration count), and repeat runs (e.g., 3 repeats) to measure variance and avoid chasing noise.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 3 — Add telemetry collection (the "flight recorder")</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 3: Add telemetry collection (the "flight recorder")</h3>
             <p className="text-foreground leading-relaxed">
-              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number — you want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
+              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number. You want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 4 — Compute metrics</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 4: Compute metrics</h3>
             <p className="text-foreground leading-relaxed">
               After a run completes, the metrics engine processes artifacts into a standardized summary: average/peak power, energy (J) by integrating power over time, Perf/W, energy-per-task (J per 1k tokens / per image), and run stability (mean/std across repeats).
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 5 — Run health checks</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 5: Run health checks</h3>
             <p className="text-foreground leading-relaxed">
               I added "run health" checks: sampling gaps (logger stalled), missing telemetry fields, workload didn't actually run (GPU util stayed low), and unstable run behavior (huge variance across repeats). These checks prevent bad runs from contaminating the baseline or triggering false alarms.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 6 — Store and visualize (InfluxDB + Grafana)</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 6: Store and visualize (InfluxDB + Grafana)</h3>
             <p className="text-foreground leading-relaxed">
               Each run is ingested into storage with tags (workload name, driver version, batch size, precision, power mode) and fields (throughput, power, energy, perf/W, energy-per-task, health status). Grafana dashboards show Perf/W over time, energy-per-task over time, throughput over time, last run vs baseline table, power signature view, and variance panel.
             </p>

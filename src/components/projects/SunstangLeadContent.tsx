@@ -69,7 +69,7 @@ const SunstangLeadContent = () => {
             Early on, I probably over-indexed on having everything planned perfectly. Over time I realized the team works better when I focus on making things clear rather than making things perfect. If people understand what we're trying to do and feel like their work matters, things tend to fall into place. If they feel lost or disconnected, no amount of planning helps.
           </p>
           <p className="text-foreground leading-relaxed">
-            I genuinely enjoy being the person people come to. Whether it's a technical question about the BMS, a "where do I even start" moment, or just someone needing a second opinion on how to approach a problem — I like helping turn things that feel overwhelming into something manageable. That's probably the most useful thing I do as lead, even though it never shows up on a project timeline.
+            I genuinely enjoy being the person people come to. Whether it's a technical question about the BMS, a "where do I even start" moment, or just someone needing a second opinion on how to approach a problem, I like helping turn things that feel overwhelming into something manageable. That's probably the most useful thing I do as lead, even though it never shows up on a project timeline.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@ const SunstangLeadContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The team</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The best part of Sunstang is the people. That's not a generic thing to say — I mean it specifically. The late nights in the shop when you're tired but everyone's still there because you're all trying to get something working. The dumb jokes and good conversations that happen while you're waiting for epoxy to cure or a test to finish. Going out together after a long session. These are the parts of the experience I know I'll remember the most.
+            The best part of Sunstang is the people. That's not a generic thing to say. I mean it specifically. The late nights in the shop when you're tired but everyone's still there because you're all trying to get something working. The dumb jokes and good conversations that happen while you're waiting for epoxy to cure or a test to finish. Going out together after a long session. These are the parts of the experience I know I'll remember the most.
           </p>
           <p className="text-foreground leading-relaxed">
             I've been lucky to work alongside people who are sharp and who care about what they're doing. Leading a group like that isn't about pushing anyone. It's about keeping things organized, being someone people trust, and trying to make the whole experience feel worth the time everyone puts in.
