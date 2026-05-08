@@ -23,7 +23,7 @@ const GDLSRoleContent = () => {
       <h2 className="text-2xl font-bold text-foreground">The work</h2>
 
       <p className="text-foreground leading-relaxed text-lg">
-        A big part of my role was designing and updating electrical layouts and safety circuits in AutoCAD. These weren't theoretical exercises — they were for real equipment installations, including highly specialized machinery like water jets and laser cutters. The drawings had to be clear, accurate, and compliant with electrical codes, because someone was going to build from them.
+        A big part of my role was designing and updating electrical layouts and safety circuits in AutoCAD. These weren't theoretical exercises. They were for real equipment installations, including highly specialized machinery like water jets and laser cutters. The drawings had to be clear, accurate, and compliant with electrical codes, because someone was going to build from them.
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
