@@ -185,7 +185,7 @@ const BMSTelemetryContent = () => {
             <p>Byte 7: Fault Bitfield (custom flags)</p>
           </div>
           <p className="text-foreground leading-relaxed">
-            The fault byte is a custom bitfield I configured in the Orion utility — each bit maps to a specific diagnostic trouble code: MIL error, charge interlock, thermistor fault, low cell voltage, open wiring, current sensor fault, internal logic fault, and high-voltage isolation fault. The Python decoder unpacks all of this with the right bit-shifting and scaling so the dashboard shows real, meaningful numbers.
+            The fault byte is a custom bitfield I configured in the Orion utility. Each bit maps to a specific diagnostic trouble code: MIL error, charge interlock, thermistor fault, low cell voltage, open wiring, current sensor fault, internal logic fault, and high-voltage isolation fault. The Python decoder unpacks all of this with the right bit-shifting and scaling so the dashboard shows real, meaningful numbers.
           </p>
         </div>
       </section>
