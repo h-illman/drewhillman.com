@@ -63,7 +63,7 @@ export const experiences: Experience[] = [
       "Built Power BI dashboards for an AI image-analysis platform used by civil engineering consulting firms to streamline building assessment reports.",
     fullDescription: "custom",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
-    date: "January 2026 – Present",
+    date: "January 2026 – May 2026",
     tags: ["Power BI", "Data Analytics", "AI/ML", "Product Analytics"],
     type: "work",
   },
