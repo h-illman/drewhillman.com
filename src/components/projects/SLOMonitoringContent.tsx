@@ -100,7 +100,7 @@ const SLOMonitoringContent = () => {
         <div className="prose prose-lg max-w-none space-y-6">
           
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 1 — Define the "Perf/W SLO contract"</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 1: Define the "Perf/W SLO contract"</h3>
             <p className="text-foreground leading-relaxed">
               Before writing code, I wrote down what counts as a "run" and what counts as "healthy": workloads (1–2 representative workloads like LLM inference + vision inference), baseline (the most recent "known good" run per workload/config), gates (PASS/WARN/FAIL thresholds for regression detection), and required metadata (driver version, workload config, batch size, precision, power mode, etc.).
             </p>
