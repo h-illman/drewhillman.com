@@ -10,13 +10,13 @@ const BMSTelemetryContent = () => {
       {/* Intro / Preamble */}
       <div className="prose prose-lg max-w-none space-y-4">
         <p className="text-foreground leading-relaxed text-lg">
-          Last year's car ran an Orion 1 BMS. It broke on the way to competition. Not during a race, not under extreme load — on the way there. So heading into this year, we had a choice: try to fix the old unit, or upgrade to the Orion 2 and retrofit it into a battery pack and electrical system that was never designed for it.
+          Last year's car ran an Orion 1 BMS. It broke on the way to competition. Not during a race, not under extreme load. On the way there. So heading into this year, we had a choice: try to fix the old unit, or upgrade to the Orion 2 and retrofit it into a battery pack and electrical system that was never designed for it.
         </p>
         <p className="text-foreground leading-relaxed">
-          We went with the upgrade. What I thought would be a fairly contained swap turned into a full systems-integration project. The Orion 2 has a different connector layout, different software, different CAN message structure, and a completely different approach to thermistor inputs. Nothing was plug-and-play. I had to understand how every interface on the BMS connected to the existing pack — voltage taps, I/O wiring, current sensing, thermistor expansion, CAN communication — and make it all work together without redesigning the pack itself.
+          We went with the upgrade. What I thought would be a fairly contained swap turned into a full systems-integration project. The Orion 2 has a different connector layout, different software, different CAN message structure, and a completely different approach to thermistor inputs. Nothing was plug-and-play. I had to understand how every interface on the BMS connected to the existing pack (voltage taps, I/O wiring, current sensing, thermistor expansion, CAN communication) and make it all work together without redesigning the pack itself.
         </p>
         <p className="text-foreground leading-relaxed">
-          On top of that, the BMS only shows you data live. The moment you unplug, everything's gone. So I also built a telemetry and data-logging pipeline from scratch so we could record, visualize, and actually use the battery data — not just watch it flicker on a screen.
+          On top of that, the BMS only shows you data live. The moment you unplug, everything's gone. So I also built a telemetry and data-logging pipeline from scratch so we could record, visualize, and actually use the battery data, not just watch it flicker on a screen.
         </p>
       </div>
 
