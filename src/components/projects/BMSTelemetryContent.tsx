@@ -158,10 +158,10 @@ const BMSTelemetryContent = () => {
       <section className="space-y-4">
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-muted text-sm italic">
-            The ESP32 transmitter was designed by Xiuting Shi and Lucas Yu on the Driver Controls team. I focused on everything from the receiving end forward — ingestion, decoding, database, and the frontend.
+            The ESP32 transmitter was designed by Xiuting Shi and Lucas Yu on the Driver Controls team. I focused on everything from the receiving end forward: ingestion, decoding, database, and the frontend.
           </p>
           <p className="text-foreground leading-relaxed">
-            Supabase's Realtime feature is what makes this work. The database pushes updates to the frontend over WebSockets whenever a new row lands. No polling, no refresh buttons — the gauges just update. I also added a "deadman switch": if no data comes in for five seconds, the status indicator turns red so the crew knows telemetry is down. Partly practical, partly because I thought it looked cool.
+            Supabase's Realtime feature is what makes this work. The database pushes updates to the frontend over WebSockets whenever a new row lands. No polling, no refresh buttons. The gauges just update. I also added a "deadman switch": if no data comes in for five seconds, the status indicator turns red so the crew knows telemetry is down. Partly practical, partly because I thought it looked cool.
           </p>
         </div>
       </section>
