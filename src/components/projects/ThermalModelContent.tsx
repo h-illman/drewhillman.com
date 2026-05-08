@@ -73,7 +73,7 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Connecting it to real data</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            I built a template architecture for ingesting real-world CAN bus telemetry exported as CSV files. After a race or test session, we can feed actual current profiles, vehicle speeds, and ambient temperatures back into the simulation for post-race analysis. It's the bridge between "what we predicted" and "what actually happened" — and when those two line up, you start trusting the model enough to make bolder design choices.
+            I built a template architecture for ingesting real-world CAN bus telemetry exported as CSV files. After a race or test session, we can feed actual current profiles, vehicle speeds, and ambient temperatures back into the simulation for post-race analysis. It's the bridge between "what we predicted" and "what actually happened." When those two line up, you start trusting the model enough to make bolder design choices.
           </p>
         </div>
       </section>
