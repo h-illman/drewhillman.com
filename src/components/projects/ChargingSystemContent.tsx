@@ -128,7 +128,7 @@ const ChargingSystemContent = () => {
             The OpenEVSE board sits on the EVSE side and manages the J1772 pilot signaling. One thing I had to work through was how the proximity detection circuit actually functions. There's a 150Ω resistor on the PP (Proximity Pilot) pin, and a switch connected in parallel with a 390Ω resistor to the PE (Protective Earth) pin. When the charging connector isn't fully seated, the switch is open and the EVSE sees only the 150Ω. When you push the connector in and the latch clicks, the switch closes, putting the 390Ω in parallel to ground. That resistance change is how the system knows the plug is properly connected.
           </p>
           <p className="text-foreground leading-relaxed">
-            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states — pressed vs. unpressed — made it much easier to verify that our OpenEVSE board was behaving correctly.
+            It's a pretty elegant little circuit for what it does. But if you don't understand it, debugging why charging won't start becomes a guessing game. Drawing it out and understanding the two states (pressed vs. unpressed) made it much easier to verify that our OpenEVSE board was behaving correctly.
           </p>
         </div>
       </section>
