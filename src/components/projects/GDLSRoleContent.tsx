@@ -27,7 +27,7 @@ const GDLSRoleContent = () => {
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
-        I also served as an on-site liaison during equipment installations and system upgrades. That meant coordinating between contractors, safety staff, and the engineering team to make sure things were done correctly and to code. Turns out a lot of engineering is communication — getting the right information to the right people before a decision gets made, not after.
+        I also served as an on-site liaison during equipment installations and system upgrades. That meant coordinating between contractors, safety staff, and the engineering team to make sure things were done correctly and to code. Turns out a lot of engineering is communication: getting the right information to the right people before a decision gets made, not after.
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
