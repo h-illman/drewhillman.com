@@ -80,7 +80,7 @@ const BioLockContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Going from breadboard to PCB</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Once everything worked on the breadboard, we designed a custom PCB in Autodesk EAGLE to sit on top of the Arduino as a shield. We cross-referenced the schematic against our breadboard wiring and the TinkerCAD model at every step — one wrong pin and you're debugging a physical board, which is a lot less fun than debugging software.
+            Once everything worked on the breadboard, we designed a custom PCB in Autodesk EAGLE to sit on top of the Arduino as a shield. We cross-referenced the schematic against our breadboard wiring and the TinkerCAD model at every step. One wrong pin and you're debugging a physical board, which is a lot less fun than debugging software.
           </p>
           <p className="text-foreground leading-relaxed">
             We intentionally made the trace spacing wider than strictly necessary to make hand-soldering more forgiving. That turned out to be a good decision. We lifted a trace during soldering, and the extra margins gave us room to rework it without scrapping the board. The PCB was fabricated at Western's Electronics Shop and populated by hand.
