@@ -64,10 +64,10 @@ const BioLockContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Where it got tricky</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            Everything runs on an Arduino Uno, which sounds simple until you realize it has one hardware serial port and not that many pins. The fingerprint sensor and Bluetooth module both need serial, so we wrote the code to time-division multiplex them — only one is active at a time. It works, but it's the kind of constraint that makes you appreciate microcontrollers with more than one UART.
+            Everything runs on an Arduino Uno, which sounds simple until you realize it has one hardware serial port and not that many pins. The fingerprint sensor and Bluetooth module both need serial, so we wrote the code to time-division multiplex them. Only one is active at a time. It works, but it's the kind of constraint that makes you appreciate microcontrollers with more than one UART.
           </p>
           <p className="text-foreground leading-relaxed">
-            We also hit an I2C address collision between the keypad expander module and the LCD — they shipped with the same default address. Fixed it by soldering a jumper on the LCD board. It's a two-minute fix once you know what's wrong, but figuring out why the keypad was acting weird took considerably longer.
+            We also hit an I2C address collision between the keypad expander module and the LCD. They shipped with the same default address. Fixed it by soldering a jumper on the LCD board. It's a two-minute fix once you know what's wrong, but figuring out why the keypad was acting weird took considerably longer.
           </p>
           <p className="text-foreground leading-relaxed">
             The servo was another headache. It pulled enough current to occasionally brownout the Arduino, causing random resets mid-operation. We tried a pull-down resistor first, which didn't fully fix it, and eventually managed it in code by only powering the servo during the actual unlock window. Not elegant, but reliable.
