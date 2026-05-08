@@ -53,7 +53,7 @@ const GDLSRoleContent = () => {
       </div>
 
       <p className="text-foreground leading-relaxed text-lg">
-        The structured environment was good for me. I learned to work within real constraints — safety procedures, documentation standards, approval processes — and to see those things not as bureaucratic overhead, but as part of what makes engineering in high-stakes environments actually work. That mindset has stuck with me.
+        The structured environment was good for me. I learned to work within real constraints, like safety procedures, documentation standards, and approval processes, and to see those things not as bureaucratic overhead, but as part of what makes engineering in high-stakes environments actually work. That mindset has stuck with me.
       </p>
     </div>
   );
