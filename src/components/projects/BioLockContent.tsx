@@ -33,7 +33,7 @@ const BioLockContent = () => {
           alt="Workbench during BioLock assembly"
           className="w-full rounded-lg border border-border"
         />
-        <p className="text-sm text-muted mt-2 text-center">Mid-build — PCB design on the laptop, components getting wired up</p>
+        <p className="text-sm text-muted mt-2 text-center">Mid-build: PCB design on the laptop, components getting wired up</p>
       </div>
 
       {/* How it works */}
