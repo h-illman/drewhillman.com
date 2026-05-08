@@ -92,7 +92,7 @@ const AurovexDashboardContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">What I'd do next</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The dashboard does its job, but there are a few things worth adding. Proper auth session sharing inside the Server Actions would be nice — right now it's read-only and open internally, but role-based access would make it more production-ready. A date-range picker for filtering billing by time window is the most-requested feature. And the pricing engine should have unit tests — it's doing dollar math, and that's the kind of thing that needs to be tested properly.
+            The dashboard does its job, but there are a few things worth adding. Proper auth session sharing inside the Server Actions would be nice. Right now it's read-only and open internally, but role-based access would make it more production-ready. A date-range picker for filtering billing by time window is the most-requested feature. The pricing engine should also have unit tests. It's doing dollar math, and that's the kind of thing that needs to be tested properly.
           </p>
         </div>
       </section>
