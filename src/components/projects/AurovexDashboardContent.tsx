@@ -20,7 +20,7 @@ const AurovexDashboardContent = () => {
             At Aurovex, all our cloud compute costs and report generation data were sitting in Supabase tables that nobody wanted to manually query. If someone on the team wanted to know how much we'd spent that week, they'd have to write SQL and do math in a spreadsheet. That's manageable when it's just you, but it breaks down fast once more people need the same numbers.
           </p>
           <p className="text-foreground leading-relaxed">
-            I wanted a single page where anyone could see total spend, number of reports generated, and average cost per report — no database access required. Just open a URL.
+            I wanted a single page where anyone could see total spend, number of reports generated, and average cost per report, no database access required. Just open a URL.
           </p>
         </div>
       </section>
