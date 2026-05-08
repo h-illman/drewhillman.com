@@ -15,10 +15,10 @@ const ThermalModelContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">Why I built it</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            When you're racing a solar car across the country, the battery pack is everything. Ours is 1,200 individual cells wired in a 40-parallel, 30-series configuration — a 14.5 kWh pack. If even a handful of those cells overheat, you're either derated or stopped on the side of the road.
+            When you're racing a solar car across the country, the battery pack is everything. Ours is 1,200 individual cells wired in a 40-parallel, 30-series configuration, totaling 14.5 kWh. If even a handful of those cells overheat, you're either derated or stopped on the side of the road.
           </p>
           <p className="text-foreground leading-relaxed">
-            The problem is you can't crack the pack open mid-race to check on things. You need to know ahead of time what conditions will push cells past their limits. That's where this comes in — I can stress-test the pack in software under conditions we'd never want to see in real life, and design around them before we ever leave the garage.
+            The problem is you can't crack the pack open mid-race to check on things. You need to know ahead of time what conditions will push cells past their limits. That's where this comes in. I can stress-test the pack in software under conditions we'd never want to see in real life, and design around them before we ever leave the garage.
           </p>
         </div>
       </section>
