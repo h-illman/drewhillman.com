@@ -56,7 +56,7 @@ const BioLockContent = () => {
           alt="TinkerCAD circuit simulation of the BioLock system"
           className="w-full rounded-lg border border-border"
         />
-        <p className="text-sm text-muted mt-2 text-center">TinkerCAD simulation — validated the wiring and logic before committing to a breadboard</p>
+        <p className="text-sm text-muted mt-2 text-center">TinkerCAD simulation: validated the wiring and logic before committing to a breadboard</p>
       </div>
 
       {/* The hardware challenges */}
