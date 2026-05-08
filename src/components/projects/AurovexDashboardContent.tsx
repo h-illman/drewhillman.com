@@ -45,10 +45,10 @@ const AurovexDashboardContent = () => {
             Next.js Page → Server Action → Drizzle ORM → Supabase PostgreSQL → Tremor UI
           </div>
           <p className="text-foreground leading-relaxed">
-            The KPI cards at the top take raw totals and format them into readable dollar amounts with progress indicators. Below that, a Tremor AreaChart maps report dates to spending so you can spot trends visually. Under the hood there's a small pricing engine that converts vCPU-seconds and GB-second memory usage into actual dollar amounts. It's not complex code, but it's the most important piece — if the math is wrong, the whole dashboard is useless.
+            The KPI cards at the top take raw totals and format them into readable dollar amounts with progress indicators. Below that, a Tremor AreaChart maps report dates to spending so you can spot trends visually. Under the hood there's a small pricing engine that converts vCPU-seconds and GB-second memory usage into actual dollar amounts. It's not complex code, but it's the most important piece. If the math is wrong, the whole dashboard is useless.
           </p>
           <p className="text-foreground leading-relaxed">
-            Everything runs through Server Actions, so database queries happen on the server. No API routes, no exposed endpoints. I liked this pattern because it keeps things simple — data fetching is just part of rendering the page.
+            Everything runs through Server Actions, so database queries happen on the server. No API routes, no exposed endpoints. I liked this pattern because it keeps things simple. Data fetching is just part of rendering the page.
           </p>
         </div>
       </section>
