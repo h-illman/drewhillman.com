@@ -13,7 +13,7 @@ const ChargingSystemContent = () => {
           Charging a solar car sounds simple until you actually have to make it work. This project was about building and integrating the full charging path for our car: the Elcon charger, J1772 charge port, OpenEVSE control logic, and the Orion 2 BMS that supervises the whole thing. It wasn't just plugging in a charger and hoping for the best. It was understanding how every piece talks to every other piece, wiring it up correctly, and making the system safe and debuggable.
         </p>
         <p className="text-foreground leading-relaxed">
-          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent most of my time reading, tracing, and drawing diagrams — figuring it out piece by piece. The result is a charging system I trust, with documentation clear enough that someone else on the team can follow it.
+          A lot of the challenge came from the fact that none of this was documented end-to-end anywhere. There are Elcon spec sheets, Orion wiring manuals, OpenEVSE guides, and J1772 standards, but nobody had put together how they all connect in our specific car. So I spent most of my time reading, tracing, and drawing diagrams, figuring it out piece by piece. The result is a charging system I trust, with documentation clear enough that someone else on the team can follow it.
         </p>
       </div>
 
