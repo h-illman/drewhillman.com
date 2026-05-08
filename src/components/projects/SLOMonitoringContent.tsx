@@ -114,9 +114,9 @@ const SLOMonitoringContent = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-medium text-foreground">Step 3 — Add telemetry collection (the "flight recorder")</h3>
+            <h3 className="text-xl font-medium text-foreground">Step 3: Add telemetry collection (the "flight recorder")</h3>
             <p className="text-foreground leading-relaxed">
-              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number — you want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
+              The telemetry collector runs during the workload and logs time-aligned samples: GPU (power, clocks, utilization, temperature, VRAM) and System (CPU utilization, RAM). When something regresses, you don't want just a number. You want the shape of the run: power ramps, clock drops, thermal rise, utilization instability, VRAM spikes.
             </p>
           </div>
 
