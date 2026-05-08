@@ -129,7 +129,7 @@ const SunstangLeadContent = () => {
         <h2 className="text-2xl font-semibold text-foreground">The team</h2>
         <div className="prose prose-lg max-w-none space-y-4">
           <p className="text-foreground leading-relaxed">
-            The best part of Sunstang is the people. That's not a generic thing to say — I mean it specifically. The late nights in the shop when you're tired but everyone's still there because you're all trying to get something working. The dumb jokes and good conversations that happen while you're waiting for epoxy to cure or a test to finish. Going out together after a long session. These are the parts of the experience I know I'll remember the most.
+            The best part of Sunstang is the people. That's not a generic thing to say. I mean it specifically. The late nights in the shop when you're tired but everyone's still there because you're all trying to get something working. The dumb jokes and good conversations that happen while you're waiting for epoxy to cure or a test to finish. Going out together after a long session. These are the parts of the experience I know I'll remember the most.
           </p>
           <p className="text-foreground leading-relaxed">
             I've been lucky to work alongside people who are sharp and who care about what they're doing. Leading a group like that isn't about pushing anyone. It's about keeping things organized, being someone people trust, and trying to make the whole experience feel worth the time everyone puts in.
