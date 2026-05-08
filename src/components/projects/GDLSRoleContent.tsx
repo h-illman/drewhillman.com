@@ -37,7 +37,7 @@ const GDLSRoleContent = () => {
       <h2 className="text-2xl font-bold text-foreground">What I learned</h2>
 
       <p className="text-foreground leading-relaxed text-lg">
-        Working in defense manufacturing changed how I think about engineering. This was a place where mistakes mattered. If a safety circuit wasn't right, or a drawing was ambiguous, that had real downstream consequences — for the people building from it, for the equipment, and for production timelines. It made me a lot more careful about how I communicate technical information and how I think about failure modes before they happen.
+        Working in defense manufacturing changed how I think about engineering. This was a place where mistakes mattered. If a safety circuit wasn't right, or a drawing was ambiguous, that had real downstream consequences for the people building from it, for the equipment, and for production timelines. It made me a lot more careful about how I communicate technical information and how I think about failure modes before they happen.
       </p>
 
       <p className="text-foreground leading-relaxed text-lg">
