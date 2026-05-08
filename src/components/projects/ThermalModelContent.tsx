@@ -30,7 +30,7 @@ const ThermalModelContent = () => {
           alt="CAD rendering of the 40p30s battery pack"
           className="w-full rounded-lg border border-border"
         />
-        <p className="text-sm text-muted mt-2 text-center">CAD view of the battery pack — 1,200 cells across 30 series modules</p>
+        <p className="text-sm text-muted mt-2 text-center">CAD view of the battery pack: 1,200 cells across 30 series modules</p>
       </div>
 
       {/* How it works */}
