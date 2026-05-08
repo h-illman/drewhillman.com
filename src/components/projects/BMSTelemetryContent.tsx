@@ -78,10 +78,10 @@ const BMSTelemetryContent = () => {
             The point was to validate every reading before it mattered. I went through each cell voltage in the Orion utility and cross-checked it against a multimeter. Checked that the current sensor was reading correctly under load. Confirmed that the thermistor expansion module was sending temperature data over CAN and that the BMS was receiving it.
           </p>
           <p className="text-foreground leading-relaxed">
-            The software side was its own project. The Orion utility has a profile setup wizard that auto-detects some things (like the battery chemistry — we use Panasonic NCR18650B cells), but a lot of it is manual. I had to configure the J1772 charger interface settings, make sure the multi-purpose inputs were mapped correctly for charge control, set up the thermistor expansion module as an addon, and program the custom CAN messages.
+            The software side was its own project. The Orion utility has a profile setup wizard that auto-detects some things (like the battery chemistry, since we use Panasonic NCR18650B cells), but a lot of it is manual. I had to configure the J1772 charger interface settings, make sure the multi-purpose inputs were mapped correctly for charge control, set up the thermistor expansion module as an addon, and program the custom CAN messages.
           </p>
           <p className="text-foreground leading-relaxed">
-            The diagnostic trouble codes panel became my best friend. The BMS has a green light for "all clear" and red for "something's wrong," but the actual fault codes tell you what's happening — thermistor faults, low cell voltage, open wiring, current sensor issues, isolation faults. Some are critical, some are just the BMS complaining that you don't have everything plugged in yet. Learning which ones to care about and which to ignore during bench testing was a skill in itself.
+            The diagnostic trouble codes panel became my best friend. The BMS has a green light for "all clear" and red for "something's wrong," but the actual fault codes tell you what's happening: thermistor faults, low cell voltage, open wiring, current sensor issues, isolation faults. Some are critical, some are just the BMS complaining that you don't have everything plugged in yet. Learning which ones to care about and which to ignore during bench testing was a skill in itself.
           </p>
         </div>
       </section>
