@@ -9,7 +9,7 @@ import aurovexDashboardImage from "@/assets/aurovex-code.png";
 import fpgaBoardImage from "@/assets/fpga-board.png";
 import fpgaPongCardImage from "@/assets/fpga-pong-card.png";
 import chargingSolderingImage from "@/assets/charging-soldering.png";
-import eyebertOscilloscopeImage from "@/assets/eyebert-oscilloscope.jpg";
+import eyebertEyeSimImage from "@/assets/eyebert-eye-sim.png";
 export interface Experience {
   id: string;
   title: string;
@@ -83,13 +83,24 @@ export const experiences: Experience[] = [
   // Projects
   {
     id: "eyebert",
-    title: "Eye-BERT",
+    title: "eye-bert",
     description:
-      "A SerDes Bit Error Rate Tester on the Terasic DE25 FPGA that generates PRBS patterns, measures link quality, and produces BER waterfall curves and eye diagrams.",
+      "An open-source, scriptable SerDes bit error rate tester. RTL through Python, verified end to end, with a simulation mode that runs on any machine.",
     fullDescription: "custom",
-    image: eyebertOscilloscopeImage,
-    date: "2026 (In Progress)",
-    tags: ["FPGA", "Intel Agilex 5", "SerDes", "RTL", "Signal Integrity", "High-Speed I/O"],
+    image: eyebertEyeSimImage,
+    date: "January 2026 – June 2026",
+    tags: [
+      "SystemVerilog",
+      "SerDes",
+      "Agilex 5",
+      "AXI4-Lite",
+      "Python",
+      "Icarus Verilog",
+      "pytest",
+      "GitHub Actions",
+      "Intel Quartus Pro",
+      "Linux/Buildroot",
+    ],
     type: "project",
     githubUrl: "https://github.com/h-illman/eye-bert",
   },
